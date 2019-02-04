@@ -17,7 +17,6 @@ rm Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 cd ../
 mkdir SAEVA-softwares
 cd SAEVA-softwares
-mkdir bwa
 wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2
 tar -xvjf bwa-0.7.17.tar.bz2
 rm bwa-0.7.17.tar.bz2
