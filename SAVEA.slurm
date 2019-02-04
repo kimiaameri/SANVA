@@ -4,7 +4,6 @@
 #SBATCH --job-name=SAVEA
 #SBATCH --error=SAVEA.%J.err
 #SBATCH --output=SAVEA.%J.out
-
 cd $WORK/project1
 sh trimmomatic.sh
 ########
