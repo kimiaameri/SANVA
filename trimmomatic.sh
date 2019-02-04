@@ -1,3 +1,9 @@
+#!/bin/sh
+#SBATCH --time=15:00:00   # Run time in hh:mm:ss
+#SBATCH --mem-per-cpu=8192     # Maximum memory required per CPU (in megabytes)
+#SBATCH --job-name=trimmomatic
+#SBATCH --error=trimmomatic.%J.err
+#SBATCH --output=trimmomatic.%J.out
 cd $WORK
 mkdir SAEVA-outputs
 cd SAEVA-outputs
@@ -5,6 +11,7 @@ cd SAEVA-outputs
 mkdir trimmomatic
 cd trimmomatic
 mkdir trimlog
+
 module load trimmomatic/0.33
 module load java/1.8
 java -jar $TM_HOME/trimmomatic.jar PE -threads 4 -phred33 $WORK/data/HSS12071M1_pool_S24_L007_R1_001.fastq.gz $WORK/data/HSS12071M1_pool_S24_L007_R2_001.fastq.gz $WORK/SAEVA-outputs/trimmomatic/HSS12071M1_pool_S24_L007_R1_001.paired.fq $WORK/SAEVA-outputs/trimmomatic/HSS12071M1_pool_S24_L007_R1_001.unpaired.fq $WORK/SAEVA-outputs/trimmomatic/HSS12071M1_pool_S24_L007_R2_001.paired.fq $WORK/SAEVA-outputs/trimmomatic/HSS12071M1_pool_S24_L007_R2_001.unpaired.fq ILLUMINACLIP:TruSeq3-PE.fa:3:30:10 SLIDINGWINDOW:4:15 MAXINFO:50:0.5 LEADING:3 TRAILING:3 MINLEN:100 > $WORK/SAEVA-outputs/trimmomatic/trimlog/HSS12071M1.trimlog;
