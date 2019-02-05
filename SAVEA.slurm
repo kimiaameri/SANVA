@@ -1,6 +1,6 @@
 #!/bin/sh
-#SBATCH --time=50:00:00   # Run time in hh:mm:ss
-#SBATCH --mem-per-cpu=8192     # Maximum memory required per CPU (in megabytes)
+#SBATCH --time=60:00:00   # Run time in hh:mm:ss
+#SBATCH --mem-per-cpu=16384     # Maximum memory required per CPU (in megabytes)
 #SBATCH --job-name=SAVEA
 #SBATCH --error=SAVEA.%J.err
 #SBATCH --output=SAVEA.%J.out
@@ -53,5 +53,20 @@ sh freebayes.sh
 cd $WORK/SAEVA-outputs
 mkdir vcffilterq5000
 mkdir bcfoutput
-mkdir vcffilterq5000-dp250cd $WORK/project1
-sh picard.sh
+mkdir vcffilterq5000-dp250
+cd $WORK/SAEVA-softwares/freebayes/vcflib
+make
+cd $WORK/project1
+sh BCF-VCF.sh
+###########  snpEFF ##################
+cd $WORK/SAEVA-outputs
+mkdir snpEff-outputs
+cd snpEff-outputs
+mkdir snpEff-summary
+mkdir snpEff-gene
+cd $WORK/SAEVA-softwares/
+wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
+unzip snpEff_latest_core.zip
+rm snpEff_latest_core.zip
+cd $WORK/project1
+sh snpEff.sh
