@@ -22,7 +22,7 @@ java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureu
 mv $WORK/project1/snpEff-genes.txt $WORK/SAEVA-outputs/snpEff-outputs/update-snpEff-gene/snpEff_high0_genes.txt
 mv $WORK/project1/snpEff-summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_high0_summary.html
 
-java -Xmx4g -jar $WORK/SAEVA_softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/high/0001.vcf > $WORK/SAEVA-outputs/snpEff-outputs/snpEff_high1.ann.vcf
+java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/high/0001.vcf > $WORK/SAEVA-outputs/snpEff-outputs/snpEff_high1.ann.vcf
 mv $WORK/project1/snpEff-genes.txt $WORK/SAEVA-outputs/snpEff-outputs/snpEff-gene/snpEff_high1_genes.txt
 mv $WORK/project1/snpEff-summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_high1_summary.html
 
