@@ -1,7 +1,7 @@
 
 module load bcftools/1.8
 
-bcftools isec $WORK/SAEVA-outputs/bcfoutput/* -p $WORK/SAEVA-outputs/All -n=11;
+bcftools isec $WORK/SAEVA-outputs/bcfoutput/*.gz -p $WORK/SAEVA-outputs/All -n=11;
 
 bcftools isec $WORK/SAEVA-outputs/bcfoutput/HSS12071M1_q5000_dp250.vcf.gz $WORK/SAEVA-outputs/bcfoutput/Silverman99624A1_S20_q5000_dp250.vcf.gz $WORK/SAEVA-outputs/bcfoutput/Silverman37712B1_S21_q5000_dp250.vcf.gz $WORK/SAEVA-outputs/bcfoutput/Silverman99382M1_S15_q5000_dp250.vcf.gz $WORK/SAEVA-outputs/bcfoutput/Silverman62129B1_S17_q5000_dp250.vcf.gz $WORK/SAEVA-outputs/bcfoutput/Silverman60383B1_S18_q5000_dp250.vcf.gz $WORK/SAEVA-outputs/bcfoutput/Silverman79414A1_S23_q5000_dp250.vcf.gz -p $WORK/SAEVA-outputs/high -n=7;
 
