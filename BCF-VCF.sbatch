@@ -1,9 +1,3 @@
-#!/bin/sh
-#SBATCH --time=06:00:00   # Run time in hh:mm:ss
-#SBATCH --mem-per-cpu=16384     # Maximum memory required per CPU (in megabytes)
-#SBATCH --job-name=SAVEA
-#SBATCH --error=free.%J.err
-#SBATCH --output=free.%J.out
 
 module load bcftools/1.8
 
