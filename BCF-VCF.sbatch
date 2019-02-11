@@ -32,7 +32,7 @@ $WORK/SAEVA-softwares/freebayes/vcflib/bin/vcffilter -f "DP > 250" $WORK/SAEVA-o
 bcftools view -Ob $WORK/SAEVA-outputs/vcffilterq5000-dp250/Silverman62129B1_S17_q5000_dp250.vcf >$WORK/SAEVA-outputs/bcfoutput/Silverman62129B1_S17_q5000_dp250.vcf.gz;
 bcftools index $WORK/SAEVA-outputs/bcfoutput/Silverman62129B1_S17_q5000_dp250.vcf.gz;
 
-$WORK/SAEVA-softwares/freebayes/freebayes/vcflib/bin/vcffilter -f "QUAL > 5000" $WORK/SAEVA-outputs/freebayesoutput/Silverman60383B1_S18.vcf > $WORK/SAEVA-outputs/vcffilterq5000/Silverman60383B1_S18_q5000.vcf
+$WORK/SAEVA-softwares/freebayes/vcflib/bin/vcffilter -f "QUAL > 5000" $WORK/SAEVA-outputs/freebayesoutput/Silverman60383B1_S18.vcf > $WORK/SAEVA-outputs/vcffilterq5000/Silverman60383B1_S18_q5000.vcf;
 $WORK/SAEVA-softwares/freebayes/vcflib/bin/vcffilter -f "DP > 250" $WORK/SAEVA-outputs/vcffilterq5000/Silverman60383B1_S18_q5000.vcf >$WORK/SAEVA-outputs/vcffilterq5000-dp250/Silverman60383B1_S18_q5000_dp250.vcf;
 bcftools view -Ob $WORK/SAEVA-outputs/vcffilterq5000-dp250/Silverman60383B1_S18_q5000_dp250.vcf >$WORK/SAEVA-outputs/bcfoutput/Silverman60383B1_S18_q5000_dp250.vcf.gz;
 bcftools index $WORK/SAEVA-outputs/bcfoutput/Silverman60383B1_S18_q5000_dp250.vcf.gz;
