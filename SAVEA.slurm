@@ -37,7 +37,7 @@ cd $WORK/SAEVA-outputs
 mkdir vcffilterq5000
 mkdir bcfoutput
 mkdir vcffilterq5000-dp250
-
+mkdir vcfbed
 cd $WORK/project1
 sh BCF-VCF.sh
 ###########  snpEFF ##################
