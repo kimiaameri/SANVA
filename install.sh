@@ -28,3 +28,8 @@ cd $WORK/SAEVA-softwares/
 wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
 unzip snpEff_latest_core.zip
 rm snpEff_latest_core.zip
+####      Bioconda          ####
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+conda install –c bioconda biopython
+conda install –c bioconda bedops
