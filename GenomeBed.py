@@ -1,10 +1,10 @@
 from Bio import SeqIO
 import pdb
 def main():
-    outf = open('$WORK/SAEVA_reference_genome/Staphylococcus_aureus_NCTC_8325/NCBI/nctc8325.bed', 'w')
+    outf = open('/work/biocore/kimia/SAEVA_reference_genome/Staphylococcus_aureus_NCTC_8325/NCBI/nctc8325.bed', 'w')
     header = """track name=vitVinGenes description="V. vinifera cpdna genes" itemRgb=On\n"""
     outf.write(header)
-    for record in SeqIO.parse(open("$WORK/SAEVA_reference_genome/Staphylococcus_aureus_NCTC_8325/NCBI/nctc8325.gb", "rU"), "genbank") :
+    for record in SeqIO.parse(open("/work/biocore/kimia/SAEVA_reference_genome/Staphylococcus_aureus_NCTC_8325/NCBI/2006-02-13/c8325.gb", "rU"), "genbank") :
         for feature in record.features:
             if feature.type == 'gene':
                 start = feature.location.start.position
