@@ -1,5 +1,5 @@
 
-f = open("./InputFiles.csv",'r')
+f = open("InputFiles.csv",'r')
 
 print (f)
 
