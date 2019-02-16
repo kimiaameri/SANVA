@@ -5,6 +5,14 @@
 #SBATCH --error=SAVEA.%J.err
 #SBATCH --output=SAVEA.%J.out
 ######## Trimmomatic #########
+cd $WORK
+mkdir SAEVA-outputs
+cd SAEVA-outputs
+## make trimmomatic directory
+mkdir trimmomatic
+cd trimmomatic
+mkdir trimlog
+
 cd $WORK/project1
 sh trimmomatic.sh
 ########### BWA  ###############
