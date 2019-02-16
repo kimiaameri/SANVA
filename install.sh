@@ -1,3 +1,5 @@
+if [ -z $WORK ]; then WORK=`pwd`; fi
+
 ####  Download reference genome    ####
 cd $WORK
 mkdir SAEVA_reference_genome
