@@ -17,6 +17,7 @@ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 conda install –c bioconda trimmomatic
 conda install –c bioconda biopython
 conda install –c bioconda bedops
+conda install -c bioconda samtools/1.6
 ####   Download BWA       #####
 cd $WORK/SAEVA-softwares
 
