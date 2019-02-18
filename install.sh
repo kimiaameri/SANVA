@@ -12,6 +12,11 @@ python GenomeBedPull.py $WORK/SAEVA_reference_genome
 #######   Download softwares    #######
 mkdir SAEVA-softwares
 cd SAEVA-softwares
+####      Bioconda          ####
+wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+conda install –c bioconda trimmomatic
+conda install –c bioconda biopython
+conda install –c bioconda bedops
 ####   Download BWA       #####
 wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2
 tar -xvjf bwa-0.7.17.tar.bz2
@@ -31,11 +36,7 @@ cd $WORK/SAEVA-softwares/
 wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
 unzip snpEff_latest_core.zip
 rm snpEff_latest_core.zip
-####      Bioconda          ####
-wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
-conda install –c bioconda biopython
-conda install –c bioconda bedops
+
 
 ###########################
 echo `$WORK/SAEVA-softwares/freebayes/bin/freebayes --version`
