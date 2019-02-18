@@ -5,6 +5,8 @@
 #SBATCH --error=SAVEA.%J.err
 #SBATCH --output=SAVEA.%J.out
 ######## Trimmomatic #########
+export MINICONDA_HOME="~/miniconda2/bin/"
+
 cd $WORK
 mkdir SAEVA-outputs
 cd SAEVA-outputs
@@ -14,6 +16,8 @@ cd trimmomatic
 mkdir trimlog
 
 cd $WORK/project1
+python pythontrim.py ../InputFiles.csv $MINICONDA_HOME
+
 sh trimmomatic.sh
 ########### BWA  ###############
 cd $WORK/SAEVA-outputs
