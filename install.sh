@@ -13,7 +13,7 @@ python GenomeBedPull.py $WORK/SAEVA_reference_genome
 mkdir SAEVA-softwares
 cd SAEVA-softwares
 ####      Bioconda          ####
-wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 conda install –c bioconda trimmomatic
 conda install –c bioconda biopython
 conda install –c bioconda bedops
