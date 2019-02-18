@@ -18,6 +18,7 @@ conda install –c bioconda trimmomatic
 conda install –c bioconda biopython
 conda install –c bioconda bedops
 conda install -c bioconda samtools/1.6
+conda install -c bioconda picard/2.18
 ####   Download BWA       #####
 cd $WORK/SAEVA-softwares
 
