@@ -24,7 +24,6 @@ cd $WORK/SAEVA-outputs
 mkdir samfiles
 cd $WORK/project1
 python pythonBwa.py ../InputFiles.csv 
-
 sh bwa.sh
 ###########  BAM ##################
 cd $WORK/SAEVA-outputs
@@ -32,6 +31,8 @@ mkdir bamfiles
 mkdir flagsam
 mkdir sortsam
 cd $WORK/project1
+python pythonBam.py ../InputFiles.csv $MINICONDA_HOME
+
 sh bam.sh
 ###########  Picard ##################
 cd $WORK/SAEVA-outputs
@@ -39,6 +40,8 @@ mkdir picard
 cd picard
 mkdir picardlog
 cd $WORK/project1
+python pythonPicard.py ../InputFiles.csv $MINICONDA_HOME
+
 sh picard.sh
 ###########  Freebayes ##################
 cd $WORK/SAEVA-outputs
