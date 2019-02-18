@@ -16,13 +16,15 @@ cd trimmomatic
 mkdir trimlog
 
 cd $WORK/project1
-python pythontrim.py ../InputFiles.csv $MINICONDA_HOME
+python pythonTrimmomatic.py ../InputFiles.csv $MINICONDA_HOME
 
 sh trimmomatic.sh
 ########### BWA  ###############
 cd $WORK/SAEVA-outputs
 mkdir samfiles
 cd $WORK/project1
+python pythonBwa.py ../InputFiles.csv 
+
 sh bwa.sh
 ###########  BAM ##################
 cd $WORK/SAEVA-outputs
