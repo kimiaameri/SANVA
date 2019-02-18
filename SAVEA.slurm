@@ -15,14 +15,14 @@ mkdir trimmomatic
 cd trimmomatic
 mkdir trimlog
 
-cd $WORK/project1
+cd $WORK/SAVEA
 python pythonTrimmomatic.py ../InputFiles.csv $MINICONDA_HOME
 
 sh trimmomatic.sh
 ########### BWA  ###############
 cd $WORK/SAEVA-outputs
 mkdir samfiles
-cd $WORK/project1
+cd $WORK/SAVEA
 python pythonBwa.py ../InputFiles.csv 
 sh bwa.sh
 ###########  BAM ##################
@@ -30,7 +30,7 @@ cd $WORK/SAEVA-outputs
 mkdir bamfiles
 mkdir flagsam
 mkdir sortsam
-cd $WORK/project1
+cd $WORK/SAVEA
 python pythonBam.py ../InputFiles.csv $MINICONDA_HOME
 
 sh bam.sh
@@ -39,7 +39,7 @@ cd $WORK/SAEVA-outputs
 mkdir picard
 cd picard
 mkdir picardlog
-cd $WORK/project1
+cd $WORK/SAVEA
 python pythonPicard.py ../InputFiles.csv $MINICONDA_HOME
 
 sh picard.sh
@@ -47,7 +47,9 @@ sh picard.sh
 cd $WORK/SAEVA-outputs
 mkdir freebayesoutput
 
-cd $WORK/project1
+cd $WORK/SAVEA
+python pythonFreebayes.py ../InputFiles.csv 
+
 sh freebayes.sh
 ###########  VCF-BCF ##################
 cd $WORK/SAEVA-outputs
@@ -55,7 +57,7 @@ mkdir vcffilterq5000
 mkdir bcfoutput
 mkdir vcffilterq5000-dp250
 mkdir vcfbed
-cd $WORK/project1
+cd $WORK/SAVEA
 sh BCF-VCF.sh
 ###########  snpEFF ##################
 cd $WORK/SAEVA-outputs
@@ -63,5 +65,5 @@ mkdir snpEff-outputs
 cd snpEff-outputs
 mkdir snpEff-summary
 mkdir snpEff-gene
-cd $WORK/project1
+cd $WORK/SAVEA
 sh snpEff.sh
