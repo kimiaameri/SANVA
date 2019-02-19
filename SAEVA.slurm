@@ -58,7 +58,7 @@ mkdir bcfoutput
 mkdir vcffilterq5000-dp250
 mkdir vcfbed
 cd $WORK/SAEVA
-python pythonBCF_VCF.py ../InputFiles.csv 
+python pythonBCF_VCF.py ../InputFiles.csv $MINICONDA_HOME
 sh BCF-VCF.sh
 ###########  snpEFF ##################
 cd $WORK/SAEVA-outputs
@@ -67,5 +67,5 @@ cd snpEff-outputs
 mkdir snpEff-summary
 mkdir snpEff-gene
 cd $WORK/SAEVA
-python pythonSnpEff.py ../InputFiles.csv 
+python pythonSnpEff.py ../InputFiles.csv $MINICONDA_HOME
 sh snpEff.sh
