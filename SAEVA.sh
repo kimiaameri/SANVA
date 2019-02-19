@@ -30,10 +30,12 @@ cd $WORK/SAEVA-outputs
 mkdir bamfiles
 mkdir flagsam
 mkdir sortsam
+mkdir depth
 cd $WORK/SAEVA
 python pythonBam.py ../InputFiles.csv $MINICONDA_HOME
-
+python pythonFinddepth.py ../InputFiles.csv $MINICONDA_HOME
 sh bam.sh
+sh findDepth.sh
 ###########  Picard ##################
 cd $WORK/SAEVA-outputs
 mkdir picard
