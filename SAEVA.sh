@@ -32,10 +32,14 @@ mkdir flagsam
 mkdir sortsam
 mkdir depth
 cd $WORK/SAEVA
+
 python pythonBam.py ../InputFiles.csv $MINICONDA_HOME
-python pythonFinddepth.py ../InputFiles.csv $MINICONDA_HOME
+python pythonFinddepth.py ../InputFiles.csv $MINICONDA_HOME $DEPTH
 sh bam.sh
 sh findDepth.sh
+
+Rscript depth.R folderLocation depth.txt summary.csv
+DEPTH=`cat depth.txt`
 ###########  Picard ##################
 cd $WORK/SAEVA-outputs
 mkdir picard
@@ -60,7 +64,7 @@ mkdir bcfoutput
 mkdir vcffilterq5000-dp250
 mkdir vcfbed
 cd $WORK/SAEVA
-python pythonBCF_VCF.py ../InputFiles.csv $MINICONDA_HOME
+python pythonBCF_VCF.py ../InputFiles.csv $MINICONDA_HOME $DEPTH
 sh BCF-VCF.sh
 ###########  snpEFF ##################
 cd $WORK/SAEVA-outputs
