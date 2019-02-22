@@ -1,10 +1,14 @@
+#-------------------- find quality distribuison --------------------#
+
 #-------------------- find depth distribuison --------------------#
 
 
 argv <- commandArgs(trailingOnly = TRUE)
 folderPath <- argv[1]
-outputFile <- argv[2]
-summaryFile <- argv[3]
+vcfPath <- argv[2]
+outputFile <- argv[3]
+qualityOutput <- argv[4]
+summaryFile <- argv[5]
 #files<- list.files("~/Dropbox/lugdunensis/depth/")
 files<- list.files(folderPath)
 
@@ -23,4 +27,11 @@ minValue  <- min(z[,4])
 write(minValue,outputFile)
 write.table(z,summaryFile)
 
+vcf.files <- list.files(vcfPath, full.names = T)
+qual <- c()
+for (f in vcf.files) {
+  vcf <- read.table(file=f)
+  qual <- c(qual,average(vcf[,6]))
+}
+write(min(qual),qualityOutput)
  
