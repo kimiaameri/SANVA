@@ -34,12 +34,10 @@ mkdir depth
 cd $WORK/SAEVA
 
 python pythonBam.py ../InputFiles.csv $MINICONDA_HOME
-python pythonFinddepth.py ../InputFiles.csv $MINICONDA_HOME $DEPTH
 sh bam.sh
 sh findDepth.sh
 
-Rscript depth.R folderLocation depth.txt summary.csv
-DEPTH=`cat depth.txt`
+
 ###########  Picard ##################
 cd $WORK/SAEVA-outputs
 mkdir picard
@@ -57,14 +55,23 @@ cd $WORK/SAEVA
 python pythonFreebayes.py ../InputFiles.csv 
 
 sh freebayes.sh
+
+########### Getting depth and qual for filtering ######
+
+Rscript depth.R $WORK/SAEVA-outputs/depth $WORK/SAEVA-outputs/freebayesoutput depth.txt quality.txt summary.csv
+DEPTH=`cat depth.txt`
+QUALITY=`cat quality.txt`
+python pythonFinddepth.py ../InputFiles.csv $MINICONDA_HOME $QUALITY $DEPTH
+
+
 ###########  VCF-BCF ##################
 cd $WORK/SAEVA-outputs
-mkdir vcffilterq5000
+mkdir vcffilterq
 mkdir bcfoutput
-mkdir vcffilterq5000-dp250
+mkdir vcffilterq-dp
 mkdir vcfbed
 cd $WORK/SAEVA
-python pythonBCF_VCF.py ../InputFiles.csv $MINICONDA_HOME $DEPTH
+python pythonBCF_VCF.py ../InputFiles.csv $MINICONDA_HOME $QUALITY $DEPTH
 sh BCF-VCF.sh
 ###########  snpEFF ##################
 cd $WORK/SAEVA-outputs
