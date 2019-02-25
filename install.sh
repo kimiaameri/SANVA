@@ -20,6 +20,7 @@ conda install –c bioconda bedops
 conda install -c bioconda samtools/1.6
 conda install -c bioconda picard
 conda install -c bioconda bcftools/1.8
+conda install -c bioconda java-jdk 
 
 ####   Download BWA       #####
 cd $WORK/SAEVA-softwares
