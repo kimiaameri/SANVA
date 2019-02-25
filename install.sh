@@ -47,3 +47,5 @@ rm snpEff_latest_core.zip
 
 ###########################
 echo `$WORK/SAEVA-softwares/freebayes/bin/freebayes --version`
+echo `$WORK/SAEVA-softwares/snpEff/bin/snpEff --version`
+echo `$WORK/SAEVA-softwares/bwa/bin/bwa --version`
