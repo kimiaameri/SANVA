@@ -29,18 +29,18 @@ with open(outputFile,'w') as outFile:
              outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/{row[0]}.vcf.gz -p $WORK/SAEVA-outputs/low -n=low;\n')
        
      
-         outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/All/*.vcf;\n')
-         outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/high/*.vcf;\n')
-         outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/low/*.vcf;\n')
+      #   outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/All/*.vcf;\n')
+      #   outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/high/*.vcf;\n')
+       #  outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/low/*.vcf;\n')
    
-         for i in highSamples:
-             outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/high/{%i}.vcf > $WORK/SAEVA-outputs/snpEff-outputs/snpEff_high_{index}.ann.vcf \n')
-             outfile.write(f'mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/update-snpEff-gene/snpEff_high_{index}_genes.txt \n')
-             outfile.write(f'mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_high_{index}_summary.html \n')
-         for i in lowSamples:
-             outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/low/{%i} .vcf > $WORK/SAEVA-outputs/snpEff-outputs/snpEff_low_{index}.ann.vcf \n')
-             outfile.write(f'mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/update-snpEff-gene/snpEff_low_{index}_genes.txt \n')
-             outfile.write(f'mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_low_{index}_summary.html \n')
+        # for i in highSamples:
+          #   outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/high/{highIndex.index}.vcf > $WORK/SAEVA-outputs/snpEff-outputs/snpEff_high_{index}.ann.vcf \n')
+          #   outfile.write(f'mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/update-snpEff-gene/snpEff_high_{index}_genes.txt \n')
+          #   outfile.write(f'mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_high_{index}_summary.html \n')
+       #  for i in lowSamples:
+        #     outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/low/{%i} .vcf > $WORK/SAEVA-outputs/snpEff-outputs/snpEff_low_{index}.ann.vcf \n')
+         #    outfile.write(f'mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/update-snpEff-gene/snpEff_low_{index}_genes.txt \n')
+         #    outfile.write(f'mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_low_{index}_summary.html \n')
          
             
       
