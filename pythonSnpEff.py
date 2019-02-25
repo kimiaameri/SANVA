@@ -11,7 +11,7 @@ outputFile = "SnpEff.sh"
 with open(inputFile) as csv_file:
 
     csv_reader = csv.reader(csv_file, delimiter=',')
-    length = len(list(csv.reader(open('csv_reader')))) - 1 
+    length = len(list(csv.reader(open('csv_file')))) - 1 
     highIndex =  [index for index, value in enumerate(csv_reader[2]) if value == "high"]
     lowIndex =  [index for index, value in enumerate(csv_reader[2]) if value == "low"]
     high = len(highIndex)
