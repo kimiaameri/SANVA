@@ -15,5 +15,5 @@ with open(outputFile,'w') as outFile:
         for row in csv_reader:
             if count !=0:
                 outFile.write(f'{minicondaBin}trimmomatic PE -threads 4 -phred33 -trimlog $WORK/SAEVA-outputs/trimmomatic/trimlog/{row[0]}.trimlog {row[2]} {row[3]} $WORK/trimmomatic/{row[0]}-R1.paired.fq $WORK/trimmomatic/{row[0]}-R1.unpaired.fq $WORK/trimmomatic/{row[0]}-R2.paired.fq $WORK/trimmomatic/{row[0]}-R2.unpaired.fq \n')
-            count +=
+            count =count + 1
  
