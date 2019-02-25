@@ -15,7 +15,7 @@ mkdir trimmomatic
 cd trimmomatic
 mkdir trimlog
 
-cd $WORK/SAVEA
+cd $WORK/SAEVA
 python pythonTrimmomatic.py ../InputFiles.csv $MINICONDA_HOME
 
 sh trimmomatic.sh
