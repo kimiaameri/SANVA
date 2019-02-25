@@ -25,7 +25,7 @@ with open(outputFile,'w') as outFile:
          
          for samples in highSamples :
              outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/{row[0]}.vcf.gz -p $WORK/SAEVA-outputs/high -n=high;\n')
-         for samples inlowSamples :
+         for samples in lowSamples :
              outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/{row[0]}.vcf.gz -p $WORK/SAEVA-outputs/low -n=low;\n')
        
      
