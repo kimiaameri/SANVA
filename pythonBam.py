@@ -7,7 +7,7 @@ if len(sys.argv) < 3:
     
 inputFile = sys.argv[1]
 minicondaBin = sys.argv[2]
-outputFile = "trimmomatic.sh"
+outputFile = "bam.sh"
 with open(outputFile,'w') as outFile:
     count=0
     with open(inputFile) as csv_file:
