@@ -22,8 +22,7 @@ with open(outputFile,'w') as outFile:
      with open(inputFile) as csv_file:
          outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/*.gz -p $WORK/SAEVA-outputs/All -n=length;\n')
          csv_reader = csv.reader(csv_file, delimiter=',')
-         for 
-      
+         
          for samples in highSamples :
              outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/{row[0]}.vcf.gz -p $WORK/SAEVA-outputs/high -n=high;\n')
          for samples inlowSamples :
