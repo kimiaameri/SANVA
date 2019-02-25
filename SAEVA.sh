@@ -35,7 +35,7 @@ cd $WORK/SAEVA
 
 python3 pythonBam.py ../InputFiles.csv $MINICONDA_HOME
 sh bam.sh
-sh findDepth.sh
+
 
 
 ###########  Picard ##################
@@ -43,7 +43,7 @@ cd $WORK/SAEVA-outputs
 mkdir picard
 cd picard
 mkdir picardlog
-cd $WORK/SAVEA
+cd $WORK/SAEVA
 python3 pythonPicard.py ../InputFiles.csv $MINICONDA_HOME
 
 sh picard.sh
@@ -62,7 +62,7 @@ Rscript depth.R $WORK/SAEVA-outputs/depth $WORK/SAEVA-outputs/freebayesoutput de
 DEPTH=`cat depth.txt`
 QUALITY=`cat quality.txt`
 python3 pythonFinddepth.py ../InputFiles.csv $MINICONDA_HOME $QUALITY $DEPTH
-
+sh findDepth.sh
 
 ###########  VCF-BCF ##################
 cd $WORK/SAEVA-outputs
