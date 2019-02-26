@@ -14,12 +14,16 @@ mkdir SAEVA-softwares
 cd SAEVA-softwares
 ####      Bioconda          ####
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-conda install –c bioconda trimmomatic
-conda install –c bioconda biopython
-conda install –c bioconda bedops
-conda install -c bioconda samtools/1.6
+conda update conda
+conda activate ~/miniconda3
+conda install python=3.7
+
+conda install -c bioconda trimmomatic 
+conda install -c conda-forge biopython 
+conda install -c bioconda bedops
+conda install -c bioconda samtools
 conda install -c bioconda picard
-conda install -c bioconda bcftools/1.8
+conda install -c bioconda bcftools
 conda install -c bioconda java-jdk 
 
 ####   Download BWA       #####
