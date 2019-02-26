@@ -6,7 +6,7 @@
 #SBATCH --output=SAVEA.%J.out
 ######## Trimmomatic #########
 export MINICONDA_HOME="~/miniconda3/bin/"
-export GITHUB_DIR =`pwd`
+export GITHUB_DIR=`pwd`
 cd $WORK
 mkdir SAEVA-outputs
 cd SAEVA-outputs
