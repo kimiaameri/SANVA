@@ -1,5 +1,6 @@
 import csv
 import sys
+import pandas as pd
 
 if len(sys.argv) < 3:
     sys.stderr.write('No Input CSV file and miniconda path\n')
@@ -12,8 +13,8 @@ with open(inputFile) as csv_file:
 
     csv_reader = csv.reader(csv_file, delimiter=',')
     length = len(list('inputFile')) - 1 
-    highIndex =  [index for index, value in enumerate(csv_reader[2]) if value == "high"]
-    lowIndex =  [index for index, value in enumerate(csv_reader[2]) if value == "low"]
+    highIndex =  [index for index, value in enumerate(csv_reader) if value == "high"]
+    lowIndex =  [index for index, value in enumerate(csv_reader) if value == "low"]
     high = len(highIndex)
     low = len(lowIndex)
     samples = csv_reader[1]
