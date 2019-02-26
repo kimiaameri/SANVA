@@ -18,7 +18,7 @@ mkdir trimlog
 cd $WORK/SAEVA
 python3 pythonTrimmomatic.py ../InputFiles.csv $MINICONDA_HOME $GITHUB_DIR
 
-sh trimmomatic.sh
+sh trimmomatic.sh > $WORK/SAEVA-outputs/trimmomatic.log
 ########### BWA  ###############
 cd $WORK/SAEVA-outputs
 mkdir samfiles
