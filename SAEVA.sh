@@ -6,7 +6,7 @@
 #SBATCH --output=SAVEA.%J.out
 ######## Trimmomatic #########
 export MINICONDA_HOME="~/miniconda3/bin/"
-
+GITHUB_DIR =`pwd`
 cd $WORK
 mkdir SAEVA-outputs
 cd SAEVA-outputs
@@ -16,7 +16,7 @@ cd trimmomatic
 mkdir trimlog
 
 cd $WORK/SAEVA
-python3 pythonTrimmomatic.py ../InputFiles.csv $MINICONDA_HOME
+python3 pythonTrimmomatic.py ../InputFiles.csv $MINICONDA_HOME $GITHUB_DIR
 
 sh trimmomatic.sh
 ########### BWA  ###############
