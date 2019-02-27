@@ -6,7 +6,6 @@ if len(sys.argv) < 2:
     sys.exit(0)
     
 inputFile = sys.argv[1]
-minicondaBin = sys.argv[2]
 outputFile = "bam.sh"
 with open(outputFile,'w') as outFile:
     count=0
