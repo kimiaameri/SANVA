@@ -7,7 +7,7 @@ if len(sys.argv) < 2:
     
 
 inputFile = sys.argv[1]
-outputFile = "BWA.sh"
+outputFile = "bwa.sh"
 with open(outputFile,'w') as outFile:
     count =0
     with open(inputFile) as csv_file:
