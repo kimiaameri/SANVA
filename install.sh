@@ -21,7 +21,7 @@ conda install python=3.7
 conda install -c bioconda trimmomatic 
 conda install -c conda-forge biopython 
 conda install -c bioconda bedops
-conda install -c bioconda samtools
+#conda install -c bioconda samtools
 conda install -c bioconda picard
 conda install -c bioconda bcftools
 conda install -c bioconda java-jdk 
@@ -33,6 +33,13 @@ wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2
 tar -xvjf bwa-0.7.17.tar.bz2
 rm bwa-0.7.17.tar.bz2
 cd bwa-0.7.17
+make
+##### Download Samtools      #####
+wget https://sourceforge.net/projects/samtools/files/samtools/1.5/samtools-1.5.tar.bz2
+tar -xvjf samtools-1.5.tar.bz2
+rm samtools-1.5.tar.bz2
+cd samtools-1.5 # Within the unpacked release directory
+sh configure
 make
 ####   Download freebayes    #####
 cd $WORK/SAEVA-softwares/
