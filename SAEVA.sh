@@ -33,7 +33,7 @@ mkdir sortsam
 mkdir depth
 cd $WORK/SAEVA
 
-python3 pythonBam.py ../InputFiles.csv $MINICONDA_HOME
+python3 pythonBam.py ../InputFiles.csv 
 sh bam.sh
 
 
