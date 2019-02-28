@@ -37,7 +37,7 @@ with open(inputFile) as csv_file:
         
         allLowStr  = ' '.join(allLow)         
 
-        outFile.write(f'{minicondaBin}bcftools isec {allLow} -p $WORK/SAEVA-outputs/low -n={low};\n')
+        outFile.write(f'{minicondaBin}bcftools isec {allLowStr} -p $WORK/SAEVA-outputs/low -n={low};\n')
          #    for samples in lowSamples :
          #        outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/{samples}.vcf.gz -p $WORK/SAEVA-outputs/low -n={low};\n')
 
