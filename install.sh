@@ -14,9 +14,11 @@ mkdir SAEVA-softwares
 cd SAEVA-softwares
 ####      Bioconda          ####
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh
 conda update conda
 conda activate ~/miniconda3
-conda install python=3.7
+#conda install python=3.7
+conda install -c r r 
 
 conda install -c bioconda trimmomatic 
 conda install -c conda-forge biopython 
@@ -25,6 +27,12 @@ conda install -c bioconda bedops
 #conda install -c bioconda picard/2.18
 #conda install -c bioconda bcftools
 conda install -c bioconda java-jdk 
+####   Download trimmomatic       #####
+
+#wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-Src-0.36.zip
+#unzip Trimmomatic-Src-0.36.zip
+#rm Trimmomatic-Src-0.36.zip
+#cd trimmomatic-0.36/ 
 
 ####   Download BWA       #####
 cd $WORK/SAEVA-softwares
