@@ -22,7 +22,7 @@ conda install -c bioconda trimmomatic
 conda install -c conda-forge biopython 
 conda install -c bioconda bedops
 #conda install -c bioconda samtools
-conda install -c bioconda picard/2.18
+#conda install -c bioconda picard/2.18
 conda install -c bioconda bcftools
 conda install -c bioconda java-jdk 
 
@@ -41,6 +41,11 @@ rm samtools-1.5.tar.bz2
 cd samtools-1.5 # Within the unpacked release directory
 sh configure
 make
+####    Picard              ####
+mkdir picard
+cd picard/
+wget https://github.com/broadinstitute/picard/releases/download/2.18.27/picard.jar
+
 ####   Download freebayes    #####
 cd $WORK/SAEVA-softwares/
 git clone --recursive git://github.com/ekg/freebayes.git
