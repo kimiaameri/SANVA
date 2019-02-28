@@ -1,6 +1,5 @@
 import csv
 import sys
-import pandas as pd
 
 if len(sys.argv) < 3:
     sys.stderr.write('No Input CSV file and miniconda path\n')
