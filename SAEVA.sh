@@ -9,6 +9,7 @@ export MINICONDA_HOME="~/miniconda3/bin/"
 export GITHUB_DIR=`pwd`
 export SAMTools='$WORK/SAEVA-softwares/samtools/samtools-1.5'
 export PICARD='$WORK/SAEVA-softwares/picard/'
+export FREEBAYES='$WORK/SAEVA-softwares/freebayes/bin/'
 export BCFTools='$WORK/SAEVA-softwares/bcftools-1.8/'
 cd $WORK
 mkdir SAEVA-outputs
@@ -34,9 +35,11 @@ mkdir bamfiles
 mkdir flagsam
 mkdir sortsam
 mkdir depth
+mkdir stats
+
 cd $WORK/SAEVA
 
-python3 pythonBam.py ../InputFiles.csv 
+python3 pythonBam.py ../InputFiles.csv $SAMTools
 sh bam.sh
 
 ###########  Picard ##################
@@ -53,7 +56,7 @@ cd $WORK/SAEVA-outputs
 mkdir freebayesoutput
 
 cd $WORK/SAEVA
-python3 pythonFreebayes.py ../InputFiles.csv 
+python3 pythonFreebayes.py ../InputFiles.csv $FREEBAYES
 
 sh freebayes.sh
 
