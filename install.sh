@@ -23,7 +23,7 @@ conda install -c conda-forge biopython
 conda install -c bioconda bedops
 #conda install -c bioconda samtools
 #conda install -c bioconda picard/2.18
-conda install -c bioconda bcftools
+#conda install -c bioconda bcftools
 conda install -c bioconda java-jdk 
 
 ####   Download BWA       #####
