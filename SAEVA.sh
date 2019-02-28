@@ -7,7 +7,9 @@
 ######## Trimmomatic #########
 export MINICONDA_HOME="~/miniconda3/bin/"
 export GITHUB_DIR=`pwd`
+export SAMTools='$WORK/SAEVA-softwares/samtools/samtools-1.5'
 export PICARD='$WORK/SAEVA-softwares/picard/'
+export BCFTools='$WORK/SAEVA-softwares/bcftools-1.8/'
 cd $WORK
 mkdir SAEVA-outputs
 cd SAEVA-outputs
@@ -37,8 +39,6 @@ cd $WORK/SAEVA
 python3 pythonBam.py ../InputFiles.csv 
 sh bam.sh
 
-
-
 ###########  Picard ##################
 cd $WORK/SAEVA-outputs
 mkdir picard
@@ -62,7 +62,7 @@ sh freebayes.sh
 Rscript depth.R $WORK/SAEVA-outputs/depth $WORK/SAEVA-outputs/freebayesoutput depth.txt quality.txt summary.csv
 DEPTH=`cat depth.txt`
 QUALITY=`cat quality.txt`
-python3 pythonFinddepth.py ../InputFiles.csv $MINICONDA_HOME $QUALITY $DEPTH
+python3 pythonFinddepth.py ../InputFiles.csv $SAMTools $QUALITY $DEPTH
 sh findDepth.sh
 
 ###########  VCF-BCF ##################
@@ -72,7 +72,7 @@ mkdir bcfoutput
 mkdir vcffilterq-dp
 mkdir vcfbed
 cd $WORK/SAEVA
-python3 pythonBCF_VCF.py ../InputFiles.csv $MINICONDA_HOME $QUALITY $DEPTH
+python3 pythonBCF_VCF.py ../InputFiles.csv $BCFTools $QUALITY $DEPTH
 sh BCF-VCF.sh
 ###########  snpEFF ##################
 cd $WORK/SAEVA-outputs
@@ -81,5 +81,5 @@ cd snpEff-outputs
 mkdir snpEff-summary
 mkdir snpEff-gene
 cd $WORK/SAEVA
-python3 pythonSnpEff.py ../InputFiles.csv $MINICONDA_HOME
+python3 pythonSnpEff.py ../InputFiles.csv $BCFTools
 sh snpEff.sh
