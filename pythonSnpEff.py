@@ -9,27 +9,36 @@ if len(sys.argv) < 3:
 inputFile = sys.argv[1]
 minicondaBin = sys.argv[2]
 outputFile = "SnpEff.sh"
+
 with open(inputFile) as csv_file:
 
     csv_reader = csv.reader(csv_file, delimiter=',')
-    length = len(list('inputFile')) - 1 
-    highIndex =  [index for index, value in enumerate(csv_reader) if value == "high"]
-    lowIndex =  [index for index, value in enumerate(csv_reader) if value == "low"]
-    high = len(highIndex)
-    low = len(lowIndex)
-    samples = csv_reader[1]
-    highSamples = samples[highIndex]
-    lowSamples = samples[lowIndex]
-    count=0
+    highSamples = []
+    lowSamples = []
+    for row in csv_reader:
+        if row[1].lower() == 'high': highSamples.append(row[0])
+        if row[1].lower() == 'low': lowSamples.append(row[0])
+    print(highSamples)
+    print(lowSamples)
+    high = len(highSamples)
+    low = len(lowSamples)
+    length = high + low
     with open(outputFile,'w') as outFile:
-         with open(inputFile) as csv_file:
-             outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/*.gz -p $WORK/SAEVA-outputs/All -n=length;\n')
-             csv_reader = csv.reader(csv_file, delimiter=',')
-
-             for samples in highSamples :
-                 outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/{row[0]}.vcf.gz -p $WORK/SAEVA-outputs/high -n=high;\n')
-             for samples in lowSamples :
-                 outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/{row[0]}.vcf.gz -p $WORK/SAEVA-outputs/low -n=low;\n')
+         #with open(inputFile) as csv_file:
+        outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/*.gz -p $WORK/SAEVA-outputs/All -n={length};\n')
+        prefix = "$WORK/SAEVA-outputs/bcfoutput/"
+        allHigh = []
+        for sample in highSamples :
+            allHigh.append(prefix + sample)
+                 
+        outFile.write(f'{minicondaBin}bcftools isec {allHigh} -p $WORK/SAEVA-outputs/high -n={high};\n')
+        allLow = []
+        for sample in lowSamples :
+            allLow.append(prefix + sample)
+                 
+        outFile.write(f'{minicondaBin}bcftools isec {allLow} -p $WORK/SAEVA-outputs/low -n={low};\n')
+         #    for samples in lowSamples :
+         #        outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/{samples}.vcf.gz -p $WORK/SAEVA-outputs/low -n={low};\n')
 
 
           #   outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/All/*.vcf;\n')
