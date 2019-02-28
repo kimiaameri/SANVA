@@ -14,5 +14,5 @@ with open(outputFile,'w') as outFile:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             if count !=0:
-                 outFile.write(f'{picard}picard MarkDuplicates I=$WORK/SAEVA-outputs/sortsam/{row[0]}.sorted.bam O=$WORK/SAEVA-outputs/picard/{row[0]}.picard.bam M=$WORK/SAEVA-outputs/picard/picardlog/{row[0]}.picard.log\n')
+                 outFile.write(f'{picard}/picard MarkDuplicates I=$WORK/SAEVA-outputs/sortsam/{row[0]}.sorted.bam O=$WORK/SAEVA-outputs/picard/{row[0]}.picard.bam M=$WORK/SAEVA-outputs/picard/picardlog/{row[0]}.picard.log\n')
             count=count+1
