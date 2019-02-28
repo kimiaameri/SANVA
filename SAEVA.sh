@@ -7,6 +7,7 @@
 ######## Trimmomatic #########
 export MINICONDA_HOME="~/miniconda3/bin/"
 export GITHUB_DIR=`pwd`
+export PICARD='$WORK/SAEVA-software/picard/picard.jar'
 cd $WORK
 mkdir SAEVA-outputs
 cd SAEVA-outputs
@@ -44,7 +45,7 @@ mkdir picard
 cd picard
 mkdir picardlog
 cd $WORK/SAEVA
-python3 pythonPicard.py ../InputFiles.csv $MINICONDA_HOME
+python3 pythonPicard.py ../InputFiles.csv $PICARD
 
 sh picard.sh
 ###########  Freebayes ##################
