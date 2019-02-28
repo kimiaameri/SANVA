@@ -7,7 +7,7 @@
 ######## Trimmomatic #########
 export MINICONDA_HOME="~/miniconda3/bin/"
 export GITHUB_DIR=`pwd`
-export PICARD='$WORK/SAEVA-softwares/picard/picard.jar'
+export PICARD='$WORK/SAEVA-softwares/picard/'
 cd $WORK
 mkdir SAEVA-outputs
 cd SAEVA-outputs
