@@ -57,6 +57,12 @@ make
 ####       Download VCF       #####
 cd $WORK/SAEVA-softwares/freebayes/vcflib
 make
+#### Download BcftTools       ####
+wget  wget https://github.com/samtools/bcftools/releases/download/1.8/bcftools-1.8.tar.bz2
+tar -xvjf bcftools-1.8.tar.bz2
+rm bcftools-1.8.tar.bz2
+cd bcftools-1.8
+make
 ####      Download snpEff      #####
 cd $WORK/SAEVA-softwares/
 wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
@@ -66,5 +72,4 @@ rm snpEff_latest_core.zip
 
 ###########################
 echo `$WORK/SAEVA-softwares/freebayes/bin/freebayes --version`
-echo `$WORK/SAEVA-softwares/snpEff/bin/snpEff --version`
-echo `$WORK/SAEVA-softwares/bwa/bin/bwa --version`
+
