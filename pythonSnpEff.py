@@ -28,13 +28,15 @@ with open(inputFile) as csv_file:
         prefix = "$WORK/SAEVA-outputs/bcfoutput/"
         allHigh = []
         for sample in highSamples :
-            allHigh.append(prefix + sample)
-                 
-        outFile.write(f'{minicondaBin}bcftools isec {allHigh} -p $WORK/SAEVA-outputs/high -n={high};\n')
+            allHigh.append(prefix + sample + "_q_db.vcf.gz")
+        allHighStr  = ' '.join(allHigh)         
+        outFile.write(f'{minicondaBin}bcftools isec {allHighStr} -p $WORK/SAEVA-outputs/high -n={high};\n')
         allLow = []
         for sample in lowSamples :
-            allLow.append(prefix + sample)
-                 
+            allLow.append(prefix + sample + "_q_db.vcf.gz")
+        
+        allLowStr  = ' '.join(allLow)         
+
         outFile.write(f'{minicondaBin}bcftools isec {allLow} -p $WORK/SAEVA-outputs/low -n={low};\n')
          #    for samples in lowSamples :
          #        outFile.write(f'{minicondaBin}bcftools isec $WORK/SAEVA-outputs/bcfoutput/{samples}.vcf.gz -p $WORK/SAEVA-outputs/low -n={low};\n')
