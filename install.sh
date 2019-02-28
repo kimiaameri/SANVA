@@ -42,9 +42,12 @@ cd samtools-1.5 # Within the unpacked release directory
 sh configure
 make
 ####    Picard              ####
+#git clone https://github.com/broadinstitute/picard.git
+#cd picard
+#./gradlew shadowJar
 mkdir picard
 cd picard/
-wget https://github.com/broadinstitute/picard/releases/download/2.18.27/picard.jar
+wget https://github.com/broadinstitute/picard/releases/download/2.9.0/picard.jar
 
 ####   Download freebayes    #####
 cd $WORK/SAEVA-softwares/
