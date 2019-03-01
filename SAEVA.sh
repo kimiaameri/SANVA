@@ -86,5 +86,5 @@ cd snpEff-outputs
 mkdir snpEff-summary
 mkdir snpEff-gene
 cd $WORK/SAEVA/
-python3 pythonSnpEff.py ../InputFiles.csv $BCFTools
+python3 pythonSnpEff.py ../InputFiles.csv $BCFTools $MINICONDA_HOME
 sh snpEff.sh
