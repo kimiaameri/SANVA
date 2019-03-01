@@ -22,3 +22,11 @@ for (f in depth.files){
 write(median(dist),depthOutput)
 #write.table(z,summaryFile)
 
+vcf.files <- list.files(vcfPath, full.names = T)
+qual <- c()
+for (f in vcf.files) {
+  vcf <- read.table(file=f)
+  qual <- c(qual,median(vcf[,6]))
+}
+write((median(qual),qualityOutput)
+ 
