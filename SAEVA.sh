@@ -65,7 +65,7 @@ sh freebayes.sh
 python3 pythonFinddepth.py ../InputFiles.csv $SAMTools 
 sh findDepth.sh
 
-Rscript depth.R $WORK/SAEVA-outputs/freebayesoutput/ $WORK/SAEVA-outputs/depth/ depth.txt quality.txt summary.csv
+Rscript depth.R $WORK/SAEVA-outputs/freebayesoutput/ $WORK/SAEVA-outputs/depth/ depth.txt quality.txt 
 DEPTH=`cat depth.txt`
 QUALITY=`cat quality.txt`
 
