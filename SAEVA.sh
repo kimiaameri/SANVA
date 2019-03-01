@@ -37,7 +37,7 @@ mkdir sortsam
 mkdir depth
 mkdir stats
 
-cd $WORK/SAEVA
+cd $WORK/SAEVA/
 
 python3 pythonBam.py ../InputFiles.csv $SAMTools
 sh bam.sh
@@ -47,7 +47,7 @@ cd $WORK/SAEVA-outputs
 mkdir picard
 cd picard
 mkdir picardlog
-cd $WORK/SAEVA
+cd $WORK/SAEVA/
 python3 pythonPicard.py ../InputFiles.csv $PICARD
 
 sh picard.sh
@@ -55,7 +55,7 @@ sh picard.sh
 cd $WORK/SAEVA-outputs
 mkdir freebayesoutput
 
-cd $WORK/SAEVA
+cd $WORK/SAEVA/
 python3 pythonFreebayes.py ../InputFiles.csv $FREEBAYES
 
 sh freebayes.sh
@@ -65,9 +65,9 @@ sh freebayes.sh
 python3 pythonFinddepth.py ../InputFiles.csv $SAMTools 
 sh findDepth.sh
 
-Rscript depth.R $WORK/SAEVA-outputs/freebayesoutput/ $WORK/SAEVA-outputs/depth/ depth.txt quality.txt 
+Rscript depth.R $WORK/SAEVA-outputs/depth/ $WORK/SAEVA-outputs/freebayesoutput/ depth.txt quality.txt 
 export DEPTH=$(( `cat depth.txt` * 2 ))
-export QUALITY=$(( `cat quality.txt` * 2 ))
+export QUALITY=$((`cat quality.txt`)) * 2 ))
 
 
 ###########  VCF-BCF ##################
@@ -76,7 +76,7 @@ mkdir vcffilterq
 mkdir bcfoutput
 mkdir vcffilterq-dp
 mkdir vcfbed
-cd $WORK/SAEVA
+cd $WORK/SAEVA/
 python3 pythonBCF_VCF.py ../InputFiles.csv $BCFTools $QUALITY $DEPTH
 sh BCF-VCF.sh
 ###########  snpEFF ##################
@@ -85,6 +85,6 @@ mkdir snpEff-outputs
 cd snpEff-outputs
 mkdir snpEff-summary
 mkdir snpEff-gene
-cd $WORK/SAEVA
+cd $WORK/SAEVA/
 python3 pythonSnpEff.py ../InputFiles.csv $BCFTools
 sh snpEff.sh
