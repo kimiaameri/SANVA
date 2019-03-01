@@ -10,13 +10,6 @@ depthOutput <- argv[3]
 qualityOutput <- argv[4]
 #summaryFile <- argv[5]
 
-#folderPath <- argv[1]
-#vcfPath <- argv[2]
-#depthOutput <- argv[3]
-#qualityOutput <- argv[4]
-#summaryFile <- argv[5]
-#files<- list.files("~/Dropbox/lugdunensis/depth/")
-
 depth.files<- list.files(depthPath, full.names=T)
 dist<-c()
 for (f in depth.files)
@@ -28,7 +21,7 @@ for (f in depth.files)
 #means<- apply(dist,2,mean)
 #z<-as.data.frame(summary(dist))
 #minValue  <- min(dist)
-write(summary(dist),depthOutput)
+write(median(dist),depthOutput)
 #write.table(z,summaryFile)
 
 vcf.files <- list.files(vcfPath, full.names = T)
@@ -37,5 +30,5 @@ for (f in vcf.files) {
   vcf <- read.table(file=f)
   qual <- c(qual,median(vcf[,6]))
 }
-write(summary(qual),qualityOutput)
+write(median(qual),qualityOutput)
  
