@@ -26,12 +26,12 @@ for (i in 1:length(files))
   x<- dep[,3]
   dist<- cbind(dist,x)
 }
-means<- as.matrix(apply(dist,2,mean))
+means<- apply(dist,2,mean)
 
-z<-as.data.frame(summary(dist))
-minValue  <- min(z[,4])
+#z<-as.data.frame(summary(dist))
+minValue  <- min(means)
 write(minValue,outputFile)
-write.table(z,summaryFile)
+#write.table(z,summaryFile)
 
 vcf.files <- depthOutput(vcfPath, full.names = T)
 qual <- c()
