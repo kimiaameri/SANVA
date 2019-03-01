@@ -6,9 +6,15 @@
 argv <- commandArgs(trailingOnly = TRUE)
 folderPath <- argv[1]
 vcfPath <- argv[2]
-outputFile <- argv[3]
+depthOutput <- argv[3]
 qualityOutput <- argv[4]
 summaryFile <- argv[5]
+
+#folderPath <- argv[1]
+#vcfPath <- argv[2]
+#depthOutput <- argv[3]
+#qualityOutput <- argv[4]
+#summaryFile <- argv[5]
 #files<- list.files("~/Dropbox/lugdunensis/depth/")
 files<- list.files(folderPath)
 
@@ -27,7 +33,7 @@ minValue  <- min(z[,4])
 write(minValue,outputFile)
 write.table(z,summaryFile)
 
-vcf.files <- list.files(vcfPath, full.names = T)
+vcf.files <- depthOutput(vcfPath, full.names = T)
 qual <- c()
 for (f in vcf.files) {
   vcf <- read.table(file=f)
