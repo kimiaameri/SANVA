@@ -22,7 +22,7 @@ dist<-c()
 for (f in depth.files)
 {
   dep<-read.table(file=f,header=F,sep="\t",stringsAsFactors = F)
-  x<- mean(dep[,3])
+  x<- median(dep[,3])
   dist<- c(dist,x)
 }
 #means<- apply(dist,2,mean)
@@ -35,7 +35,7 @@ vcf.files <- list.files(vcfPath, full.names = T)
 qual <- c()
 for (f in vcf.files) {
   vcf <- read.table(file=f)
-  qual <- c(qual,mean(vcf[,6]))
+  qual <- c(qual,median(vcf[,6]))
 }
 write(summary(qual),qualityOutput)
  
