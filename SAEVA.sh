@@ -7,7 +7,7 @@
 ######## Trimmomatic #########
 export MINICONDA_HOME="~/miniconda3/bin/"
 export GITHUB_DIR=`pwd`
-export SAMTools='$WORK/SAEVA-softwares/samtools/samtools-1.5'
+export SAMTools='$WORK/SAEVA-softwares/samtools-1.5'
 export PICARD='$WORK/SAEVA-softwares/picard/'
 export FREEBAYES='$WORK/SAEVA-softwares/freebayes/bin/'
 export BCFTools='$WORK/SAEVA-softwares/bcftools-1.8/'
@@ -62,11 +62,12 @@ sh freebayes.sh
 
 ########### Getting depth and qual for filtering ######
 
-Rscript depth.R $WORK/SAEVA-outputs/depth $WORK/SAEVA-outputs/freebayesoutput depth.txt quality.txt summary.csv
+python3 pythonFinddepth.py ../InputFiles.csv $SAMTools 
+sh findDepth.sh
+
+Rscript depth.R $WORK/SAEVA-outputs/freebayesoutput/ $WORK/SAEVA-outputs/depth/ depth.txt quality.txt summary.csv
 DEPTH=`cat depth.txt`
 QUALITY=`cat quality.txt`
-python3 pythonFinddepth.py ../InputFiles.csv $SAMTools $QUALITY $DEPTH
-sh findDepth.sh
 
 ###########  VCF-BCF ##################
 cd $WORK/SAEVA-outputs
