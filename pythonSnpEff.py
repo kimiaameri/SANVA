@@ -1,12 +1,13 @@
 import csv
 import sys
 
-if len(sys.argv) < 3:
-    sys.stderr.write('No Input CSV file and BCFTools\n')
+if len(sys.argv) < 4:
+    sys.stderr.write('No Input CSV file and BCFTools and java\n')
     sys.exit(0)
     
 inputFile = sys.argv[1]
 BCFTools = sys.argv[2]
+minicondaBin = sys.argv[3]
 outputFile = "SnpEff.sh"
 
 with open(inputFile) as csv_file:
