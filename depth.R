@@ -19,9 +19,9 @@ qualityOutput <- argv[4]
 
 depth.files<- list.files(depthPath, full.names=T)
 dist<-c()
-for (i in depth.files)
+for (f in depth.files)
 {
-  dep<-read.table(f,header=F,sep="\t",stringsAsFactors = F)
+  dep<-read.table(file=f,header=F,sep="\t",stringsAsFactors = F)
   x<- mean(dep[,3])
   dist<- c(dist,x)
 }
