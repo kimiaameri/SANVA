@@ -7,7 +7,7 @@
 ######## Trimmomatic #########
 export MINICONDA_HOME="~/miniconda3/bin/"
 export GITHUB_DIR=`pwd`
-export SAMTools='$WORK/SAEVA-softwares/samtools-1.5'
+export SAMTools='$WORK/SAEVA-softwares/samtools-1.5/'
 export PICARD='$WORK/SAEVA-softwares/picard/'
 export FREEBAYES='$WORK/SAEVA-softwares/freebayes/bin/'
 export BCFTools='$WORK/SAEVA-softwares/bcftools-1.8/'
