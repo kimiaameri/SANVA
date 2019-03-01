@@ -4,11 +4,11 @@
 
 
 argv <- commandArgs(trailingOnly = TRUE)
-folderPath <- argv[1]
+depthPath <- argv[1]
 vcfPath <- argv[2]
 depthOutput <- argv[3]
 qualityOutput <- argv[4]
-summaryFile <- argv[5]
+#summaryFile <- argv[5]
 
 #folderPath <- argv[1]
 #vcfPath <- argv[2]
@@ -16,28 +16,26 @@ summaryFile <- argv[5]
 #qualityOutput <- argv[4]
 #summaryFile <- argv[5]
 #files<- list.files("~/Dropbox/lugdunensis/depth/")
-files<- list.files(folderPath)
 
-dist<-NULL
-
-for (i in 1:length(files))
+depth.files<- list.files(depthPath, full.names=T)
+dist<-c()
+for (i in depth.files)
 {
-  dep<-read.table(paste(folderPath,files[i],sep=""),header=F,sep="\t",stringsAsFactors = F)
-  x<- dep[,3]
-  dist<- cbind(dist,x)
+  dep<-read.table(f,header=F,sep="\t",stringsAsFactors = F)
+  x<- mean(dep[,3])
+  dist<- c(dist,x)
 }
-means<- apply(dist,2,mean)
-
+#means<- apply(dist,2,mean)
 #z<-as.data.frame(summary(dist))
-minValue  <- min(means)
-write(minValue,outputFile)
+#minValue  <- min(dist)
+write(min(dist),depthOutput)
 #write.table(z,summaryFile)
 
-vcf.files <- depthOutput(vcfPath, full.names = T)
+vcf.files <- list.files(vcfPath, full.names = T)
 qual <- c()
 for (f in vcf.files) {
   vcf <- read.table(file=f)
-  qual <- c(qual,average(vcf[,6]))
+  qual <- c(qual,mean(vcf[,6]))
 }
 write(min(qual),qualityOutput)
  
