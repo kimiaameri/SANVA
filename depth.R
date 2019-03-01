@@ -28,7 +28,7 @@ for (f in depth.files)
 #means<- apply(dist,2,mean)
 #z<-as.data.frame(summary(dist))
 #minValue  <- min(dist)
-write(min(dist),depthOutput)
+write(summary(dist),depthOutput)
 #write.table(z,summaryFile)
 
 vcf.files <- list.files(vcfPath, full.names = T)
@@ -37,5 +37,5 @@ for (f in vcf.files) {
   vcf <- read.table(file=f)
   qual <- c(qual,mean(vcf[,6]))
 }
-write(min(qual),qualityOutput)
+write(summary(qual),qualityOutput)
  
