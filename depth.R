@@ -30,5 +30,5 @@ for (f in vcf.files) {
   vcf <- read.table(file=f)
   qual <- c(qual,median(vcf[,6]))
 }
-write(median(qual),qualityOutput)
+write((median(qual),qualityOutput)
  
