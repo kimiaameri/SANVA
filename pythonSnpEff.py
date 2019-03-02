@@ -8,7 +8,7 @@ if len(sys.argv) < 4:
 inputFile = sys.argv[1]
 BCFTools = sys.argv[2]
 minicondaBin = sys.argv[3]
-outputFile = "SnpEff.sh"
+outputFile = "snpEff.sh"
 
 with open(inputFile) as csv_file:
 
