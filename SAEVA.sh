@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH --time=60:00:00   # Run time in hh:mm:ss
+#SBATCH --time=80:00:00   # Run time in hh:mm:ss
 #SBATCH --mem-per-cpu=16384     # Maximum memory required per CPU (in megabytes)
 #SBATCH --job-name=SAVEA
 #SBATCH --error=SAVEA.%J.err
