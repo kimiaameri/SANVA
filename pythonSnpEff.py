@@ -42,18 +42,16 @@ with open(inputFile) as csv_file:
         outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/high/*.vcf;\n')
         outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/low/*.vcf;\n')
         outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/all/0000.vcf > $WORK/SAEVA-outputs/snpEff-outputs/snpEff_intersection_All.ann.vcf \n')
-        outfile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/snpEff-gene/snpEff_All_intersection_genes.txt \n')
-        sys.exit(0)
-
-        outfile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_All_intersection_summary.html \n')
+        outFile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/snpEff-gene/snpEff_All_intersection_genes.txt \n')
+        outFile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_All_intersection_summary.html \n')
         for i in highSamples:
              outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/high/0000.vcf > $WORK/SAEVA-outputs/snpEff-outputs/snpEff_intersection_high.ann.vcf \n')
-             outfile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/snpEff-gene/snpEff_high_intersection_genes.txt \n')
-             outfile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_high_intersection_summary.html \n')
+             outFile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/snpEff-gene/snpEff_high_intersection_genes.txt \n')
+             outFile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_high_intersection_summary.html \n')
         for i in lowSamples:
              outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/low/0000.vcf > $WORK/SAEVA-outputs/snpEff-outputs/snpEff_intersection_low.ann.vcf \n')
-             outfile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/snpEff-gene/snpEff_low_intersection_genes.txt \n')
-             outfile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_low_intersection_summary.html \n')
+             outFile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/snpEff-gene/snpEff_low_intersection_genes.txt \n')
+             outFile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/snpEff-summary/snpEff_low_intersection_summary.html \n')
 
 
 
