@@ -58,7 +58,7 @@ cd picard/
 wget https://github.com/broadinstitute/picard/releases/download/2.9.0/picard.jar
 
 ####   Download freebayes    #####
-cd $WORK/SAEVA-softwares/
+cd $WORK/SAEVA_softwares/freebayes/
 git clone --recursive git://github.com/ekg/freebayes.git
 cd freebayes
 make
