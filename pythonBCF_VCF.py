@@ -9,7 +9,7 @@ inputFile = sys.argv[1]
 BCFTools = sys.argv[2]
 quality = sys.argv[3]
 depth= sys.argv[4]
-outputFile = "BCF_VCF.sh"
+outputFile = "BCF-VCF.sh"
 with open(outputFile,'w') as outFile:
     count=0
     with open(inputFile) as csv_file:
