@@ -15,7 +15,7 @@ cd ../
 python GenomeBedPull.py $WORK/SAEVA_reference_genome
 #######   Download softwares    #######
 mkdir SAEVA-softwares
-cd SAEVA-softwares
+cd SAEVA-softwares/
 ####      Bioconda          ####
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 sh Miniconda3-latest-Linux-x86_64.sh
@@ -39,13 +39,14 @@ conda install -c bioconda java-jdk
 #cd trimmomatic-0.36/ 
 
 ####   Download BWA       #####
-cd $WORK/SAEVA-softwares
+cd $WORK/SAEVA-softwares/
 wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2
 tar -xvjf bwa-0.7.17.tar.bz2
 rm bwa-0.7.17.tar.bz2
-cd bwa-0.7.17
+cd bwa-0.7.17/
 make
 ##### Download Samtools      #####
+cd $WORK/SAEVA-softwares/
 wget https://sourceforge.net/projects/samtools/files/samtools/1.5/samtools-1.5.tar.bz2
 tar -xvjf samtools-1.5.tar.bz2
 rm samtools-1.5.tar.bz2
@@ -56,6 +57,7 @@ make
 #git clone https://github.com/broadinstitute/picard.git
 #cd picard
 #./gradlew shadowJar
+cd $WORK/SAEVA-softwares/
 mkdir picard
 cd picard/
 wget https://github.com/broadinstitute/picard/releases/download/2.9.0/picard.jar
@@ -69,6 +71,7 @@ make
 cd $WORK/SAEVA-softwares/freebayes/vcflib
 make
 #### Download BcftTools       ####
+cd $WORK/SAEVA-softwares/
 wget  wget https://github.com/samtools/bcftools/releases/download/1.8/bcftools-1.8.tar.bz2
 tar -xvjf bcftools-1.8.tar.bz2
 rm bcftools-1.8.tar.bz2
@@ -81,6 +84,7 @@ unzip snpEff_latest_core.zip
 rm snpEff_latest_core.zip
 
 ####          bedtools        ####
+cd $WORK/SAEVA-softwares/
 wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools-2.25.0.tar.gz
 tar -zxvf bedtools-2.25.0.tar.gz
 cd bedtools2
