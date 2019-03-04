@@ -1,3 +1,9 @@
+rgv <- commandArgs(trailingOnly = TRUE)
+sorce<- argv[1]
+bedpath <- argv[2]
+vcfPath <- argv[3]
+depthOutput <- argv[4]
+qualityOutput <- argv[5]
 
 setwd("./")
 source("./source/Inputs.R")
@@ -11,7 +17,7 @@ source("./source/FisherTest.R")
 #-----------------------------------------------------------------------#
 #                             read bedfiles                             #
 #-----------------------------------------------------------------------#
-reference_Genome <- as.matrix(read.table("./input/nctc8325.bed",header=F,sep="\t",stringsAsFactors = F))
+reference_Genome <- as.matrix(read.table("bedpath/nctc8325.bed",header=F,sep="\t",stringsAsFactors = F))
 length.genome= nrow(reference_Genome)
 intersections<- list.files("./input/intersections/")
 gene.length<- as.numeric(reference_Genome[,3]) - as.numeric(reference_Genome[,2])
