@@ -1,8 +1,8 @@
-permutationTest<- function(bigtable.norm)
+permutationTest<- function(bigtable.norm,high,low)
 {
   ##------------------ find significant genes for normal table -------##
   x<- bigtable.norm
-  y<-as.matrix( c(rep(1,7),rep(0,4)))
+  y<-as.matrix( c(rep(1,high),rep(0,low)))
   n = 1000
   
   ndist<- matrix(ncol=n, nrow=nrow(x))
