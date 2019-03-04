@@ -5,4 +5,7 @@ export OUTPUT_PATH='$WORK/SAEVA-outputs/'
 python3 pythonIntersections.py ../InputFiles.csv $GENOME_BED_PATH
 sh mapVCF-to-Bed.sh
 
-Rscript maincode.R GITHUB_DIR GENOME_BED_PATH INTERSECTIONS_PATH OUTPUT_PATH
+export HIGH= `cat High.txt` 
+export LOW=`cat low.txt` 
+
+Rscript maincode.R GITHUB_DIR GENOME_BED_PATH INTERSECTIONS_PATH ../InputFiles.csv HIGH LOW OUTPUT_PATH
