@@ -1,25 +1,23 @@
 rgv <- commandArgs(trailingOnly = TRUE)
-sorce<- argv[1]
+source<- argv[1]
 bedpath <- argv[2]
-vcfPath <- argv[3]
-depthOutput <- argv[4]
-qualityOutput <- argv[5]
+intersectionspath<- argv[3]
 
-setwd("./")
-source("./source/Inputs.R")
-source("./source/permutationTest.R")
-source("./source/BlastFindings.R")
-source("./source/MutationPosition.R")
-source("./source/GenePosition.R")
-source("./source/Filters.R")
-source("./source/FisherTest.R")
+
+source(paste0(source,"/Inputs.R"))
+source(paste0(source,"/permutationTest.R"))
+source(paste0(source,"/BlastFindings.R"))
+source(paste0(source,"/MutationPosition.R"))
+source(paste0(source,"/GenePosition.R"))
+source(paste0(source,"/Filters.R"))
+source(paste0(source,"/FisherTest.R"))
 
 #-----------------------------------------------------------------------#
 #                             read bedfiles                             #
 #-----------------------------------------------------------------------#
-reference_Genome <- as.matrix(read.table("bedpath/nctc8325.bed",header=F,sep="\t",stringsAsFactors = F))
+reference_Genome <- as.matrix(read.table(paste0(bedpath,"/nctc8325.bed"),header=F,sep="\t",stringsAsFactors = F))
 length.genome= nrow(reference_Genome)
-intersections<- list.files("./input/intersections/")
+intersections<- list.files(paste0(intersectionspath,"/intersections/"))
 gene.length<- as.numeric(reference_Genome[,3]) - as.numeric(reference_Genome[,2])
 reference_Genome<-cbind(reference_Genome,gene.length)
 #-----------------------------------------------------------------------#
