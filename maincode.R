@@ -2,7 +2,7 @@ rgv <- commandArgs(trailingOnly = TRUE)
 source<- argv[1]
 bedpath <- argv[2]
 intersectionspath<- argv[3]
-
+outpath <-argv[4]
 
 source(paste0(source,"/Inputs.R"))
 source(paste0(source,"/permutationTest.R"))
@@ -37,17 +37,7 @@ bigtable <- bigtable[rowSums(bigtable) != 0,]
 bigtable.norm <- bigtable.norm[rowSums(bigtable.norm) != 0,]
 columnnames<- gsub(pattern = ".bed",replacement = "",intersections, perl = T)
 #---------------
-X1<-bigtable[,c(1:5)]
-X2<-bigtable[,c(9:10)]
-X3<-bigtable[,c(6:8)]
-X4<-as.matrix(bigtable[,11])
-bigtable<- as.matrix(cbind(X1,X2,X3,X4))
-#----------------
-X1<-bigtable.norm[,c(1:5)]
-X2<-bigtable.norm[,c(9:10)]
-X3<-bigtable.norm[,c(6:8)]
-X4<-as.matrix(bigtable.norm[,11])
-bigtable.norm<- as.matrix(cbind(X1,X2,X3,X4))
+
 #-------------------------------------------------------------------------#
 #                 lable High and Low samples in table                     #
 #-------------------------------------------------------------------------#
@@ -57,10 +47,9 @@ colnames(bigtable)<- paste(group,"_",isolates)
 colnames(bigtable.norm)<- paste(group,"_",isolates)
 annotation <- matrix(group)
 rownames(annotation) <- isolates
-write.csv(x =bigtable,file="./output/bigtable.csv" )
-write.csv(x =bigtable.norm,file="./output/bigtable.normal.csv" )
+write.csv(x =bigtable,file=paste0(outpath,"/bigtable.csv") )
 #-------------------------------------------------------------------------#
 #             find significant genes by permutation test                  #
 #-------------------------------------------------------------------------#
 significatGenes<-permutationTest(bigtable.norm)
-write.csv(x =significatGenes,file="./output/significatGenes.csv" )
+write.csv(x =significatGenes,file=paste0(outpath,"/significatGenes.csv" ))
