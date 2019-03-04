@@ -8,6 +8,7 @@ if len(sys.argv) < 4:
 inputFile = sys.argv[1]
 BCFTools = sys.argv[2]
 minicondaBin = sys.argv[3]
+cpath = sys.argv[4]
 outputFile = "snpEff.sh"
 
 with open(inputFile) as csv_file:
@@ -22,6 +23,11 @@ with open(inputFile) as csv_file:
     print(lowSamples)
     high = len(highSamples)
     low = len(lowSamples)
+    with open (cpath +"/High.txt",'w') as of:
+        of.write(high)
+    with open (cpath + "/Low.txt",'w') as of:
+        of.write(low)
+        
     length = high + low
     with open(outputFile,'w') as outFile:
         outFile.write(f'{BCFTools}bcftools isec $WORK/SAEVA-outputs/bcfoutput/*.gz -p $WORK/SAEVA-outputs/All -n={length};\n')
