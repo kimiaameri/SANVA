@@ -35,8 +35,7 @@ for (i in 1:length(intersections))
 }
 bigtable <- bigtable[rowSums(bigtable) != 0,]
 bigtable.norm <- bigtable.norm[rowSums(bigtable.norm) != 0,]
-columnnames<- gsub(pattern = "intersect-",replacement = "",intersections, perl = T)
-columnnames<- gsub(pattern = "_q5000_dp250.bed",replacement = "",columnnames, perl = T)
+columnnames<- gsub(pattern = ".bed",replacement = "",intersections, perl = T)
 #---------------
 X1<-bigtable[,c(1:5)]
 X2<-bigtable[,c(9:10)]
