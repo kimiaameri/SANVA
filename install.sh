@@ -1,3 +1,7 @@
+# Make sure you have loaded the module for compiler
+# First clean the make file
+## make clean 
+## module load compiler/gcc/7.1
 if [ -z $WORK ]; then WORK=`pwd`; fi
 
 ####  Download reference genome    ####
