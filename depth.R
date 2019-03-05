@@ -14,6 +14,7 @@ for (f in depth.files){
   dist<- c(dist,median(dep[,3]))
 }
 write(median(dist),depthOutput)
+#----------------------------------------------------------------------
 vcf.files <- list.files(vcfPath, full.names = T)
 qual <- c()
 for (f in vcf.files) {
