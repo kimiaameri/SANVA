@@ -42,11 +42,12 @@ bigtable.norm <- bigtable.norm[rowSums(bigtable.norm) != 0,]
 #-------------------------------------------------------------------------#
 #                 lable High and Low samples in table                     #
 #-------------------------------------------------------------------------#
-group <- c(rep("H",high),rep("L",low))
+#group <- c(rep("H",high),rep("L",low))
 samples <- as.matrix(read.table(paste0(inputFiles,"/InputFiles.csv"),header=F,sep=",",stringsAsFactors = F))
+
 sort.samples <- x[order(x$V2, na.last=NA) , ]
 isolates<- sort.samples[,1]
-
+group <- substr(sort.samples[,2],1,1)
 colnames(bigtable)<- paste(group,"_",isolates)
 colnames(bigtable.norm)<- paste(group,"_",isolates)
 annotation <- matrix(group)
