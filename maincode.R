@@ -1,8 +1,12 @@
 rgv <- commandArgs(trailingOnly = TRUE)
+
 source<- argv[1]
 bedpath <- argv[2]
 intersectionspath<- argv[3]
-outpath <-argv[4]
+inputFiles<- argv[4]
+high<- argv[5]
+low<- argv[6]
+outpath <-argv[7]
 
 source(paste0(source,"/Inputs.R"))
 source(paste0(source,"/permutationTest.R"))
@@ -17,7 +21,7 @@ source(paste0(source,"/FisherTest.R"))
 #-----------------------------------------------------------------------#
 reference_Genome <- as.matrix(read.table(paste0(bedpath,"/nctc8325.bed"),header=F,sep="\t",stringsAsFactors = F))
 length.genome= nrow(reference_Genome)
-intersections<- list.files(paste0(intersectionspath,"/intersections/"))
+intersections<- list.files(intersectionspath)
 gene.length<- as.numeric(reference_Genome[,3]) - as.numeric(reference_Genome[,2])
 reference_Genome<-cbind(reference_Genome,gene.length)
 #-----------------------------------------------------------------------#
@@ -35,14 +39,14 @@ for (i in 1:length(intersections))
 }
 bigtable <- bigtable[rowSums(bigtable) != 0,]
 bigtable.norm <- bigtable.norm[rowSums(bigtable.norm) != 0,]
-columnnames<- gsub(pattern = ".bed",replacement = "",intersections, perl = T)
-#---------------
-
 #-------------------------------------------------------------------------#
 #                 lable High and Low samples in table                     #
 #-------------------------------------------------------------------------#
-group <- c(rep("H",7),rep("L",4))
-isolates<- c("HSS12071M1","Silverman37712B1_S21","Silverman60383B1_S18","Silverman62129B1_S17", "Silverman79414A1_S23","Silverman99382M1_S15","Silverman99624A1_S20","Silverman93954A1_S19", "Silverman94232M1_S14", "Silverman99382B1_S22" ,"Silverman99624D1_S16")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+group <- c(rep("H",high),rep("L",low))
+samples <- as.matrix(read.table(paste0(inputFiles,"/InputFiles.csv"),header=F,sep=",",stringsAsFactors = F))
+sort.samples <- x[order(x$V2, na.last=NA) , ]
+isolates<- sort.samples[,1]
+
 colnames(bigtable)<- paste(group,"_",isolates)
 colnames(bigtable.norm)<- paste(group,"_",isolates)
 annotation <- matrix(group)
@@ -51,5 +55,7 @@ write.csv(x =bigtable,file=paste0(outpath,"/bigtable.csv") )
 #-------------------------------------------------------------------------#
 #             find significant genes by permutation test                  #
 #-------------------------------------------------------------------------#
-significatGenes<-permutationTest(bigtable.norm)
+significatGenes<-permutationTest(bigtable.norm, high, low)
 write.csv(x =significatGenes,file=paste0(outpath,"/significatGenes.csv" ))
+#pheatmap(sig.normalgenes,cluster_cols=F)
+
