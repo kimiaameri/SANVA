@@ -66,9 +66,8 @@ python3 pythonFinddepth.py ../InputFiles.csv $SAMTools
 sh findDepth.sh
 
 Rscript depth.R $WORK/SAEVA-outputs/depth/ $WORK/SAEVA-outputs/freebayesoutput/ depth.txt quality.txt 
-export DEPTH=$(( `cat depth.txt` * 2 ))
-export QUALITY=$((`cat quality.txt` * 2 ))
-
+export DEPTH= $(( `cat depth.txt` ))
+export QUALITY=$((`cat quality.txt` * 1 ))
 
 ###########  VCF-BCF ##################
 cd $WORK/SAEVA-outputs
