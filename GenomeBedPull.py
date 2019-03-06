@@ -53,7 +53,7 @@ with open(outputFile,'w') as outFile:
         for row in csv_reader:
             if count !=0 :
                for line in csv_reader:
-                  csv_reader.write(line)
+                  outFile.write(line)
             
             count =count +1
  
