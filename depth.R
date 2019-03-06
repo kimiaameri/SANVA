@@ -11,7 +11,7 @@ depth.files<- list.files(depthPath, full.names=T)
 dist<-c()
 for (d in depth.files){
   dep<-read.table(file=d,header=F,sep="\t",stringsAsFactors = F)
-  dist<- c(dist,median(dep[,3]))
+  dist<- c(dist,min(dep[,3]))
 }
 write(median(dist),depthOutput)
 #----------------------------------------------------------------------
@@ -19,7 +19,7 @@ vcf.files <- list.files(vcfPath, full.names = T)
 qual <- c()
 for (q in vcf.files) {
   vcf <- read.table(file=q)
-  qual <- c(qual,mean(vcf[,6]))
+  qual <- c(qual,min(vcf[,6]))
 }
 quality<- as.integer(mean(qual))
 write(quality,qualityOutput)
