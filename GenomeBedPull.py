@@ -2,6 +2,7 @@ from Bio import SeqIO
 from Bio import Entrez
 import pdb
 import sys
+import csv
 
 path = sys.argv[1]
 
