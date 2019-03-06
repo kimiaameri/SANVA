@@ -1,5 +1,8 @@
-intesect.reference.vcf <- function(i, reference){
-   intersections <- as.matrix(read.table(paste("./input/intersections/",i,sep=""),header=F,sep="\t",stringsAsFactors = F))
+
+argv <- commandArgs(trailingOnly = TRUE)
+
+intesect.reference.vcf <- function(i, reference,intersectionspath){
+   intersections <- as.matrix(read.table(paste0(intersectionspath,i,sep=""),header=F,sep="\t",stringsAsFactors = F))
     length.intersection= nrow(intersections)
     length.genome= nrow(reference)
     for (j in 1 :length.genome)
