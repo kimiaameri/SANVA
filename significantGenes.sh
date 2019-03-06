@@ -13,10 +13,9 @@ sh mapVCF-to-Bed.sh
 export INTERSECTIONS_PATH="$WORK/SAEVA-outputs/intersections/"
 export OUTPUT_PATH='$WORK/SAEVA-outputs/'
 
-sh mapVCF-to-Bed.sh
 
-$WORK/SAEVA-outputs
+cd $WORK/SAEVA-outputs
 export HIGH= `cat High.txt` 
-export LOW=`cat low.txt` 
+export LOW=`cat Low.txt` 
 
 Rscript maincode.R GITHUB_DIR GENOME_BED_PATH INTERSECTIONS_PATH ../InputFiles.csv HIGH LOW OUTPUT_PATH
