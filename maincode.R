@@ -1,5 +1,5 @@
-rgv <- commandArgs(trailingOnly = TRUE)
 
+argv <- commandArgs(trailingOnly = TRUE)
 source<- argv[1]
 bedpath <- argv[2]
 intersectionspath<- argv[3]
