@@ -24,9 +24,9 @@ with open(inputFile) as csv_file:
     high = len(highSamples)
     low = len(lowSamples)
     with open (cpath +"/High.txt",'w') as of:
-        of.write(high)
+        of.write(str(high))
     with open (cpath + "/Low.txt",'w') as of:
-        of.write(low)
+        of.write(str(low))
         
     length = high + low
     with open(outputFile,'w') as outFile:
