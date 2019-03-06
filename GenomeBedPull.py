@@ -52,7 +52,7 @@ with open(outputFile,'w') as outFile:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             if count !=0 :
-                  outFile.write(f'{row}')
+                  outFile.write(f'row')
             
             count =count +1
  
