@@ -21,6 +21,6 @@ for (q in vcf.files) {
   vcf <- read.table(file=q)
   qual <- c(qual,median(vcf[,6]))
 }
-quality<- as.integer(median(qual))
+quality<- as.integer(mean(qual))
 write(quality,qualityOutput)
  
