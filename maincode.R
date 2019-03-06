@@ -1,11 +1,11 @@
 
 argv <- commandArgs(trailingOnly = TRUE)
-source<- argv[1]
+source <- argv[1]
 bedpath <- argv[2]
-intersectionspath<- argv[3]
-inputFiles<- argv[4]
-high<- argv[5]
-low<- argv[6]
+intersectionspath <- argv[3]
+inputFiles <- argv[4]
+high <- argv[5]
+low <- argv[6]
 outpath <-argv[7]
 
 source(paste0(source,"/intesect_reference_vcf.R"))
