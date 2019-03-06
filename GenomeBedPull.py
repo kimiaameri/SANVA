@@ -2,8 +2,6 @@ from Bio import SeqIO
 from Bio import Entrez
 import pdb
 import sys
-import csv
-
 path = sys.argv[1]
 
 accession = "CP000253"
@@ -22,7 +20,7 @@ for id in records["IdList"]:
 f.close()
 
 def main():
-    outf = open(path + '/nctc8325.csv', 'w')
+    outf = open(path + '/nctc8325.bed', 'w')
     header = """track name=vitVinGenes description="V. vinifera cpdna genes" itemRgb=On\n"""
     outf.write(header)
     for record in SeqIO.parse(open(accession+".gb", "rU"), "genbank") :
@@ -45,15 +43,4 @@ def main():
 if __name__ == '__main__':
     main()
     
-outputFile = "nctc8325.bed"
-with open(outputFile,'w') as outFile:
-    count=0
-    with open(path + '/nctc8325.csv','r') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        for row in csv_reader:
-            if count !=0 :
-                  outFile.write(f'row')
-            
-            count =count +1
- 
     
