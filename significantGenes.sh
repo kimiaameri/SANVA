@@ -19,4 +19,4 @@ export HIGH= `cat High.txt`
 export LOW=`cat Low.txt` 
 export SOURCE_DIR="$WORK/SAEVA"
 
-Rscript maincode.R SOURCE_DIR GENOME_BED_PATH INTERSECTIONS_PATH ../InputFiles.csv HIGH LOW OUTPUT_PATH
+Rscript maincode.R $SOURCE_DIR $GENOME_BED_PATH $INTERSECTIONS_PATH ../InputFiles.csv $HIGH $LOW $OUTPUT_PATH
