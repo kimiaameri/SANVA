@@ -8,13 +8,13 @@ high<- argv[5]
 low<- argv[6]
 outpath <-argv[7]
 
-source(paste0(source,"/Inputs.R"))
-source(paste0(source,"/permutationTest.R"))
-source(paste0(source,"/BlastFindings.R"))
-source(paste0(source,"/MutationPosition.R"))
-source(paste0(source,"/GenePosition.R"))
-source(paste0(source,"/Filters.R"))
-source(paste0(source,"/FisherTest.R"))
+source(paste0(source,"Inputs.R"))
+source(paste0(source,"permutationTest.R"))
+source(paste0(source,"BlastFindings.R"))
+source(paste0(source,"MutationPosition.R"))
+source(paste0(source,"GenePosition.R"))
+source(paste0(source,"Filters.R"))
+source(paste0(source,"FisherTest.R"))
 
 #-----------------------------------------------------------------------#
 #                             read bedfiles                             #
