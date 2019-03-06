@@ -5,6 +5,7 @@ export OUTPUT_PATH='$WORK/SAEVA-outputs/'
 python3 pythonIntersections.py ../InputFiles.csv $GENOME_BED_PATH
 sh mapVCF-to-Bed.sh
 
+$WORK/SAEVA-outputs
 export HIGH= `cat High.txt` 
 export LOW=`cat low.txt` 
 
