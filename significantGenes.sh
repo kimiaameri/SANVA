@@ -3,7 +3,7 @@ mkdir vcfbed
 mkdir intersection
 
 cd $WORK/SAEVA/
-python3 GenomeBedPull.py $WORK/SAEVA_reference_genome
+python3 GenomeBedPull.py $WORK/SAEVA_reference_genome $$WORK/SAEVA
 export GENOME_BED_PATH="$WORK/SAEVA_reference_genome/"
 python3 pythonVcfbed.py ../InputFiles.csv $MINICONDA_HOME
 sh vcfBed.sh
