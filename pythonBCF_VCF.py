@@ -17,7 +17,7 @@ with open(outputFile,'w') as outFile:
         for row in csv_reader:
             if count !=0:
                 outFile.write(f'$WORK/SAEVA-softwares/freebayes/vcflib/bin/vcffilter -f "QUAL >{quality}" $WORK/SAEVA-outputs/freebayesoutput/{row[0]}.vcf >$WORK/SAEVA-outputs/vcffilter-q/{row[0]}.vcf\n')
-                outFile.write(f'WORK/SAEVA-softwares/freebayes/vcflib/bin/vcffilter -f "DP > {depth}" $WORK/SAEVA-outputs/vcffilter-q/{row[0]}.vcf > $WORK/SAEVA-outputs/vcffilter-q-dp/{row[0]}.vcf\n')
+                outFile.write(f'$WORK/SAEVA-softwares/freebayes/vcflib/bin/vcffilter -f "DP > {depth}" $WORK/SAEVA-outputs/vcffilter-q/{row[0]}.vcf > $WORK/SAEVA-outputs/vcffilter-q-dp/{row[0]}.vcf\n')
                 outFile.write(f'{BCFTools}bcftools view -Ob $WORK/SAEVA-outputs/vcffilter-q-dp/{row[0]}.vcf > $WORK/SAEVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')
                 outFile.write(f'{BCFTools}bcftools index $WORK/SAEVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')
             count =count + 1
