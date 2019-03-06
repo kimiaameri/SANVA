@@ -56,7 +56,7 @@ write.csv(x =bigtable,file=paste0(outpath,"/bigtable.csv") )
 #-------------------------------------------------------------------------#
 #             find significant genes by permutation test                  #
 #-------------------------------------------------------------------------#
-significatGenes<-permutationTest(bigtable.norm, high, low)
-write.csv(x =significatGenes,file=paste0(outpath,"/significatGenes.csv" ))
-pheatmap(sig.normalgenes,cluster_cols=F, filename= paste0(source,"/Pheatmap.jpg"))
+#significatGenes<-permutationTest(bigtable.norm, high, low)
+#write.csv(x =significatGenes,file=paste0(outpath,"/significatGenes.csv" ))
+#pheatmap(sig.normalgenes,cluster_cols=F, filename= paste0(source,"/Pheatmap.jpg"))
 
