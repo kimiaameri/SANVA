@@ -19,11 +19,7 @@ export HIGH= `cat High.txt`
 export LOW=`cat Low.txt` 
 export SOURCE_DIR="$WORK/SAEVA"
 
-cd $WORK/SAEVA_reference_genome/
-with open("nctc8325.bed",'r') as f:
-    with open("nctc8325-1.bed",'w') as f1:
-        f.next() # skip header line
-        for line in f:
-            f1.write(line)
+cd $WORK/SAEVA_reference_genome
+tail -n+3 nctc8325.bed
 cd $WORK/SAEVA           
 Rscript maincode.R $SOURCE_DIR $GENOME_BED_PATH $INTERSECTIONS_PATH ../InputFiles.csv $HIGH $LOW $OUTPUT_PATH
