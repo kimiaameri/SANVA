@@ -10,12 +10,12 @@ genomeBedpath = sys.argv[2]
 
 outputFile = "mapVCF-to-Bed.sh"
 with open(outputFile,'w') as outFile:
+    outFile.write(f'sed -i \'s/^cpdna/chr/\' {genomeBedpath}/nctc8325.bed;\n')  
     count=0
     with open(inputFile) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
-            if count !=0:
-                outFile.write(f'sed -i \'s/^cpdna/chr/\' {genomeBedpath}/nctc8325.bed;\n')              
+            if count !=0:                          
                 outFile.write(f'$WORK/bedtools2/bin/bedtools intersect –a {row[0]}.vcf.bed -b {genomeBedpath}/nctc8325.bed > $WORK/SAEVA-outputs/intersections/{row[0]}.bed \n')
             count =count + 1
 
