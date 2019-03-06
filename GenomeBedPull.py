@@ -21,7 +21,7 @@ for id in records["IdList"]:
 f.close()
 
 def main():
-    outf = open(path + '/nctc8325.bed', 'w')
+    outf = open(path + '/nctc8325.csv', 'w')
     header = """track name=vitVinGenes description="V. vinifera cpdna genes" itemRgb=On\n"""
     outf.write(header)
     for record in SeqIO.parse(open(accession+".gb", "rU"), "genbank") :
@@ -44,8 +44,8 @@ def main():
 if __name__ == '__main__':
     main()
     
-with open(path + '/nctc8325.bed','r') as f:
-    with open(path + '/nctc8325-1.bed','w') as f1:
+with open(path + '/nctc8325.csv','r') as f:
+    with open(path + '/nctc8325.bed','w') as f1:
         f.next() # skip header line
         for line in f:
             f1.write(line)
