@@ -44,8 +44,16 @@ def main():
 if __name__ == '__main__':
     main()
     
-with open(path + '/nctc8325.csv','r') as f:
-    with open(path + '/nctc8325.bed','w') as f1:
-        f.next() # skip header line
-        for line in f:
-            f1.write(line)
+outputFile = "nctc8325.bed"
+with open(outputFile,'w') as outFile:
+    count=0
+    with open(path + '/nctc8325.csv','r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        for row in csv_reader:
+            if count !=0 :
+               for line in csv_reader:
+                  csv_reader.write(line)
+            
+            count =count +1
+ 
+    
