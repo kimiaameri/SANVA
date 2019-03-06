@@ -43,7 +43,7 @@ bigtable.norm <- bigtable.norm[rowSums(bigtable.norm) != 0,]
 #                 lable High and Low samples in table                     #
 #-------------------------------------------------------------------------#
 #group <- c(rep("H",high),rep("L",low))
-samples <- as.matrix(read.table(paste0(inputFiles,"/InputFiles.csv"),header=F,sep=",",stringsAsFactors = F))
+samples <- as.matrix(read.table(paste0(inputFiles),header=F,sep=",",stringsAsFactors = F))
 
 sort.samples <- x[order(x$V2, na.last=NA) , ]
 isolates<- sort.samples[,1]
