@@ -42,3 +42,9 @@ def main():
     outf.close()
 if __name__ == '__main__':
     main()
+    
+with open("nctc8325.bed",'r') as f:
+    with open("nctc8325-1.bed",'w') as f1:
+        f.next() # skip header line
+        for line in f:
+            f1.write(line)
