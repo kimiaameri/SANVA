@@ -8,7 +8,7 @@ high <- argv[5]
 low <- argv[6]
 outpath <-argv[7]
 
-source(paste0("sourcePath","/intesect_reference_vcf.R"))
+source(paste0(sourcePath,"/intesect_reference_vcf.R"))
 source(paste0(sourcePath,"/permutationTest.R"))
 source(paste0(sourcePath,"/BlastFindings.R"))
 source(paste0(sourcePath,"/MutationPosition.R"))
