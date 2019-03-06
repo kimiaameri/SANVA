@@ -74,7 +74,6 @@ cd $WORK/SAEVA-outputs
 mkdir vcffilter-q
 mkdir bcfoutput
 mkdir vcffilter-q-dp
-mkdir vcfbed
 cd $WORK/SAEVA/
 python3 pythonBCF_VCF.py ../InputFiles.csv $BCFTools $QUALITY $DEPTH
 sh BCF-VCF.sh
