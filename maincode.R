@@ -10,11 +10,11 @@ outpath <-argv[7]
 
 source(paste0(sourcePath,"/intesect_reference_vcf.R"))
 source(paste0(sourcePath,"/permutationTest.R"))
-source(paste0(sourcePath,"/BlastFindings.R"))
-source(paste0(sourcePath,"/MutationPosition.R"))
-source(paste0(sourcePath,"/GenePosition.R"))
-source(paste0(sourcePath,"/Filters.R"))
-source(paste0(sourcePath,"/FisherTest.R"))
+#source(paste0(sourcePath,"/BlastFindings.R"))
+#source(paste0(sourcePath,"/MutationPosition.R"))
+#source(paste0(sourcePath,"/GenePosition.R"))
+#source(paste0(sourcePath,"/Filters.R"))
+#source(paste0(sourcePath,"/FisherTest.R"))
 
 #-----------------------------------------------------------------------#
 #                             read bedfiles                             #
