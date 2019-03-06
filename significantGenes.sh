@@ -20,6 +20,6 @@ export LOW=`cat Low.txt`
 export SOURCE_DIR="$WORK/SAEVA"
 
 cd $WORK/SAEVA_reference_genome
-nctc8325.bed > tail -n+3 nctc8325.bed 
+cat  nctc8325.bed | tail -n+2 > nctc8325-1.bed 
 cd $WORK/SAEVA           
 Rscript maincode.R $SOURCE_DIR $GENOME_BED_PATH $INTERSECTIONS_PATH ../InputFiles.csv $HIGH $LOW $OUTPUT_PATH
