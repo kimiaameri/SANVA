@@ -59,5 +59,5 @@ write.csv(bigtable,bigtableFile)
 #-------------------------------------------------------------------------#
 significatGenes<-permutationTest(bigtable.norm, high, low)
 write.csv(significatGenes,significantgenesFile)
-pheatmap(sig.normalgenes,cluster_cols=F, filename= paste0(sourcePath,"/Pheatmap.pdf"))
+pheatmap(significatGenes,cluster_cols=F, filename= paste0(sourcePath,"/Pheatmap.pdf"))
 
