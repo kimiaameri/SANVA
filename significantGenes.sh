@@ -28,4 +28,5 @@ export SOURCE_DIR="$WORK/SAEVA"
 cd $WORK/SAEVA_reference_genome
 cat  nctc8325.bed | tail -n+2 > nctc8325-1.bed 
 cd $WORK/SAEVA           
-Rscript maincode.R $SOURCE_DIR $GENOME_BED_PATH $INTERSECTIONS_PATH ../InputFiles.csv $HIGH $LOW $OUTPUT_PATH
+Rscript maincode.R $SOURCE_DIR $GENOME_BED_PATH $INTERSECTIONS_PATH ../InputFiles.csv $HIGH $LOW bigtable.csv significatGenes.csv
+mv bigtable.csv $OUTPUT_PATH
