@@ -21,7 +21,7 @@ export OUTPUT_PATH="$WORK/SAEVA-outputs/"
 
 
 cd $WORK/SAEVA-outputs
-export HIGH= `cat High.txt` 
+export HIGH=`cat High.txt` 
 export LOW=`cat Low.txt` 
 export SOURCE_DIR="$WORK/SAEVA"
 
