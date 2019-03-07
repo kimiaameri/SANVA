@@ -6,7 +6,8 @@ intersectionspath <- argv[3]
 inputFiles <- argv[4]
 high <- argv[5]
 low <- argv[6]
-outpath <-argv[7]
+bigtableFile <-argv[7]
+significantgenesFile <-argv[7]
 
 source(paste0(sourcePath,"/intesect_reference_vcf.R"))
 source(paste0(sourcePath,"/permutationTest.R"))
@@ -52,11 +53,11 @@ colnames(bigtable)<- paste(group,"_",isolates)
 colnames(bigtable.norm)<- paste(group,"_",isolates)
 annotation <- matrix(group)
 rownames(annotation) <- isolates
-write.csv(x =bigtable,file=paste0(outpath,"/bigtable.csv") )
+write.csv(bigtable,bigtableFile)
 #-------------------------------------------------------------------------#
 #             find significant genes by permutation test                  #
 #-------------------------------------------------------------------------#
 #significatGenes<-permutationTest(bigtable.norm, high, low)
-#write.csv(x =significatGenes,file=paste0(outpath,"/significatGenes.csv" ))
+#write.csv(significatGenes,significantgenesFile))
 #pheatmap(sig.normalgenes,cluster_cols=F, filename= paste0(source,"/Pheatmap.jpg"))
 
