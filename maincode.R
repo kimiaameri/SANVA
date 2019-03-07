@@ -44,8 +44,8 @@ bigtable.norm <- bigtable.norm[rowSums(bigtable.norm) != 0,]
 #                 lable High and Low samples in table                     #
 #-------------------------------------------------------------------------#
 #group <- c(rep("H",high),rep("L",low))
-samples <- as.matrix(read.table(paste0(inputFiles),header=F,sep=",",stringsAsFactors = F))
-
+samples <- read.table(paste0(inputFiles),header=F,sep=",",stringsAsFactors = F)
+x<- samples
 sort.samples <- x[order(x$V2, na.last=NA) , ]
 isolates<- sort.samples[,1]
 group <- substr(sort.samples[,2],1,1)
@@ -57,7 +57,7 @@ write.csv(bigtable,bigtableFile)
 #-------------------------------------------------------------------------#
 #             find significant genes by permutation test                  #
 #-------------------------------------------------------------------------#
-#significatGenes<-permutationTest(bigtable.norm, high, low)
-#write.csv(significatGenes,significantgenesFile))
-#pheatmap(sig.normalgenes,cluster_cols=F, filename= paste0(source,"/Pheatmap.jpg"))
+significatGenes<-permutationTest(bigtable.norm, high, low)
+write.csv(significatGenes,significantgenesFile)
+pheatmap(sig.normalgenes,cluster_cols=F, filename= paste0(sourcePath,"/Pheatmap.pdf"))
 
