@@ -6,8 +6,8 @@ intersectionspath <- argv[3]
 inputFiles <- argv[4]
 high <- argv[5]
 low <- argv[6]
-bigtableFile <-argv[7]
-significantgenesFile <-argv[7]
+bigtableFile <- argv[7]
+significantgenesFile <- argv[7]
 
 source(paste0(sourcePath,"/intesect_reference_vcf.R"))
 source(paste0(sourcePath,"/permutationTest.R"))
