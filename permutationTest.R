@@ -18,7 +18,7 @@ permutationTest<- function(bigtable.norm,high,low)
   np.value.left <- 1 - np.value
   np.twotail <- pmin(np.value,np.value.left)
   np.adjusted <- p.adjust(np.twotail,method="fdr")<0.0005
-  sig.normalgenes<-bigtable.norm[np.adjusted,]
+  significatGenes<-bigtable.norm[np.adjusted,]
   
-  return(sig.normalgenes)
+  return(significatGenes)
 }
