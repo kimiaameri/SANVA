@@ -7,7 +7,7 @@ inputFiles <- argv[4]
 high <- argv[5]
 low <- argv[6]
 bigtableFile <- argv[7]
-significantgenesFile <- argv[7]
+significantgenesFile <- argv[8]
 
 source(paste0(sourcePath,"/intesect_reference_vcf.R"))
 source(paste0(sourcePath,"/permutationTest.R"))
@@ -57,7 +57,7 @@ write.csv(bigtable,bigtableFile)
 #-------------------------------------------------------------------------#
 #             find significant genes by permutation test                  #
 #-------------------------------------------------------------------------#
-significatGenes<-permutationTest(bigtable.norm, high, low)
-write.csv(significatGenes,significantgenesFile)
-pheatmap(significatGenes,cluster_cols=F, filename= paste0(sourcePath,"/Pheatmap.pdf"))
+significantGenes<-permutationTest(bigtable.norm, high, low)
+write.csv(significantGenes,significantgenesFile)
+pheatmap(significantGenes,cluster_cols=F, filename= paste0(sourcePath,"/Pheatmap.pdf"))
 
