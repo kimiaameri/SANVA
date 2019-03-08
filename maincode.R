@@ -21,7 +21,7 @@ source(paste0(sourcePath,"/permutationTest.R"))
 #                             read bedfiles                             #
 #-----------------------------------------------------------------------#
 reference_Genome <- as.matrix(read.table(paste0(bedpath,"/nctc8325-1.bed"),header=F,sep="\t",stringsAsFactors = F))
-length.genome= nrow(reference_Genome)
+length.genome <- nrow(reference_Genome)
 intersections<- list.files(intersectionspath)
 gene.length<- as.numeric(reference_Genome[,3]) - as.numeric(reference_Genome[,2])
 reference_Genome<-cbind(reference_Genome,gene.length)
@@ -38,8 +38,8 @@ for (i in 1:length(intersections))
   bigtable[names(res),i] <-  as.numeric(res) 
   bigtable.norm[names(res),i] <-  as.numeric(res) / as.numeric(reference_Genome[i,10])
 }
-bigtable <- bigtable[rowSums(bigtable) != 0,]
-bigtable.norm <- bigtable.norm[rowSums(bigtable.norm) != 0,]
+bigtable <- bigtable[rowSums(bigtable)!= 0,]
+bigtable.norm <- bigtable.norm[rowSums(bigtable.norm)!= 0,]
 #-------------------------------------------------------------------------#
 #                 lable High and Low samples in table                     #
 #-------------------------------------------------------------------------#
