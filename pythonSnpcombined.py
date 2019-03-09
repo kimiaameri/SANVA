@@ -17,11 +17,13 @@ with open(outputFile,'w') as outFile:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             if count !=0:
+               outFile.write('cd $WORK/SAEVA-outputs/;\n')
+               outFile.write('mkdir bcf;\n')
                outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/bcf/*.vcf;\n')
 
-               outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/bcf/0000.vcf > $WORK/SAEVA-outputs/bcf/snpEff_All.ann.vcf \n')
-               outFile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/bcf/snpEff_All_genes.txt \n')
-               outFile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/bcf/snpEff_All_summary.html \n')
+               outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/bcf/{row[0]}.vcf > $WORK/SAEVA-outputs/bcf/snpEff_{row[0]}.ann.vcf \n')
+               outFile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/bcf/snpEff_All{row[0]}_genes.txt \n')
+               outFile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/bcf/snpEff_All_{row[0]}summary.html \n')
         
                outFile.write('cd $WORK/SAEVA_outputs/bcf/ \n')
 
