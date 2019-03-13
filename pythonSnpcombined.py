@@ -12,8 +12,9 @@ cpath = sys.argv[4]
 outputFile = "snpEffAll.sh"
 with open(outputFile,'w') as outFile:
     outFile.write('cp $WORK/SAEVA-outputs/bcfoutput/*  $WORK/SAEVA-outputs/bcf/ ;\n')
+    csv_reader = csv.reader(csv_file, delimiter=',')
     allvcf = []
-    prefix = "$WORK/SAEVA-outputs/bcfoutput/"
+    prefix = "$WORK/SAEVA-outputs/bcf/"
     for row in csv_reader:
         allvcf.append(prefix + sample + ".vcf.gz")
     allStr  = ' '.join(allvcf)    
