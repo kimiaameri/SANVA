@@ -13,7 +13,7 @@ outputFile = "snpEffAll.sh"
 with open(outputFile,'w') as outFile:
     outFile.write('cp $WORK/SAEVA-outputs/bcfoutput/*  $WORK/SAEVA-outputs/bcf/ ;\n')
     samples = []
-    allStr = []
+    allvcf = []
     prefix = "$WORK/SAEVA-outputs/bcf/"
     with open(inputFile) as csv_file:
        csv_reader = csv.reader(csv_file, delimiter=',')
