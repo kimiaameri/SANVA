@@ -17,6 +17,8 @@ with open(outputFile,'w') as outFile:
     with open(inputFile) as csv_file:
        csv_reader = csv.reader(csv_file, delimiter=',')
        for row in csv_reader:
+            samples.append(row[0])
+        for row in csv_reader:
             allvcf.append(prefix + sample + ".vcf.gz")
        allStr  = ' '.join(allvcf)    
        count=0    
