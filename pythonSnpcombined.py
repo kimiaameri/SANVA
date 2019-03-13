@@ -12,13 +12,21 @@ cpath = sys.argv[4]
 outputFile = "snpEffAll.sh"
 with open(outputFile,'w') as outFile:
     outFile.write('cp $WORK/SAEVA-outputs/bcfoutput/*  $WORK/SAEVA-outputs/bcf/ ;\n')
+    allvcf = []
+    prefix = "$WORK/SAEVA-outputs/bcfoutput/"
+    for row in csv_reader:
+        allvcf.append(prefix + sample + ".vcf.gz")
+    allStr  = ' '.join(allvcf)    
     count=0    
     with open(inputFile) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             if count !=0:
+               
                outFile.write('cd $WORK/SAEVA-outputs/;\n')
                outFile.write('mkdir bcf;\n')
+               outFile.write(f'{BCFTools}bcftools merge --merge-force {allStr} $WORK/SAEVA-outputs/bcfoutput/bcf/*.gz -O v -o $WORK/SAEVA-outputs/bcf/mergrd.vfc ;\n')
+               outFile.write('cp * ./bcf;\n')
                outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/bcf/*.vcf;\n')
 
                outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/bcf/{row[0]}.vcf > $WORK/SAEVA-outputs/bcf/snpEff_{row[0]}.ann.vcf \n')
