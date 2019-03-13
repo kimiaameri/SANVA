@@ -12,16 +12,15 @@ cpath = sys.argv[4]
 outputFile = "snpEffAll.sh"
 with open(outputFile,'w') as outFile:
     outFile.write('cp $WORK/SAEVA-outputs/bcfoutput/*  $WORK/SAEVA-outputs/bcf/ ;\n')
-    csv_reader = csv.reader(csv_file, delimiter=',')
     allvcf = []
     prefix = "$WORK/SAEVA-outputs/bcf/"
-    for row in csv_reader:
-        allvcf.append(prefix + sample + ".vcf.gz")
-    allStr  = ' '.join(allvcf)    
-    count=0    
     with open(inputFile) as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        for row in csv_reader:
+       csv_reader = csv.reader(csv_file, delimiter=',')
+       for row in csv_reader:
+            allvcf.append(prefix + sample + ".vcf.gz")
+       allStr  = ' '.join(allvcf)    
+       count=0    
+       for row in csv_reader:
             if count !=0:
                
                outFile.write('cd $WORK/SAEVA-outputs/;\n')
