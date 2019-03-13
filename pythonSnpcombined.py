@@ -28,13 +28,13 @@ with open(outputFile,'w') as outFile:
                
                outFile.write('cd $WORK/SAEVA-outputs/;\n')
                outFile.write('mkdir bcf;\n')
-               outFile.write(f'{BCFTools}bcftools merge --merge-force {allStr} $WORK/SAEVA-outputs/bcfoutput/bcf/*.gz -O v -o $WORK/SAEVA-outputs/bcf/mergrd.vfc ;\n')
                outFile.write('cp * ./bcf;\n')
-               outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/bcf/*.vcf;\n')
+               outFile.write(f'{BCFTools}bcftools merge --force {allStr} -O v -o $WORK/SAEVA-outputs/bcf/merged.vfc ;\n')
+               outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/bcf/merged.vcf;\n')
 
-               outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/bcf/{row[0]}.vcf > $WORK/SAEVA-outputs/bcf/snpEff_{row[0]}.ann.vcf \n')
-               outFile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/bcf/snpEff_All{row[0]}_genes.txt \n')
-               outFile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/bcf/snpEff_All_{row[0]}summary.html \n')
+               outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/bcf/merged.vcf > $WORK/SAEVA-outputs/bcf/snpEff_{row[0]}.ann.vcf \n')
+               outFile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/bcf/snpEff_merged_genes.txt \n')
+               outFile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/bcf/snpEff_merged_summary.html \n')
         
                outFile.write('cd $WORK/SAEVA_outputs/bcf/ \n')
 
