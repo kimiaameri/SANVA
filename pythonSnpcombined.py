@@ -32,7 +32,7 @@ with open(outputFile,'w') as outFile:
                outFile.write(f'{BCFTools}bcftools merge --force {allStr} -O v -o $WORK/SAEVA-outputs/bcf/merged.vfc ;\n')
                outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/bcf/merged.vcf;\n')
 
-               outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/bcf/merged.vcf > $WORK/SAEVA-outputs/bcf/snpEff_{row[0]}.ann.vcf \n')
+               outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v -no-downstream -no-upstream Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/bcf/merged.vcf > $WORK/SAEVA-outputs/bcf/snpEff_merged.ann.vcf \n')
                outFile.write('mv $WORK/SAEVA/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff-outputs/bcf/snpEff_merged_genes.txt \n')
                outFile.write('mv $WORK/SAEVA/snpEff_summary.html $WORK/SAEVA-outputs/snpEff-outputs/bcf/snpEff_merged_summary.html \n')
         
