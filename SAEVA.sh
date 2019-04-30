@@ -58,7 +58,7 @@ sh picard.sh
 cd $WORK/SAEVA-outputs
 mkdir freebayesoutput
 
-cd $WORK/https://www2.ib.unicamp.br/profs/fsantos/apostilas/Quinn%20&%20Keough.pdf/
+cd $WORK/ACMBCB/
 python3 pythonFreebayes.py ./InputFiles.csv $FREEBAYES
 
 sh freebayes.sh
