@@ -21,7 +21,7 @@ mkdir trimlog
 
 cd $WORK/SAEVA
 #### for ACMBCB
-python3 pythonTrimmomaticNoadapter.py ../InputFiles.csv $MINICONDA_HOME $GITHUB_DIR
+python3 pythonTrimmomaticNoadapter.py ./InputFiles.csv $MINICONDA_HOME $GITHUB_DIR
 ##### For SAEVA
 #python3 pythonTrimmomatic.py ../InputFiles.csv $MINICONDA_HOME $GITHUB_DIR
 
@@ -42,7 +42,7 @@ mkdir stats
 
 cd $WORK/SAEVA/
 
-python3 pythonBam.py ../InputFiles.csv $SAMTools
+python3 pythonBam.py ./InputFiles.csv $SAMTools
 sh bam.sh
 
 ###########  Picard ##################
@@ -51,7 +51,7 @@ mkdir picard
 cd picard
 mkdir picardlog
 cd $WORK/SAEVA/
-python3 pythonPicard.py ../InputFiles.csv $PICARD
+python3 pythonPicard.py ./InputFiles.csv $PICARD
 
 sh picard.sh
 ###########  Freebayes ##################
@@ -59,13 +59,13 @@ cd $WORK/SAEVA-outputs
 mkdir freebayesoutput
 
 cd $WORK/SAEVA/
-python3 pythonFreebayes.py ../InputFiles.csv $FREEBAYES
+python3 pythonFreebayes.py ./InputFiles.csv $FREEBAYES
 
 sh freebayes.sh
 
 ########### Getting depth and qual for filtering ######
 
-python3 pythonFinddepth.py ../InputFiles.csv $SAMTools 
+python3 pythonFinddepth.py ./InputFiles.csv $SAMTools 
 sh findDepth.sh
 
 Rscript depth.R $WORK/SAEVA-outputs/depth/ $WORK/SAEVA-outputs/freebayesoutput/ depth.txt quality.txt 
@@ -78,7 +78,7 @@ mkdir vcffilter-q
 mkdir bcfoutput
 mkdir vcffilter-q-dp
 cd $WORK/SAEVA/
-python3 pythonBCF_VCF.py ../InputFiles.csv $BCFTools $QUALITY $DEPTH
+python3 pythonBCF_VCF.py ./InputFiles.csv $BCFTools $QUALITY $DEPTH
 sh BCF-VCF.sh
 ###########  snpEFF ##################
 cd $WORK/SAEVA-outputs
@@ -87,8 +87,8 @@ cd snpEff-outputs
 mkdir snpEff-summary
 mkdir snpEff-gene
 cd $WORK/SAEVA/
-python3 pythonSnpEff.py ../InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SAEVA-outputs
+python3 pythonSnpEff.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SAEVA-outputs
 sh snpEff.sh
-python3 pythonSnpcombined.py ../InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SAEVA-outputs
+python3 pythonSnpcombined.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SAEVA-outputs
 sh snpEffAll.sh
 
