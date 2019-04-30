@@ -50,7 +50,7 @@ cd $WORK/SAEVA-outputs
 mkdir picard
 cd picard
 mkdir picardlog
-cd $WORK/SAEVA/
+cd $WORK/ACMBCB/
 python3 pythonPicard.py ./InputFiles.csv $PICARD
 
 sh picard.sh
@@ -58,7 +58,7 @@ sh picard.sh
 cd $WORK/SAEVA-outputs
 mkdir freebayesoutput
 
-cd $WORK/ACMBCB/
+cd $WORK/https://www2.ib.unicamp.br/profs/fsantos/apostilas/Quinn%20&%20Keough.pdf/
 python3 pythonFreebayes.py ./InputFiles.csv $FREEBAYES
 
 sh freebayes.sh
