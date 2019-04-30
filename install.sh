@@ -30,6 +30,8 @@ conda install -c bioconda bedops
 #conda install -c bioconda picard/2.18
 #conda install -c bioconda bcftools
 conda install -c bioconda java-jdk 
+conda deactivate
+
 ####   Download trimmomatic       #####
 
 #wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-Src-0.36.zip
@@ -89,6 +91,7 @@ tar -zxvf bedtools-2.25.0.tar.gz
 cd bedtools2
 make
 ###########################
+conda activate ~/miniconda3
 
 echo `$WORK/SAEVA-softwares/freebayes/bin/freebayes --version`
 
