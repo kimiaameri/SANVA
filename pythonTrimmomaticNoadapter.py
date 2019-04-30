@@ -15,6 +15,7 @@ with open(outputFile,'w') as outFile:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             if count !=0:
-                outFile.write(f'{minicondaBin}trimmomatic PE -threads 4 -phred33 -trimlog $WORK/SAEVA-outputs/trimmomatic/trimlog/{row[0]}.trimlog {row[2]} {row[3]} $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R1.paired.fq $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R1.unpaired.fq $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R2.paired.fq $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R2.unpaired.fq SLIDINGWINDOW:4:15 MAXINFO:50:0.5 LEADING:3 TRAILING:3 MINLEN:100\n')
+               outFile.write(f'{minicondaBin}trimmomatic PE -threads 4 -phred33 -trimlog $WORK/SAEVA-outputs/trimmomatic/trimlog/{row[0]}.trimlog $WORK/SAEVA-data/{row[1]} $WORK/SAEVA-data/{row[2]} $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R1.paired.fq $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R1.unpaired.fq $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R2.paired.fq $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R2.unpaired.fq SLIDINGWINDOW:4:15 MAXINFO:50:0.5 LEADING:3 TRAILING:3 MINLEN:100\n')
+               #outFile.write(f'{minicondaBin}trimmomatic PE -threads 4 -phred33 -trimlog $WORK/SAEVA-outputs/trimmomatic/trimlog/{row[0]}.trimlog {row[2]} {row[3]} $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R1.paired.fq $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R1.unpaired.fq $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R2.paired.fq $WORK/SAEVA-outputs/trimmomatic/{row[0]}-R2.unpaired.fq SLIDINGWINDOW:4:15 MAXINFO:50:0.5 LEADING:3 TRAILING:3 MINLEN:100\n')
             count =count + 1
  
