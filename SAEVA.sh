@@ -18,7 +18,7 @@ cd SAEVA-outputs
 mkdir trimmomatic
 cd trimmomatic
 mkdir trimlog
-
+module load R
 cd $WORK/ACMBCB
 #### for ACMBCB
 python3 pythonTrimmomaticNoadapter.py ./InputFiles.csv $MINICONDA_HOME $GITHUB_DIR
