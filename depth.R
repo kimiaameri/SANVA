@@ -20,7 +20,7 @@ write(min(dist),depthOutput)
 vcf.files <- list.files(vcfPath, full.names = T)
 qual <- c()
 for (q in vcf.files) {
-  if(file.info(q)$size > 20) {
+  if(file.info(q)$size > 30) {
   vcf <- read.table(file=q)
   qual <- c(qual,median(vcf[,6]))
     }
