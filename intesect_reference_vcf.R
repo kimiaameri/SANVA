@@ -3,8 +3,9 @@ argv <- commandArgs(trailingOnly = TRUE)
 
 intesect_reference_vcf <- function(i, reference,intersectionspath){
    intersections <- as.matrix(read.table(paste0(intersectionspath,i,sep=""),header=F,sep="\t",stringsAsFactors = F))
-   if(file.info(intersections)$size > 0) {
     length.intersection= nrow(intersections)
+   if (length.intersection != 0 )
+      {
     length.genome= nrow(reference)
     for (j in 1 :length.genome)
     { 
