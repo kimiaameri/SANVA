@@ -22,7 +22,9 @@ qual <- c()
 for (q in vcf.files) {
   if(file.info(q)$size > 7930) {
   vcf <- read.table(file=q)
+  if (vcf[,6]>=1){
   qual <- c(qual,median(vcf[,6]))
+    }
     }
 }
 quality<- as.integer(min(qual))
