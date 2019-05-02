@@ -23,7 +23,7 @@ for (q in vcf.files) {
   if(file.info(q)$size > 7930) {
   vcf <- read.table(file=q)
   vcfq = vcf[,6]
-  nvcf <- vcfq[vcfq >= 1]
+  nvcf <- vcfq[vcfq >= 100]
   qual <- c(qual,median(nvcf))
   
   }
