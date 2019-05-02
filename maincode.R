@@ -53,8 +53,6 @@ bigtable.norm <- bigtable.norm[rowSums(bigtable.norm)!= 0,]
 #colnames(bigtable)<- paste(group,"_",isolates)
 #colnames(bigtable.norm)<- paste(group,"_",isolates)
 #annotation <- matrix(group)
-rownames(bigtable) <- intersections
-rownames(bigtable.norm) <- intersections
 write.csv(bigtable,bigtableFile)
 write.csv(bigtable.norm,bigtableWeightFile)
 #-------------------------------------------------------------------------#
