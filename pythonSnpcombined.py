@@ -12,10 +12,10 @@ cpath = sys.argv[4]
 outputFile = "snpEffAll.sh"
 with open(outputFile,'w') as outFile:
     outFile.write('cp $WORK/SAEVA-outputs/bcfoutput/*  $WORK/SAEVA-outputs/bcf/ ;\n')
-    samples = []
-    allvcf = []
-    prefix = "$WORK/SAEVA-outputs/bcf/"
-    with open(inputFile) as csv_file:
+samples = []
+allvcf = []
+prefix = "$WORK/SAEVA-outputs/bcf/"
+with open(inputFile) as csv_file:
        csv_reader = csv.reader(csv_file, delimiter=',')
        for row in csv_reader:
             samples.append(row[0])
