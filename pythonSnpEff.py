@@ -17,7 +17,7 @@ with open(inputFile) as csv_file:
     highSamples = []
     lowSamples = []
     for row in csv_reader:
-        if row[1].lower() == 'high': highSamples.append(row[0])
+        if row[1].lower() == 'E2_1': highSamples.append(row[0])
         if row[1].lower() == 'low': lowSamples.append(row[0])
     print(highSamples)
     print(lowSamples)
