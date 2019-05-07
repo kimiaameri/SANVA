@@ -82,6 +82,7 @@ python3 pythonBCF_VCF.py ./InputFiles.csv $BCFTools $QUALITY $DEPTH
 sh BCF-VCF.sh
 ###########  snpEFF ##################
 cd $WORK/SAEVA-outputs
+mkdir All
 mkdir snpEff-outputs
 cd snpEff-outputs
 mkdir snpEff-summary
