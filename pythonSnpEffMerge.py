@@ -16,7 +16,7 @@ with open(inputFile) as csv_file:
     for row in csv_reader:
         all = []
         for sample in csv_reader :
-            all.append(prefix + row[1] + ".vcf.gz")
+            all.append(prefix + sample + ".vcf.gz")
         
         allStr  = ' '.join(all)   
 
