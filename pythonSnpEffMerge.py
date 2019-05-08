@@ -16,8 +16,10 @@ with open(inputFile) as csv_file:
     all=[]
     for row in csv_reader:
         if count !=0 :
-        all.append(row[0])
+          all.append(row[0])
         count =count +1
+    print(all)
+
     for sample in all :
         all.append(prefix + sample + ".vcf.gz")
         
