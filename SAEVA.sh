@@ -80,7 +80,11 @@ mkdir vcffilter-q-dp
 cd $WORK/ACMBCB/
 python3 pythonBCF_VCF.py ./InputFiles.csv $BCFTools $QUALITY $DEPTH
 sh BCF-VCF.sh
-###########  snpEFF ##################
+###########  snpEFF Merge All Files ##################
+cd $WORK/ACMBCB/
+python3 pythonSnpEffMerge.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SAEVA-outputs
+sh snpEffMerge.sh
+################## Dont RUN #################
 cd $WORK/SAEVA-outputs
 mkdir All
 mkdir snpEff-outputs
