@@ -11,6 +11,7 @@ minicondaBin = sys.argv[3]
 cpath = sys.argv[4]
 outputFile = "snpEffMerge.sh"
 prefix = "$WORK/SAEVA-outputs/bcfoutput/"
+count=0
 with open(inputFile) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     all=[]
