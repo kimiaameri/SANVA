@@ -25,7 +25,7 @@ with open(inputFile) as csv_file:
         all.append(prefix + sample + ".vcf.gz")
         
         allStr  = ' '.join(all)   
-
+        print(allStr)
 with open(outputFile,'w') as outFile:
         outFile.write(f'{BCFTools}bcftools merge --force {allStr} -O v -o $WORK/SAEVA-outputs/merge -n=100;\n')
         outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/merge.vcf;\n')
