@@ -13,10 +13,13 @@ outputFile = "snpEffMerge.sh"
 prefix = "$WORK/SAEVA-outputs/bcfoutput/"
 with open(inputFile) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
+    all=[]
     for row in csv_reader:
-        all = []
-        for sample in csv_reader :
-            all.append(prefix + sample + ".vcf.gz")
+        if count !=0 :
+        all.append(row[0])
+        count =count +1
+    for sample in all :
+        all.append(prefix + sample + ".vcf.gz")
         
         allStr  = ' '.join(all)   
 
