@@ -14,18 +14,18 @@ prefix = "$WORK/SAEVA-outputs/bcfoutput/"
 count=0
 with open(inputFile) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
-    all=[]
+    allSamples=[]
     for row in csv_reader:
         if count !=0 :
-          all.append(row[0])
+          allSamples.append(row[0])
         count =count +1
-    for sample in all :
+    for sample in allSamples :
         all.append(prefix + sample + ".vcf.gz")
         
-    allStr  = ' '.join(all) 
-    with open (cpath +"/all.txt",'w') as of:
-         of.write(str(all))
-    length=len(all)
+    allStr  = ' '.join(allSamples) 
+    with open (cpath +"/allSamples.txt",'w') as of:
+         of.write(str(allSamples))
+    length=len(allSamples)
 with open(outputFile,'w') as outFile:
         outFile.write(f'{BCFTools}bcftools merge --force {allStr} -O v -o $WORK/SAEVA-outputs/merge -n={length};\n')
         outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SAEVA-outputs/merge.vcf;\n')
