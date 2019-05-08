@@ -19,10 +19,11 @@ with open(inputFile) as csv_file:
         if count !=0 :
           allSamples.append(row[0])
         count =count +1
+    listAll=[]
     for sample in allSamples :
-        all.append(prefix + sample + ".vcf.gz")
+        listAll.append(prefix + sample + ".vcf.gz")
         
-    allStr  = ' '.join(allSamples) 
+    allStr  = ' '.join(listAll) 
     with open (cpath +"/allSamples.txt",'w') as of:
          of.write(str(allSamples))
     length=len(allSamples)
