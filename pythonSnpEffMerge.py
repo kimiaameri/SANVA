@@ -13,7 +13,7 @@ outputFile = "snpEffMerge.sh"
 
 with open(outputFile,'w') as outFile:
         outFile.write(f'{BCFTools}bcftools merge --force $WORK/SAEVA-outputs/bcfoutput/*.gz -p $WORK/SAEVA-outputs/merge -n=100;\n')
-        outFile.write('sed -i 's/^chr/Chromosome/' $WORK/SAEVA-outputs/merge.vcf;)
+        outFile.write('sed -i '\s/^chr/Chromosome/\' $WORK/SAEVA-outputs/merge.vcf;\n')
         outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SAEVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SAEVA-outputs/merg.vcf > $WORK/SAEVA-outputs/snpEff.ann.vcf \n')
         outFile.write('mv $WORK/ACMBCB/snpEff_genes.txt $WORK/SAEVA-outputs/snpEff.txt \n')
         outFile.write('mv $WORK/ACMBCB/snpEff_summary.html $WORK/SAEVA-outputs/snpEff_summary.html \n')
