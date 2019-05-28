@@ -10,4 +10,4 @@
 
 ### The nCOP model will find the minimal significant genes that appear in shortest pathways (heuristic evaluation) while they cover most of isolate
 # Considering that the nCOP model is based on a heuristic evaluation
-## The gene results might not be the same for each run
+## The list of result genes might not be the same for each run
