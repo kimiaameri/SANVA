@@ -7,27 +7,27 @@
 ######## Trimmomatic #########
 export MINICONDA_HOME="~/miniconda3/bin/"
 export GITHUB_DIR=`pwd`
-export SAMTools='$WORK/SAEVA-softwares/samtools-1.5/'
-export PICARD='$WORK/SAEVA-softwares/picard/'
-export FREEBAYES='$WORK/SAEVA-softwares/freebayes/bin/'
-export BCFTools='$WORK/SAEVA-softwares/bcftools-1.8/'
+export SAMTools='$WORK/SANVA-softwares/samtools-1.5/'
+export PICARD='$WORK/SANVA-softwares/picard/'
+export FREEBAYES='$WORK/SANVA-softwares/freebayes/bin/'
+export BCFTools='$WORK/SANVA-softwares/bcftools-1.8/'
 cd $WORK
-mkdir SAEVA-outputs
-cd SAEVA-outputs
+mkdir SANVA-outputs
+cd SANVA-outputs
 ## make trimmomatic directory
 mkdir trimmomatic
 cd trimmomatic
 mkdir trimlog
 module load R
-cd $WORK/ACMBCB
-#### for ACMBCB
+cd $WORK/SANVA
+#### for SANVA if there is no adapter
 python3 pythonTrimmomaticNoadapter.py ./InputFiles.csv $MINICONDA_HOME $GITHUB_DIR
-##### For SAEVA
+##### For SANVA if there is adapter
 #python3 pythonTrimmomatic.py ../InputFiles.csv $MINICONDA_HOME $GITHUB_DIR
 
-sh trimmomatic.sh > $WORK/SAEVA-outputs/trimmomatic.log
+sh trimmomatic.sh > $WORK/SANVA-outputs/trimmomatic.log
 ########### BWA  ###############
-cd $WORK/SAEVA-outputs
+cd $WORK/SANVA-outputs
 mkdir samfiles
 cd $WORK/ACMBCB
 python3 pythonBwa.py ../InputFiles.csv 
@@ -73,7 +73,7 @@ export DEPTH=$(( `cat depth.txt` * 1 ))
 export QUALITY=$((`cat quality.txt` * 1 ))
 
 ###########  VCF-BCF ##################
-cd $WORK/SAEVA-outputs
+cd $WORK/SANVA-outputs
 mkdir vcffilter-q
 mkdir bcfoutput
 mkdir vcffilter-q-dp
