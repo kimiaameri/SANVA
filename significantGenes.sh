@@ -16,20 +16,15 @@ sh vcfBed.sh
 python3 pythonIntersections.py ./InputFiles.csv $GENOME_BED_PATH
 sh mapVCF-to-Bed.sh
 
-export INTERSECTIONS_PATH="$WORK/SAEVA-outputs/intersection/"
-export OUTPUT_PATH="$WORK/SAEVA-outputs/"
+export INTERSECTIONS_PATH="$WORK/SANVA-outputs/intersection/"
+export OUTPUT_PATH="$WORK/SANVA-outputs/"
 
 
 cd $WORK/SAEVA-outputs
-#export HIGH=`cat High.txt` 
-#export LOW=`cat Low.txt` 
-export SOURCE_DIR="$WORK/ACMBCB"
+export SOURCE_DIR="$WORK/SANVA"
 
 cd $WORK/SAEVA_reference_genome
 cat  nctc8325.bed | tail -n+2 > nctc8325-1.bed 
 cd $WORK/ACMBCB/     
 Rscript maincode.R $SOURCE_DIR $GENOME_BED_PATH $INTERSECTIONS_PATH ./InputFiles.csv bigtable.csv tableWeight.csv 
-
-#Rscript maincode.R $SOURCE_DIR $GENOME_BED_PATH $INTERSECTIONS_PATH ./InputFiles.csv 58 $LOW bigtable.csv tableWeight.csv significantGenes.csv
 mv bigtable.csv $OUTPUT_PATH/
-#mv significantGenes.csv $OUTPUT_PATH/
