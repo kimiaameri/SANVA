@@ -7,3 +7,7 @@
  ####   - *install.sh* will intsll all tools you need for the analysis.
  ####   - *SAEVA.sh* will preprocess and analysis the raw sequence and prepered it for next analysis.
  ####   - *significantGenes.sh* will produce the significant genes based on nCOP network model
+
+###The nCOP model will find the minimal significant genes that appear in shortest pathways (heuristic evaluation) while they cover most of isolate
+# Considering that the nCOP model is based on a heuristic evaluation
+## The gene results might not be the same for each run
