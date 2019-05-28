@@ -84,16 +84,5 @@ sh BCF-VCF.sh
 cd $WORK/ACMBCB/
 python3 pythonSnpEffMerge.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SAEVA-outputs
 sh snpEffMerge.sh
-################## Dont RUN #################
-cd $WORK/SAEVA-outputs
-mkdir All
-mkdir snpEff-outputs
-cd snpEff-outputs
-mkdir snpEff-summary
-mkdir snpEff-gene
-cd $WORK/ACMBCB/
-python3 pythonSnpEff.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SAEVA-outputs
-sh snpEff.sh
-python3 pythonSnpcombined.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SAEVA-outputs
-sh snpEffAll.sh
+
 
