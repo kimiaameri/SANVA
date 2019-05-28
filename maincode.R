@@ -4,14 +4,11 @@ sourcePath <- argv[1]
 bedpath <- argv[2]
 intersectionspath <- argv[3]
 inputFiles <- argv[4]
-#high <- argv[5]
-#low <- argv[6]
 bigtableFile <- argv[5]
 bigtableWeightFile<-argv[6]
-#significantgenesFile <- argv[9]
 
 source(paste0(sourcePath,"/intesect_reference_vcf.R"))
-#source(paste0(sourcePath,"/permutationTest.R"))
+source(paste0(sourcePath,"/nCOP.R"))
 #source(paste0(sourcePath,"/BlastFindings.R"))
 #source(paste0(sourcePath,"/MutationPosition.R"))
 #source(paste0(sourcePath,"/GenePosition.R"))
@@ -42,21 +39,12 @@ for (i in 1:length(intersections))
 bigtable <- bigtable[rowSums(bigtable)!= 0,]
 bigtable.norm <- bigtable.norm[rowSums(bigtable.norm)!= 0,]
 #-------------------------------------------------------------------------#
-#                 lable High and Low samples in table                     #
+#            save genes that have mutation in isolates                    #
 #-------------------------------------------------------------------------#
-#group <- c(rep("H",high),rep("L",low))
-#samples <- read.table(paste0(inputFiles),header=F,sep=",",stringsAsFactors = F)
-#x<- samples
-#sort.samples <- x[order(x$V2, na.last=NA) , ]
-#isolates<- sort.samples[,1]
-#group <- substr(sort.samples[,2],1,1)
-#colnames(bigtable)<- paste(group,"_",isolates)
-#colnames(bigtable.norm)<- paste(group,"_",isolates)
-#annotation <- matrix(group)
 write.csv(bigtable,bigtableFile)
 write.csv(bigtable.norm,bigtableWeightFile)
 #-------------------------------------------------------------------------#
-#             find significant genes by permutation test                  #
+#                  find significant genes by nCOP Model                   #
 #-------------------------------------------------------------------------#
 #significantGenes<-permutationTest(bigtable.norm, high, low)
 #write.csv(significantGenes,significantgenesFile)
