@@ -8,13 +8,24 @@
 import sys
 import urllib2
 
+inputFile = sys.argv[1]
+output = sys.argv[2]
 
 string_api_url = "https://string-db.org/api"
 output_format = "tsv-no-header"
 method = "network"
 
-my_genes = ["CDC42","CDK1","KIF23","PLK1",
-            "RAC2","RACGAP1","RHOA","RHOB"]
+f = open(inputFile)
+my_genes = []
+for line in f.readlines():
+    line = line.strip()
+    words = line.split(':')
+    my_genes.append(words[3])            
+f.close()
+
+#my_genes = ["CDC42","CDK1","KIF23","PLK1",
+#            "RAC2","RACGAP1","RHOA","RHOB"]
+
 species = "1280"
 my_app  = "www.awesome_app.org"
 
@@ -22,6 +33,7 @@ my_app  = "www.awesome_app.org"
 
 request_url = string_api_url + "/" + output_format + "/" + method + "?"
 request_url += "identifiers=%s" % "%0d".join(my_genes)
+request_url += "required_score=" + "0.15"
 request_url += "&" + "species=" + species
 request_url += "&" + "caller_identity=" + my_app
 
@@ -35,12 +47,15 @@ except urllib2.HTTPError as err:
 ## Read and parse the results
 
 line = response.readline()
-
+f = open(outputFile,'w')
 while line:
-    l = line.strip().split("\t")
-    p1, p2 = l[2], l[3]
-    experimental_score = float(l[10])
-    if experimental_score != 0:
-        print "\t".join([p1,p2, "experimentally confirmed (prob. %.3f)" % experimental_score])
-
+    f.write(line)
+#    l = line.strip().split("\t")
+#    p1, p2 = l[2], l[3]
+#    experimental_score = float(l[10])
+#    if experimental_score != 0:
+#        print "\t".join([p1,p2, "experimentally confirmed (prob. %.3f)" % experimental_score])
+#
     line = response.readline()
+            
+f.close()
