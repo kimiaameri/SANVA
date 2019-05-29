@@ -4,7 +4,7 @@ import pdb
 import sys
 path = sys.argv[1]
 
-accession = "CP000253"
+accession = "NC_007795" #"CP000253"
 
 Entrez.email="hameri@unomaha.edu"
 handle = Entrez.esearch(db="nucleotide", term=accession)
