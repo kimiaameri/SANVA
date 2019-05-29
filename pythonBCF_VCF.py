@@ -16,9 +16,9 @@ with open(outputFile,'w') as outFile:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             if count !=0:
-                outFile.write(f'$WORK/SAEVA-softwares/freebayes/vcflib/bin/vcffilter -f "QUAL >{quality}" $WORK/SAEVA-outputs/freebayesoutput/{row[0]}.vcf >$WORK/SAEVA-outputs/vcffilter-q/{row[0]}.vcf\n')
-                outFile.write(f'$WORK/SAEVA-softwares/freebayes/vcflib/bin/vcffilter -f "DP > {depth}" $WORK/SAEVA-outputs/vcffilter-q/{row[0]}.vcf > $WORK/SAEVA-outputs/vcffilter-q-dp/{row[0]}.vcf\n')
-                outFile.write(f'{BCFTools}bcftools view -Ob $WORK/SAEVA-outputs/vcffilter-q-dp/{row[0]}.vcf > $WORK/SAEVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')
-                outFile.write(f'{BCFTools}bcftools index $WORK/SAEVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')
+                outFile.write(f'$WORK/SANVA-softwares/freebayes/vcflib/bin/vcffilter -f "QUAL >{quality}" $WORK/SANVA-outputs/freebayesoutput/{row[0]}.vcf >$WORK/SANVA-outputs/vcffilter-q/{row[0]}.vcf\n')
+                outFile.write(f'$WORK/SANVA-softwares/freebayes/vcflib/bin/vcffilter -f "DP > {depth}" $WORK/SANVA-outputs/vcffilter-q/{row[0]}.vcf > $WORK/SANVA-outputs/vcffilter-q-dp/{row[0]}.vcf\n')
+                outFile.write(f'{BCFTools}bcftools view -Ob $WORK/SANVA-outputs/vcffilter-q-dp/{row[0]}.vcf > $WORK/SANVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')NN
+                outFile.write(f'{BCFTools}bcftools index $WORK/SANVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')N
             count =count + 1
  
