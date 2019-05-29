@@ -6,15 +6,15 @@ if [ -z $WORK ]; then WORK=`pwd`; fi
 
 ####  Download reference genome    ####
 cd $WORK/
-mkdir SAEVA_reference_genome
-cd SAEVA_reference_genome
+mkdir SANVA_reference_genome
+cd SANVA_reference_genome
 wget ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Staphylococcus_aureus_NCTC_8325/NCBI/2006-02-13/Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 tar -xzf Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 rm Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 
 #######   Download softwares    #######
-mkdir SAEVA-softwares
-cd SAEVA-softwares/
+mkdir SANVA-softwares
+cd SANVA-softwares/
 ####      Bioconda          ####
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 sh Miniconda3-latest-Linux-x86_64.sh
