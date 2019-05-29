@@ -8,12 +8,7 @@ bigtableFile <- argv[5]
 bigtableWeightFile<-argv[6]
 
 source(paste0(sourcePath,"/intesect_reference_vcf.R"))
-source(paste0(sourcePath,"/nCOP.R"))
-#source(paste0(sourcePath,"/BlastFindings.R"))
-#source(paste0(sourcePath,"/MutationPosition.R"))
-#source(paste0(sourcePath,"/GenePosition.R"))
-#source(paste0(sourcePath,"/Filters.R"))
-#source(paste0(sourcePath,"/FisherTest.R"))
+
 
 #-----------------------------------------------------------------------#
 #                             read bedfiles                             #
@@ -43,13 +38,3 @@ bigtable.norm <- bigtable.norm[rowSums(bigtable.norm)!= 0,]
 #-------------------------------------------------------------------------#
 write.csv(bigtable,bigtableFile)
 write.csv(bigtable.norm,bigtableWeightFile)
-#-------------------------------------------------------------------------#
-#                  find significant genes by nCOP Model                   #
-#-------------------------------------------------------------------------#
-#significantGenes<-permutationTest(bigtable.norm, high, low)
-#write.csv(significantGenes,significantgenesFile)
-#pheatmap(significantGenes,cluster_cols=F, filename= paste0(sourcePath,"/Pheatmap.pdf"))
-String-nCopPrepration.R
-RareMutation<-nCOP(bigtable.norm, high, low)
-write.csv(RareMutation,RareMutationnCOP)
-pheatmap(significantGenes,cluster_cols=F, filename= paste0(sourcePath,"/Pheatmap.pdf"))
