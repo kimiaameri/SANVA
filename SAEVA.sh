@@ -33,7 +33,7 @@ cd $WORK/ACMBCB
 python3 pythonBwa.py ../InputFiles.csv 
 sh bwa.sh
 ###########  BAM ##################
-cd $WORK/SAEVA-outputs
+cd $WORK/SANVA-outputs
 mkdir bamfiles
 mkdir flagsam
 mkdir sortsam
@@ -46,7 +46,7 @@ python3 pythonBam.py ./InputFiles.csv $SAMTools
 sh bam.sh
 
 ###########  Picard ##################
-cd $WORK/SAEVA-outputs
+cd $WORK/SANVA-outputs
 mkdir picard
 cd picard
 mkdir picardlog
@@ -55,7 +55,7 @@ python3 pythonPicard.py ./InputFiles.csv $PICARD
 
 sh picard.sh
 ###########  Freebayes ##################
-cd $WORK/SAEVA-outputs
+cd $WORK/SANVA-outputs
 mkdir freebayesoutput
 
 cd $WORK/ACMBCB/
@@ -68,7 +68,7 @@ sh freebayes.sh
 python3 pythonFinddepth.py ./InputFiles.csv $SAMTools 
 sh findDepth.sh
 
-Rscript depth.R $WORK/SAEVA-outputs/depth/ $WORK/SAEVA-outputs/freebayesoutput/ depth.txt quality.txt 
+Rscript depth.R $WORK/SANVA-outputs/depth/ $WORK/SANVA-outputs/freebayesoutput/ depth.txt quality.txt 
 export DEPTH=$(( `cat depth.txt` * 1 ))
 export QUALITY=$((`cat quality.txt` * 1 ))
 
@@ -82,7 +82,7 @@ python3 pythonBCF_VCF.py ./InputFiles.csv $BCFTools $QUALITY $DEPTH
 sh BCF-VCF.sh
 ###########  snpEFF Merge All Files ##################
 cd $WORK/ACMBCB/
-python3 pythonSnpEffMerge.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SAEVA-outputs
+python3 pythonSnpEffMerge.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SANVA-outputs
 sh snpEffMerge.sh
 
 
