@@ -30,8 +30,6 @@ Rscript maincode.R $SOURCE_DIR $GENOME_BED_PATH $INTERSECTIONS_PATH ./InputFiles
 mv bigtable.csv $OUTPUT_PATH/
 
 Rscript String-Prepration.R $SOURCE_DIR $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/GenesList.csv $OUTPUT_PATH/GenesList.txt
-mkdir nCOP
-cd nCOP
 
 Python3 stringMapping.py $OUTPUT_PATH/GenesList.txt $OUTPUT_PATH/string_mapping.tsv
 Python3 STRINGNetworkInteractions.py $OUTPUT_PATH/GenesList.txt $OUTPUT_PATH/string_interactions.tsv
@@ -40,9 +38,7 @@ Rscript String-Prepration.R $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/string_intera
 
 #---------nCOP
 module load ruby/1.2
-cd $WORK/SANVA/
-mkdir nCOP
-cd nCOP
+cd $WORK/SANVA/nCOP
 ./run_nCOP PPI.txt mutational.txt weights=weights.txt 
 
 Rscript output_prepration.R $WORK/SANVA/nCOP/Outputs/nCOP_out_results.txt $OUTPUT_PATH/nCOP/mutational.txt $OUTPUT_PATH/FinalTable.csv $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/gplot.pdf
