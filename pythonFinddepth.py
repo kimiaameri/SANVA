@@ -14,5 +14,5 @@ with open(outputFile,'w') as outFile:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             if count !=0:
-                outFile.write(f'{SAMTools}samtools depth -a $WORK/SAEVA-outputs/sortsam/{row[0]}.sorted.bam > $WORK/SAEVA-outputs/depth/{row[0]}.depth\n')
+                outFile.write(f'{SAMTools}samtools depth -a $WORK/SANVA-outputs/sortsam/{row[0]}.sorted.bam > $WORK/SANVA-outputs/depth/{row[0]}.depth\n')
             count =count + 1
