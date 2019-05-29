@@ -49,4 +49,7 @@ write.csv(bigtable.norm,bigtableWeightFile)
 #significantGenes<-permutationTest(bigtable.norm, high, low)
 #write.csv(significantGenes,significantgenesFile)
 #pheatmap(significantGenes,cluster_cols=F, filename= paste0(sourcePath,"/Pheatmap.pdf"))
-
+String-nCopPrepration.R
+RareMutation<-nCOP(bigtable.norm, high, low)
+write.csv(RareMutation,RareMutationnCOP)
+pheatmap(significantGenes,cluster_cols=F, filename= paste0(sourcePath,"/Pheatmap.pdf"))
