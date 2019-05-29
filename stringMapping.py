@@ -18,11 +18,15 @@ output_format = "tsv-no-header"
 method = "get_string_ids"
 
 ## contruct params dictionary
+f = open(inputFile)
+genelist = f.readlines()
+genelist = [x.strip() for x in genelist]
+f.close()
 
 params = {
 
-    "identifiers" : "\r".join(["p53", "BRCA1", "cdk2", "Q99835"]), # your protein list
-    "species" : 9606, # species NCBI identifier 
+    "identifiers" : "\r".join(genelist), # your protein list
+    "species" : 1280, # species NCBI identifier 
     "limit" : 1, # only one (best) identifier per input protein
     "echo_query" : 1, # see your input identifiers in the output
     "caller_identity" : "www.awesome_app.org" # your app name
@@ -42,10 +46,13 @@ except requests.exceptions.RequestException as e:
     sys.exit()
 
 ## Read and parse the results
-
+f = open(outputFile,'w')
 c = 0
 for line in response.text.strip().split("\n"):
     l = line.split("\t")
     print(l)
     input_identifier, string_identifier = l[0], l[2]
-    print("Input:", input_identifier, "STRING:", string_identifier, sep="\t")
+    f.write("Input:" + input_identifier + "STRING:" + string_identifier +"\n")
+    
+f.close()
+    
