@@ -40,14 +40,14 @@ conda deactivate
 #cd trimmomatic-0.36/ 
 
 ####   Download BWA       #####
-cd $WORK/SAEVA-softwares/
+cd $WORK/SANVA-softwares/
 wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2
 tar -xvjf bwa-0.7.17.tar.bz2
 rm bwa-0.7.17.tar.bz2
 cd bwa-0.7.17/
 make
 ##### Download Samtools      #####
-cd $WORK/SAEVA-softwares/
+cd $WORK/SANVA-softwares/
 wget https://sourceforge.net/projects/samtools/files/samtools/1.5/samtools-1.5.tar.bz2
 tar -xvjf samtools-1.5.tar.bz2
 rm samtools-1.5.tar.bz2
@@ -58,40 +58,42 @@ make
 #git clone https://github.com/broadinstitute/picard.git
 #cd picard
 #./gradlew shadowJar
-cd $WORK/SAEVA-softwares/
+cd $WORK/SANVA-softwares/
 mkdir picard
 cd picard/
 wget https://github.com/broadinstitute/picard/releases/download/2.9.0/picard.jar
 cd ../
 ####   Download freebayes    #####
-cd $WORK/SAEVA-softwares/
+cd $WORK/SANVA-softwares/
 git clone --recursive git://github.com/ekg/freebayes.git
 cd freebayes
 make
 ####       Download VCF       #####
-cd $WORK/SAEVA-softwares/freebayes/vcflib
+cd $WORK/SANVA-softwares/freebayes/vcflib
 make
 #### Download BcftTools       ####
-cd $WORK/SAEVA-softwares/
+cd $WORK/SANVA-softwares/
 wget  wget https://github.com/samtools/bcftools/releases/download/1.8/bcftools-1.8.tar.bz2
 tar -xvjf bcftools-1.8.tar.bz2
 rm bcftools-1.8.tar.bz2
 cd bcftools-1.8
 make
 ####      Download snpEff      #####
-cd $WORK/SAEVA-softwares/
+cd $WORK/SANVA-softwares/
 wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
 unzip snpEff_latest_core.zip
 rm snpEff_latest_core.zip
 
 ####          bedtools        ####
-cd $WORK/SAEVA-softwares/
+cd $WORK/SANVA-softwares/
 wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools-2.25.0.tar.gz
 tar -zxvf bedtools-2.25.0.tar.gz
 cd bedtools2
 make
 ###########################
 conda activate ~/miniconda3
+#####            nCOP         ###############
+cd $WORK/SANVA-outputs/
+git clone https://github.com/Singh-Lab/nCOP.git
 
-echo `$WORK/SAEVA-softwares/freebayes/bin/freebayes --version`
 
