@@ -52,7 +52,7 @@ for line in response.text.strip().split("\n"):
     l = line.split("\t")
     print(l)
     input_identifier, string_identifier = l[0], l[2]
-    f.write("Input:" + input_identifier + "STRING:" + string_identifier +"\n")
+    f.write("Input:" + input_identifier + ":STRING:" + string_identifier +"\n")
     
 f.close()
     
