@@ -14,6 +14,6 @@ with open(outputFile,'w') as outFile:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             if count !=0:
-                outFile.write(f'{minicondaBin}vcf2bed < $WORK/SAEVA-outputs/vcffilter-q-dp/{row[0]}.vcf > $WORK/SAEVA-outputs/vcfbed/{row[0]}.bed \n')
+                outFile.write(f'{minicondaBin}vcf2bed < $WORK/SANVA-outputs/vcffilter-q-dp/{row[0]}.vcf > $WORK/SANVA-outputs/vcfbed/{row[0]}.bed \n')
             count =count + 1
  
