@@ -14,5 +14,5 @@ with open(outputFile,'w') as outFile:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             if count !=0:
-                outFile.write(f'{freebayes}freebayes -f $WORK/SAEVA_reference_genome/Staphylococcus_aureus_NCTC_8325/NCBI/2006-02-13/Sequence/WholeGenomeFasta/genome.fa $WORK/SAEVA-outputs/picard/{row[0]}.picard.bam >$WORK/SAEVA-outputs/freebayesoutput/{row[0]}.vcf\n')
+                outFile.write(f'{freebayes}freebayes -f $WORK/SANVA_reference_genome/Staphylococcus_aureus_NCTC_8325/NCBI/2006-02-13/Sequence/WholeGenomeFasta/genome.fa $WORK/SANVA-outputs/picard/{row[0]}.picard.bam >$WORK/SANVA-outputs/freebayesoutput/{row[0]}.vcf\n')
             count =count +1
