@@ -1,4 +1,4 @@
-Name,Forward,Revearse,Type
+Name,Forward read,Revearse read,Type
 SRR5226318,SRR5226318_1.fastq,SRR5226318_2.fastq,E2_1
 SRR5226324,SRR5226324_1.fastq,SRR5226324_2.fastq,E2_1
 SRR5226325,SRR5226325_1.fastq,SRR5226325_2.fastq,E2_1
