@@ -46,6 +46,8 @@ wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2
 tar -xvjf bwa-0.7.17.tar.bz2
 rm bwa-0.7.17.tar.bz2
 cd bwa-0.7.17/
+conda deactivate
+
 make
 ##### Download Samtools      #####
 cd $WORK/SANVA-softwares/
@@ -54,6 +56,8 @@ tar -xvjf samtools-1.5.tar.bz2
 rm samtools-1.5.tar.bz2
 cd samtools-1.5 # Within the unpacked release directory
 sh configure
+conda deactivate
+
 make
 ####    Picard              ####
 #git clone https://github.com/broadinstitute/picard.git
@@ -68,6 +72,8 @@ cd ../
 cd $WORK/SANVA-softwares/
 git clone --recursive git://github.com/ekg/freebayes.git
 cd freebayes
+conda deactivate
+
 make
 ####       Download VCF       #####
 cd $WORK/SANVA-softwares/freebayes/vcflib
@@ -78,6 +84,8 @@ wget  wget https://github.com/samtools/bcftools/releases/download/1.8/bcftools-1
 tar -xvjf bcftools-1.8.tar.bz2
 rm bcftools-1.8.tar.bz2
 cd bcftools-1.8
+conda deactivate
+
 make
 ####      Download snpEff      #####
 cd $WORK/SANVA-softwares/
@@ -90,6 +98,8 @@ cd $WORK/SANVA-softwares/
 wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools-2.25.0.tar.gz
 tar -zxvf bedtools-2.25.0.tar.gz
 cd bedtools2
+conda deactivate
+
 make
 ###########################
 conda activate ~/miniconda3
