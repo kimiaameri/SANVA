@@ -13,6 +13,7 @@ tar -xzf Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 rm Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 
 #######   Download softwares    #######
+cd $WORK
 mkdir SANVA-softwares
 cd SANVA-softwares/
 ####      Bioconda          ####
