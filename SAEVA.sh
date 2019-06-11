@@ -14,6 +14,8 @@ export BCFTools='$WORK/SANVA-softwares/bcftools-1.8/'
 cd $WORK
 mkdir SANVA-outputs
 cd SANVA-outputs
+cd $WORK/SANVA-outputs/
+git clone https://github.com/Singh-Lab/nCOP.git
 ## make trimmomatic directory
 mkdir trimmomatic
 cd trimmomatic
