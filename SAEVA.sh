@@ -4,15 +4,22 @@
 #SBATCH --job-name=SAVEA
 #SBATCH --error=SAVEA.%J.err
 #SBATCH --output=SAVEA.%J.out
+####  Download reference genome    ####
+cd $WORK/
+mkdir SANVA_reference_genome
+cd SANVA_reference_genome
+wget ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Staphylococcus_aureus_NCTC_8325/NCBI/2006-02-13/Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
+tar -xzf Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
+rm Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 ######## Trimmomatic #########
 
 #export MINICONDA_HOME="~/miniconda3/bin/"
 export MINICONDA_HOME="~/miniconda3/envs/sanva/bin/"
 export GITHUB_DIR=`pwd`
-export SAMTools='$WORK/SANVA-softwares/samtools-1.5/'
-export PICARD='$WORK/SANVA-softwares/picard/'
-export FREEBAYES='$WORK/SANVA-softwares/freebayes/bin/'
-export BCFTools='$WORK/SANVA-softwares/bcftools-1.8/'
+#export SAMTools='$WORK/SANVA-softwares/samtools-1.5/'
+#export PICARD='$WORK/SANVA-softwares/picard/'
+#export FREEBAYES='$WORK/SANVA-softwares/freebayes/bin/'
+#export BCFTools='$WORK/SANVA-softwares/bcftools-1.8/'
 cd $WORK
 mkdir SANVA-outputs
 cd SANVA-outputs
