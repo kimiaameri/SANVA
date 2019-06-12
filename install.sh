@@ -103,8 +103,6 @@ conda deactivate
 make
 ###########################
 conda activate ~/miniconda3
-#####            nCOP         ###############
-cd $WORK/SANVA-outputs/
-git clone https://github.com/Singh-Lab/nCOP.git
+
 
 
