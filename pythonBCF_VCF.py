@@ -6,7 +6,7 @@ if len(sys.argv) < 5:
     sys.exit(0)
     
 inputFile = sys.argv[1]
-BCFTools = sys.argv[2]
+minicondaBin = sys.argv[2]
 quality = sys.argv[3]
 depth= sys.argv[4]
 outputFile = "BCF-VCF.sh"
@@ -18,7 +18,7 @@ with open(outputFile,'w') as outFile:
             if count !=0:
                 outFile.write(f'$WORK/SANVA-softwares/freebayes/vcflib/bin/vcffilter -f "QUAL >{quality}" $WORK/SANVA-outputs/freebayesoutput/{row[0]}.vcf >$WORK/SANVA-outputs/vcffilter-q/{row[0]}.vcf\n')
                 outFile.write(f'$WORK/SANVA-softwares/freebayes/vcflib/bin/vcffilter -f "DP > {depth}" $WORK/SANVA-outputs/vcffilter-q/{row[0]}.vcf > $WORK/SANVA-outputs/vcffilter-q-dp/{row[0]}.vcf\n')
-                outFile.write(f'{BCFTools}bcftools view -Ob $WORK/SANVA-outputs/vcffilter-q-dp/{row[0]}.vcf > $WORK/SANVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')NN
-                outFile.write(f'{BCFTools}bcftools index $WORK/SANVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')N
+                outFile.write(f'{minicondaBin}bcftools view -Ob $WORK/SANVA-outputs/vcffilter-q-dp/{row[0]}.vcf > $WORK/SANVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')NN
+                outFile.write(f'{minicondaBin}bcftools index $WORK/SANVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')N
             count =count + 1
  
