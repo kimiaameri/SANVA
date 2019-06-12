@@ -7,13 +7,13 @@
 cd $WORK/SANVA-outputs/
 mkdir vcfbed
 mkdir intersection
-conda activate ~/miniconda3
+conda activate ~/sanva
 cd $WORK/SANVA/
 python3 GenomeBedPull.py $WORK/SANVA_reference_genome 
 export GENOME_BED_PATH="$WORK/SANVA_reference_genome/"
 python3 pythonVcfbed.py ./InputFiles.csv $MINICONDA_HOME
 sh vcfBed.sh
-python3 pythonIntersections.py ./InputFiles.csv $GENOME_BED_PATH
+python3 pythonIntersections.py ./InputFiles.csv $GENOME_BED_PATH $MINICONDA_HOME
 sh mapVCF-to-Bed.sh
 
 export INTERSECTIONS_PATH="$WORK/SANVA-outputs/intersection/"
@@ -35,9 +35,11 @@ Python3 stringMapping.py $OUTPUT_PATH/GenesList.txt $OUTPUT_PATH/string_mapping.
 Python3 STRINGNetworkInteractions.py $OUTPUT_PATH/GenesList.txt $OUTPUT_PATH/string_interactions.tsv
 
 Rscript String-Prepration.R $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/string_interactions.tsv $OUTPUT_PATH/string_mapping.tsv $OUTPUT_PATH/nCOP/PPI.txt $OUTPUT_PATH/nCOP/mutational.txt $OUTPUT_PATH/nCOP/weights.txt             
-
+#-----------------------------------nCOP
+cd $WORK/SANVA
+git clone https://github.com/Singh-Lab/nCOP.git
 #---------nCOP
-module load ruby/1.2
+#module load ruby/1.2
 cd $WORK/SANVA/nCOP
 ./run_nCOP PPI.txt mutational.txt weights=weights.txt 
 
