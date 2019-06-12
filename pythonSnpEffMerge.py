@@ -6,9 +6,9 @@ if len(sys.argv) < 4:
     sys.exit(0)
     
 inputFile = sys.argv[1]
-BCFTools = sys.argv[2]
-minicondaBin = sys.argv[3]
-cpath = sys.argv[4]
+#BCFTools = sys.argv[2]
+minicondaBin = sys.argv[2]
+cpath = sys.argv[3]
 outputFile = "snpEffMerge.sh"
 prefix = "$WORK/SANVA-outputs/bcfoutput/"
 count=0
@@ -28,9 +28,9 @@ with open(inputFile) as csv_file:
          of.write(str(allSamples))
     length=len(allSamples)
 with open(outputFile,'w') as outFile:
-        outFile.write(f'{BCFTools}bcftools merge --force {allStr} -O v -o $WORK/SANVA-outputs/mergefile.vcf;\n')
+        outFile.write(f'{minicondaBin}bcftools merge --force {allStr} -O v -o $WORK/SANVA-outputs/mergefile.vcf;\n')
         outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SANVA-outputs/mergefile.vcf;\n')
-        outFile.write(f'{minicondaBin}java -Xmx4g -jar $WORK/SANVA-softwares/snpEff/snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SANVA-outputs/mergefile.vcf > $WORK/SANVA-outputs/snpEff.ann.vcf \n')
-        outFile.write('mv $WORK/ACMBCB/snpEff_genes.txt $WORK/SANVA-outputs/snpEff.txt \n')
-        outFile.write('mv $WORK/ACMBCB/snpEff_summary.html $WORK/SANVA-outputs/snpEff_summary.html \n')
+        outFile.write(f'{minicondaBin}java -Xmx4g -jar {minicondaBin}snpEff.jar -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SANVA-outputs/mergefile.vcf > $WORK/SANVA-outputs/snpEff.ann.vcf \n')
+        outFile.write('mv $WORK/SANVA/snpEff_genes.txt $WORK/SANVA-outputs/snpEff.txt \n')
+        outFile.write('mv $WORK/SANVA/snpEff_summary.html $WORK/SANVA-outputs/snpEff_summary.html \n')
 
