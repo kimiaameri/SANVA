@@ -31,7 +31,7 @@ sh trimmomatic.sh > $WORK/SANVA-outputs/trimmomatic.log
 ########### BWA  ###############
 cd $WORK/SANVA-outputs
 mkdir samfiles
-cd $WORK/ACMBCB
+cd $WORK/SANVA
 python3 pythonBwa.py ../InputFiles.csv 
 sh bwa.sh
 ###########  BAM ##################
@@ -42,7 +42,7 @@ mkdir sortsam
 mkdir depth
 mkdir stats
 
-cd $WORK/ACMBCB/
+cd $WORK/SANVA/
 
 python3 pythonBam.py ./InputFiles.csv $SAMTools
 sh bam.sh
@@ -52,7 +52,7 @@ cd $WORK/SANVA-outputs
 mkdir picard
 cd picard
 mkdir picardlog
-cd $WORK/ACMBCB/
+cd $WORK/SANVA/
 python3 pythonPicard.py ./InputFiles.csv $PICARD
 
 sh picard.sh
@@ -60,7 +60,7 @@ sh picard.sh
 cd $WORK/SANVA-outputs
 mkdir freebayesoutput
 
-cd $WORK/ACMBCB/
+cd $WORK/SANVA/
 python3 pythonFreebayes.py ./InputFiles.csv $FREEBAYES
 
 sh freebayes.sh
@@ -79,11 +79,11 @@ cd $WORK/SANVA-outputs
 mkdir vcffilter-q
 mkdir bcfoutput
 mkdir vcffilter-q-dp
-cd $WORK/ACMBCB/
+cd $WORK/SANVA/
 python3 pythonBCF_VCF.py ./InputFiles.csv $BCFTools $QUALITY $DEPTH
 sh BCF-VCF.sh
 ###########  snpEFF Merge All Files ##################
-cd $WORK/ACMBCB/
+cd $WORK/SANVA/
 python3 pythonSnpEffMerge.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SANVA-outputs
 sh snpEffMerge.sh
 
