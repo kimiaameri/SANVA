@@ -5,7 +5,9 @@
 #SBATCH --error=SAVEA.%J.err
 #SBATCH --output=SAVEA.%J.out
 ######## Trimmomatic #########
-export MINICONDA_HOME="~/miniconda3/bin/"
+
+#export MINICONDA_HOME="~/miniconda3/bin/"
+export MINICONDA_HOME="~/miniconda3/envs/sanva/bin/"
 export GITHUB_DIR=`pwd`
 export SAMTools='$WORK/SANVA-softwares/samtools-1.5/'
 export PICARD='$WORK/SANVA-softwares/picard/'
@@ -32,7 +34,7 @@ sh trimmomatic.sh > $WORK/SANVA-outputs/trimmomatic.log
 cd $WORK/SANVA-outputs
 mkdir samfiles
 cd $WORK/SANVA
-python3 pythonBwa.py ../InputFiles.csv 
+python3 pythonBwa.py ../InputFiles.csv $MINICONDA_HOME
 sh bwa.sh
 ###########  BAM ##################
 cd $WORK/SANVA-outputs
@@ -44,7 +46,8 @@ mkdir stats
 
 cd $WORK/SANVA/
 
-python3 pythonBam.py ./InputFiles.csv $SAMTools
+#python3 pythonBam.py ./InputFiles.csv $SAMTools
+python3 pythonBam.py ./InputFiles.csv $MINICONDA_HOME
 sh bam.sh
 
 ###########  Picard ##################
@@ -53,7 +56,8 @@ mkdir picard
 cd picard
 mkdir picardlog
 cd $WORK/SANVA/
-python3 pythonPicard.py ./InputFiles.csv $PICARD
+#python3 pythonPicard.py ./InputFiles.csv $PICARD
+python3 pythonPicard.py ./InputFiles.csv $MINICONDA_HOME
 
 sh picard.sh
 ###########  Freebayes ##################
@@ -61,13 +65,14 @@ cd $WORK/SANVA-outputs
 mkdir freebayesoutput
 
 cd $WORK/SANVA/
-python3 pythonFreebayes.py ./InputFiles.csv $FREEBAYES
+#python3 pythonFreebayes.py ./InputFiles.csv $FREEBAYES
+python3 pythonFreebayes.py ./InputFiles.csv $MINICONDA_HOME
 
 sh freebayes.sh
 
 ########### Getting depth and qual for filtering ######
-
-python3 pythonFinddepth.py ./InputFiles.csv $SAMTools 
+#python3 pythonFinddepth.py ./InputFiles.csv $SAMTools 
+python3 pythonFinddepth.py ./InputFiles.csv $MINICONDA_HOME
 sh findDepth.sh
 
 Rscript depth.R $WORK/SANVA-outputs/depth/ $WORK/SANVA-outputs/freebayesoutput/ depth.txt quality.txt 
@@ -80,11 +85,15 @@ mkdir vcffilter-q
 mkdir bcfoutput
 mkdir vcffilter-q-dp
 cd $WORK/SANVA/
-python3 pythonBCF_VCF.py ./InputFiles.csv $BCFTools $QUALITY $DEPTH
+#python3 pythonBCF_VCF.py ./InputFiles.csv $BCFTools $QUALITY $DEPTH
+python3 pythonBCF_VCF.py ./InputFiles.csv $MINICONDA_HOME $QUALITY $DEPTH
+
 sh BCF-VCF.sh
 ###########  snpEFF Merge All Files ##################
 cd $WORK/SANVA/
-python3 pythonSnpEffMerge.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SANVA-outputs
+#python3 pythonSnpEffMerge.py ./InputFiles.csv $BCFTools $MINICONDA_HOME $WORK/SANVA-outputs
+python3 pythonSnpEffMerge.py ./InputFiles.csv $MINICONDA_HOME $WORK/SANVA-outputs
+
 sh snpEffMerge.sh
 
 
