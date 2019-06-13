@@ -15,6 +15,6 @@ with open(outputFile,'w') as outFile:
         for row in csv_reader:
             if count !=0:
                  #outFile.write(f'java -jar {minicondaBin}picard.jar MarkDuplicates I=$WORK/SANVA-outputs/sortsam/{row[0]}.sorted.bam O=$WORK/SANVA-outputs/picard/{row[0]}.picard.bam M=$WORK/SANVA-outputs/picard/picardlog/{row[0]}.picard.log\n')
-                 outFile.write(f'{minicondaBin}picard MarkDuplicates -I $WORK/SANVA-outputs/sortsam/{row[0]}.sorted.bam -O $WORK/SANVA-outputs/picard/{row[0]}.picard.bam -M $WORK/SANVA-outputs/picard/picardlog/{row[0]}.picard.log\n')
+                 outFile.write(f'{minicondaBin}picard MarkDuplicates I=$WORK/SANVA-outputs/sortsam/{row[0]}.sorted.bam O=$WORK/SANVA-outputs/picard/{row[0]}.picard.bam M=$WORK/SANVA-outputs/picard/picardlog/{row[0]}.picard.log\n')
 
             count=count+1
