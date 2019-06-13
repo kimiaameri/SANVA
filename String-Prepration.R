@@ -27,10 +27,9 @@ library(pheatmap)
 library(dplyr)
 #----------------------------------------
 gb = readGenBank(paste(Referecepath,"/CP000253.gb",sep=""))
-gene_list <- mcols(cds(gb))[,c(2,3)]
-gene_list1<- gene_list$gene
-gene_list2<- gene_list$locus_tag
-gene_list<- cbind(gene_list1,gene_list2)
+gene_list <- mcols(genes(gb))[,c(2,5)]
+zz<- gene_list$locus_tag
+gene_list<- as.matrix(zz)
 
 translation<- NULL 
 tablegenes<-read.csv(Bigtable , sep = ",", header = TRUE)
@@ -39,7 +38,7 @@ for(i in 1:nrow(gene_list))
 {
   for (j in 1:nrow(tablegenes))
   {
-    if (as.character(gene_list[i,2]== tablegenes[j,1] ))
+    if (as.character(gene_list[i,1]== tablegenes[j,1] ))
     {
       translation<- rbind(translation,gene_list[i,])
       break(j)
