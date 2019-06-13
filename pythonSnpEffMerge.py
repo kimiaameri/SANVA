@@ -30,7 +30,7 @@ with open(inputFile) as csv_file:
 with open(outputFile,'w') as outFile:
         outFile.write(f'{minicondaBin}bcftools merge --force {allStr} -O v -o $WORK/SANVA-outputs/mergefile.vcf;\n')
         outFile.write('sed -i \'s/^chr/Chromosome/\' $WORK/SANVA-outputs/mergefile.vcf;\n')
-        outFile.write(f'{minicondaBin}java -Xmx4g -jar {minicondaBin}snpEff -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SANVA-outputs/mergefile.vcf > $WORK/SANVA-outputs/snpEff.ann.vcf \n')
+        outFile.write(f'{minicondaBin}snpEff -v Staphylococcus_aureus_subsp_aureus_nctc_8325 $WORK/SANVA-outputs/mergefile.vcf > $WORK/SANVA-outputs/snpEff.ann.vcf \n')
         outFile.write('mv $WORK/SANVA/snpEff_genes.txt $WORK/SANVA-outputs/snpEff.txt \n')
         outFile.write('mv $WORK/SANVA/snpEff_summary.html $WORK/SANVA-outputs/snpEff_summary.html \n')
 
