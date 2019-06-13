@@ -7,7 +7,6 @@
 cd $WORK/SANVA-outputs/
 mkdir vcfbed
 mkdir intersection
-conda activate ~/sanva
 cd $WORK/SANVA/
 python3 GenomeBedPull.py $WORK/SANVA_reference_genome 
 export GENOME_BED_PATH="$WORK/SANVA_reference_genome/"
