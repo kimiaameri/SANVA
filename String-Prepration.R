@@ -9,13 +9,13 @@ bigtableWeightFile<-argv[6]
 
 
 
-install.packages("devtools")
+install.packages("devtools" , repos='http://cran.us.r-project.org')
 library(devtools)
 install_git("https://git.bioconductor.org/packages/genbankr")
 library(genbankr)
 #source('https://bioconductor.org/biocLite.R')
 #BiocManager::install("BiocUpgrade")
-BiocManager::install(c("GenomicFeatures", "AnnotationDbi"))
+BiocManager::install(c("GenomicFeatures", "AnnotationDbi"), repos='http://cran.us.r-project.org')
 library(Biostrings)
 library(bio3d)
 #-----------------------------------
