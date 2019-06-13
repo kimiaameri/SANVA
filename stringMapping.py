@@ -46,7 +46,7 @@ except requests.exceptions.RequestException as e:
     sys.exit()
 
 ## Read and parse the results
-f = open(outputFile,'w')
+f = open(output,'w')
 c = 0
 for line in response.text.strip().split("\n"):
     l = line.split("\t")
