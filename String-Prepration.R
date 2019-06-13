@@ -33,7 +33,7 @@ gene_list2<- gene_list$locus_tag
 gene_list<- cbind(gene_list1,gene_list2)
 
 translation<- NULL 
-tablegenes<-read.csv("Bigtable" , sep = ",", header = TRUE)
+tablegenes<-read.csv(Bigtable , sep = ",", header = TRUE)
 tablegenes <- tablegenes[rowSums(tablegenes[,-1]) != 0,]
 for(i in 1:nrow(gene_list))
 {
