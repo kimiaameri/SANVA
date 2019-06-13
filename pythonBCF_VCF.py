@@ -1,7 +1,7 @@
 import csv
 import sys
 
-if len(sys.argv) < 5:
+if len(sys.argv) < 4:
     sys.stderr.write('not enough input file: No Input CSV file or bcftools  or qulaity or depth \n')
     sys.exit(0)
     
