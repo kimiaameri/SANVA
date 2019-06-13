@@ -6,7 +6,7 @@
 ################################################################
 
 import sys
-import urllib2
+import urllib3
 
 inputFile = sys.argv[1]
 output = sys.argv[2]
