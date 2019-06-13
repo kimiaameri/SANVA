@@ -47,5 +47,5 @@ for(i in 1:nrow(gene_list))
   }
   print(i)
 }
-write.csv(translation, "Genelist")
-write(as.character(translation[,2]), "Genetxt")
+write.csv(translation, Genelist)
+write(as.character(translation[,2]), Genetxt)
