@@ -9,7 +9,7 @@ bigtableWeightFile<-argv[6]
 
 
 
-install.packages("devtools" , repos='http://cran.us.r-project.org')
+#install.packages("devtools" , repos='http://cran.us.r-project.org')
 library(devtools)
 #install_git("https://git.bioconductor.org/packages/genbankr")
 library(genbankr)
