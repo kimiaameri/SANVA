@@ -41,7 +41,7 @@ try:
     response = urllib2.urlopen(request_url)
 except urllib2.HTTPError as err:
     error_message = err.read()
-    print error_message
+    print (error_message)
     sys.exit()
 
 ## Read and parse the results
