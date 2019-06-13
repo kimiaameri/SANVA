@@ -4,7 +4,7 @@ import pdb
 import sys
 path = sys.argv[1]
 
-accession = "NC_007795" #"CP000253"
+accession = "CP000253"
 
 Entrez.email="hameri@unomaha.edu"
 handle = Entrez.esearch(db="nucleotide", term=accession)
@@ -23,7 +23,7 @@ def main():
     outf = open(path + '/nctc8325.bed', 'w')
     header = """track name=vitVinGenes description="V. vinifera cpdna genes" itemRgb=On\n"""
     outf.write(header)
-    for record in SeqIO.parse(open(accession+".gb", "rU"), "genbank") :
+    for record in SeqIO.parse(open(accession+".gb", "r"), "genbank") :
         for feature in record.features:
             if feature.type == 'gene':
                 start = feature.location.start.position
