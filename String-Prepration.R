@@ -21,10 +21,7 @@ library(genbankr)
 
 library(Biostrings)
 library(bio3d)
-#-----------------------------------
-library(ggplot2)
-library(pheatmap)
-library(dplyr)
+
 #----------------------------------------
 gb = readGenBank(paste(Referecepath,"/CP000253.gb",sep=""))
 gene_list <- mcols(genes(gb))[,c(2,5)]
