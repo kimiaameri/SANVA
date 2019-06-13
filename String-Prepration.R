@@ -26,7 +26,7 @@ library(ggplot2)
 library(pheatmap)
 library(dplyr)
 #----------------------------------------
-gb = readGenBank("Referecepath/sequence.gbk")
+gb = readGenBank("Referecepath/CP000253.gb")
 gene_list <- mcols(cds(gb))[,c(2,3)]
 gene_list1<- gene_list$gene
 gene_list2<- gene_list$locus_tag
