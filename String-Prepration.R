@@ -6,22 +6,10 @@ Genetxt <- argv[4]
 bigtableFile <- argv[5]
 bigtableWeightFile<-argv[6]
 #----------------------------------------------
-
-
-
-#install.packages("devtools" , repos='http://cran.us.r-project.org')
 library(devtools)
-#install_git("https://git.bioconductor.org/packages/genbankr")
 library(genbankr)
-#source('https://bioconductor.org/biocLite.R')
-#BiocManager::install("BiocUpgrade")
-#BiocManager::install(c("GenomicFeatures", "AnnotationDbi"))
-#install.packages("Biostrings")
-#install.packages("bio3d")
-
 library(Biostrings)
 library(bio3d)
-
 #----------------------------------------
 gb = readGenBank(paste(Referecepath,"/CP000253.gb",sep=""))
 gene_list <- mcols(genes(gb))[,c(2,5)]
