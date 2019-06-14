@@ -11,28 +11,30 @@ library(ggplot2)
 library(pheatmap)
 library(dplyr)
 #---------------------------------------
-interactions<-read.csv(Stringinteraction , sep = "", header = TRUE)
-mapping<-read.csv(Stringmapping , sep="\t", header = TRUE)
+interactions<-read.csv(Stringinteraction , sep = "", header = FALSE)
+mapping<-read.csv(Stringmapping , sep=":",header = FALSE)
+namess<- gsub(pattern = "1280.",replacement = "",mapping[,4], perl = T)
+mapping[,4]<- namess
 PPI.mapping1<- NULL
 for(i in 1:nrow(interactions))
 {
   for (j in 1:nrow(mapping))
   {
-    if (as.character(interactions[i,5]== mapping[j,3] ))
+    if (as.character(interactions[i,1]== mapping[j,4] ))
     {
       m<- cbind(as.character(mapping[j,2]),as.character( interactions[i,1]))
       PPI.mapping1<- rbind( PPI.mapping1,m)
       break(j)
     }
   }
-#  print(i)
+ # print(i)
 }
 PPI.mapping2<- NULL
 for(i in 1:nrow(interactions))
 {
   for (j in 1:nrow(mapping))
   {
-    if (as.character(interactions[i,6]== mapping[j,3] ))
+    if (as.character(interactions[i,2]== mapping[j,4] ))
     {
       m<- cbind(as.character(mapping[j,2]),as.character( interactions[i,2]))
       PPI.mapping2<- rbind( PPI.mapping2,m)
