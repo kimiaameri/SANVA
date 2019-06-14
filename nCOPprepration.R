@@ -9,7 +9,7 @@ WEIGHT<- argv[6]
 #-----------------------------------
 library(ggplot2)
 library(pheatmap)
-#library(dplyr)
+library(dplyr)
 #---------------------------------------
 interactions<-read.csv(Stringinteraction , sep = "", header = FALSE)
 mapping<-read.csv(Stringmapping , sep=":",header = FALSE)
