@@ -40,7 +40,8 @@ git clone https://github.com/Singh-Lab/nCOP.git
 #---------nCOP
 #module load ruby/1.2
 cd $WORK/SANVA/nCOP
+mkdir Outputs
 ./run_nCOP PPI.txt mutational.txt weights=weights.txt 
-
-Rscript output_prepration.R $WORK/SANVA/nCOP/Outputs/nCOP_out_results.txt $OUTPUT_PATH/nCOP/mutational.txt $OUTPUT_PATH/FinalTable.csv $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/gplot.pdf
+cd ../
+Rscript output_prepration.R $SOURCE_DIR/nCOP/Outputs/nCOP_out_results.txt $SOURCE_DIR/nCOP/mutational.txt $OUTPUT_PATH/FinalTable.csv $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/gplot.pdf
 
