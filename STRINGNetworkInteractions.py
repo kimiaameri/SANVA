@@ -6,7 +6,7 @@
 ################################################################
 
 import sys
-import urllib2
+import urllib3
 #import urllib3.request
 #import urllib3.urlopen
 #import urllib3.HTTPError
@@ -39,8 +39,8 @@ request_url += "&" + "species=" + species
 request_url += "&" + "caller_identity=" + my_app
 
 try:
-    response = urllib2.urlopen(request_url)
-except urllib2.HTTPError as err:
+    response = urllib3.urlopen(request_url)
+except urllib3.HTTPError as err:
     error_message = err.read()
     print (error_message)
     sys.exit()
