@@ -9,7 +9,7 @@ import sys
 import urllib3
 #import urllib3.request
 #import urllib3.urlopen
-#import urllib3.HTTPError
+import urllib3.exceptions
 inputFile = sys.argv[1]
 output = sys.argv[2]
 
@@ -17,15 +17,15 @@ string_api_url = "https://string-db.org/api"
 output_format = "tsv-no-header"
 method = "network"
 
-#f = open(inputFile)
-#my_genes = []
-#for line in f.readlines():
-  #  line = line.strip()
-  #  words = line.split(':')
-  #  my_genes.append(words[3])            
-#f.close()
+f = open(inputFile)
+my_genes = []
+for line in f.readlines():
+    line = line.strip()
+    my_genes.append(line)   
+    
+f.close()
 
-my_genes = inputFile
+#my_genes = inputFile
 
 species = "1280"
 my_app  = "www.awesome_app.org"
@@ -38,9 +38,11 @@ request_url += "required_score=" + "0.15"
 request_url += "&" + "species=" + species
 request_url += "&" + "caller_identity=" + my_app
 
+
+http = urllib3.PoolManager()
 try:
-    response = urllib3.urlopen(request_url)
-except urllib3.HTTPError as err:
+    response = http.request('GET',request_url)
+except urllib3.exceptions.NewConnectionError as err:
     error_message = err.read()
     print (error_message)
     sys.exit()
