@@ -37,7 +37,7 @@ request_url += "&" + "species=" + species
 request_url += "&" + "caller_identity=" + my_app
 
 try:
-    response = urllib2.urlopen(request_url)
+    response = urllib3.urlopen(request_url)
 except urllib3.HTTPError as err:
     error_message = err.read()
     print (error_message)
