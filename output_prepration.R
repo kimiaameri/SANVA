@@ -3,8 +3,9 @@ nCOPtable <- argv[1]
 Mutations <- argv[2]
 FinalTable <- argv[3]
 Isolates<-argv[4]
-HeatMap<- argv[5]
-GGPLOT<- argv[6]
+PPI<-argv[5]
+HeatMap<- argv[6]
+GGPLOT<- argv[7]
 
 #----------------------------------------------
 library(ggplot2)
@@ -28,10 +29,10 @@ for (i in 1 : nrow(nCop))
       break(j)
     }
   }
-print(i)
+#print(i)
 }
 
-write.csv(final_table, FinalTable, col.names = NA , quote=FALSE)
+write.csv(final_table, FinalTable, quote=FALSE)
 #---------
 isolates<- read.csv(Isolates, header = TRUE)
 rownames(isolates)<- isolates[,1]
@@ -45,12 +46,12 @@ for (i in 1 : nrow(nCop))
     if (as.character(nCop[i,1]==rName[j]))  {
       heatmaptable<-rbind(heatmaptable,isolates[j,])
       break(j) }}
-  print(i)
+  #print(i)
 }
 
 heat<- pheatmap(t(heatmaptable))
 #write<-(heat,HeatMap)
-
+print(heat)
 
 #------------------------------------------------------------------------------------#
 #                                                                                    #
@@ -64,7 +65,7 @@ mutation<- cbind(mutation,1:nrow(mutation))
 mutation<- as.data.frame(mutation)
 ncoplist<- c(as.character(final_table[,1]))
 PPI<-NULL
-PPI<-as.matrix(append(PPI.mapping1[,1],PPI.mapping2[,1]))
+PPI<-PPI
 rownames(PPI)<-PPI[,1]
 PPI<-unique(PPI)
 genes<-NULL
