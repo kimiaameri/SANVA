@@ -3,7 +3,9 @@ nCOPtable <- argv[1]
 Mutations <- argv[2]
 FinalTable <- argv[3]
 Isolates<-argv[4]
-GGPLOT<- argv[5]
+HeatMap<- argv[5]
+GGPLOT<- argv[6]
+
 #----------------------------------------------
 library(ggplot2)
 library(pheatmap)
@@ -46,7 +48,9 @@ for (i in 1 : nrow(nCop))
   print(i)
 }
 
-pheatmap(t(heatmaptable))
+heat<- pheatmap(t(heatmaptable))
+write<-(heat ,HeatMap)
+
 
 #------------------------------------------------------------------------------------#
 #                                                                                    #
