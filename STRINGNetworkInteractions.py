@@ -15,16 +15,15 @@ string_api_url = "https://string-db.org/api"
 output_format = "tsv-no-header"
 method = "network"
 
-f = open(inputFile)
-my_genes = []
-for line in f.readlines():
-    line = line.strip()
-    words = line.split(':')
-    my_genes.append(words[1])            
-f.close()
+#f = open(inputFile)
+#my_genes = []
+#for line in f.readlines():
+  #  line = line.strip()
+  #  words = line.split(':')
+  #  my_genes.append(words[3])            
+#f.close()
 
-#my_genes = ["CDC42","CDK1","KIF23","PLK1",
-#            "RAC2","RACGAP1","RHOA","RHOB"]
+my_genes = inputFile
 
 species = "1280"
 my_app  = "www.awesome_app.org"
