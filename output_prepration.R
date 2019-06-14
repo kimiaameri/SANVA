@@ -65,7 +65,7 @@ mutation<- cbind(mutation,1:nrow(mutation))
 mutation<- as.data.frame(mutation)
 ncoplist<- c(as.character(final_table[,1]))
 #PPI<-NULL
-PPI<-read.cvs(PPI_string, sep="", header=FALSE)
+PPI<-read.csv(PPI_string, sep="", header=FALSE)
 PPIflat<-as.matrix(append(PPI[,1],PPI[,2]))
 rownames(PPIflat)<-PPIflat[,1]
 PPIflat<-unique(PPIflat)
