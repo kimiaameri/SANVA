@@ -20,7 +20,7 @@ my_genes = []
 for line in f.readlines():
     line = line.strip()
     words = line.split(':')
-    my_genes.append(words[3])            
+    my_genes.append(words[1])            
 f.close()
 
 #my_genes = ["CDC42","CDK1","KIF23","PLK1",
