@@ -8,6 +8,8 @@
 import sys
 import urllib3
 import urllib3.request
+import urllib3.urlopen
+import urllib3.HTTPError
 inputFile = sys.argv[1]
 output = sys.argv[2]
 
