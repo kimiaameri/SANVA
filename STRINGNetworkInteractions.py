@@ -7,9 +7,8 @@
 
 import sys
 import urllib3
-#import urllib3.request
-#import urllib3.urlopen
 import urllib3.exceptions
+
 inputFile = sys.argv[1]
 output = sys.argv[2]
 
@@ -46,19 +45,12 @@ except urllib3.exceptions.NewConnectionError as err:
     error_message = err.read()
     print (error_message)
     sys.exit()
-
-## Read and parse the results
-
-line = response.readline()
-f = open(output,'w')
-while line:
-    f.write(line)
-#    l = line.strip().split("\t")
-#    p1, p2 = l[2], l[3]
-#    experimental_score = float(l[10])
-#    if experimental_score != 0:
-#        print "\t".join([p1,p2, "experimentally confirmed (prob. %.3f)" % experimental_score])
-#
-    line = response.readline()
-            
+    
+## Read and save the results
+line = response.data
+f = open(output,'wb')
+f.write(line)
 f.close()
+
+
+
