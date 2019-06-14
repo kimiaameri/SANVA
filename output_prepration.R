@@ -50,7 +50,7 @@ for (i in 1 : nrow(nCop))
 }
 
 heat<- pheatmap(t(heatmaptable))
-write<-(heat,HeatMap)
+#write<-(heat,HeatMap)
 print(heat)
 
 #------------------------------------------------------------------------------------#
