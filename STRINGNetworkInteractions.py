@@ -50,7 +50,7 @@ except urllib3.exceptions.NewConnectionError as err:
 ## Read and parse the results
 
 line = response.readline()
-f = open(outputFile,'w')
+f = open(output,'w')
 while line:
     f.write(line)
 #    l = line.strip().split("\t")
