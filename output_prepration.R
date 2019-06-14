@@ -10,9 +10,9 @@ library(pheatmap)
 library(dplyr)
 #---------------------------------------
 
-nCop<- read.csv("nCOPtable", header = FALSE, sep="")
+nCop<- read.csv(nCOPtable, header = FALSE, sep="")
 colnames(nCop)<- c("Gene name","Frequency")
-Mutations_Genes<- read.csv("Mutations", header = FALSE, sep="")
+Mutations_Genes<- read.csv(Mutations, header = FALSE, sep="")
 rName<-Mutations_Genes[,1]
 final_table<- NULL
 for (i in 1 : nrow(nCop))
@@ -29,9 +29,9 @@ for (i in 1 : nrow(nCop))
 print(i)
 }
 
-write.csv(final_table, "FinalTable", col.names = NA , quote=FALSE)
+write.csv(final_table, FinalTable, col.names = NA , quote=FALSE)
 #---------
-isolates<- read.csv("Isolates", header = TRUE)
+isolates<- read.csv(Isolates, header = TRUE)
 rownames(isolates)<- isolates[,1]
 isolates<- isolates[,-1]
 
@@ -92,4 +92,4 @@ gplot<- ggplot(genes, aes(y=V1, x=V2,color= factor(V3))) + geom_point() +
   ggtitle("nCOP Identifies Rarely Mutated Genes")+
   ylim(0,max(as.numeric(genes$V1)+1))+
   theme(legend.title = element_blank())
-write<-(gplot ,"GGPLOT")
+write<-(gplot ,GGPLOT)
