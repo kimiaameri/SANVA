@@ -3,7 +3,7 @@ nCOPtable <- argv[1]
 Mutations <- argv[2]
 FinalTable <- argv[3]
 Isolates<-argv[4]
-PPI<-argv[5]
+PPI_string<-argv[5]
 HeatMap<- argv[6]
 GGPLOT<- argv[7]
 
@@ -51,7 +51,7 @@ for (i in 1 : nrow(nCop))
 
 heat<- pheatmap(t(heatmaptable))
 #write<-(heat,HeatMap)
-print("2")
+
 
 #------------------------------------------------------------------------------------#
 #                                                                                    #
@@ -65,11 +65,12 @@ mutation<- cbind(mutation,1:nrow(mutation))
 mutation<- as.data.frame(mutation)
 ncoplist<- c(as.character(final_table[,1]))
 #PPI<-NULL
-PPI<-PPI
-rownames(PPI)<-PPI[,1]
-PPI<-unique(PPI)
+PPI<-read.cvs(PPI_string, sep"", header=FALSE)
+PPIflat<-as.matrix(append(PPI[,1],PPI[,2]))
+rownames(PPIflat)<-PPIflat[,1]
+PPIflat<-unique(PPIflat)
 genes<-NULL
-genes<- mutation[PPI,]
+genes<- mutation[PPIflat,]
 
 genes<-genes[order(genes$V1,decreasing = TRUE),]
 genes[,2]<- c(1:nrow(genes))
