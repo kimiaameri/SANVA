@@ -43,5 +43,6 @@ cd $WORK/SANVA/nCOP
 mkdir Outputs
 ./run_nCOP PPI.txt mutational.txt weights=weights.txt 
 cd ../
-Rscript output_prepration.R $SOURCE_DIR/nCOP/Outputs/nCOP_out_results.txt $SOURCE_DIR/nCOP/mutational.txt $OUTPUT_PATH/FinalTable.csv $OUTPUT_PATH/bigtable.csv $SOURCE_DIR/nCOP/PPI.txt $OUTPUT_PATH/heatMap.pdf $OUTPUT_PATH/ggplot.pdf
+Rscript output_prepration.R $SOURCE_DIR/nCOP/Outputs/nCOP_out_results.txt $SOURCE_DIR/nCOP/mutational.txt $OUTPUT_PATH/FinalTable.csv 
+Rscript visualization.R $OUTPUT_PATH/bigtable.csv $SOURCE_DIR/nCOP/PPI.txt $OUTPUT_PATH/heatMap.pdf $OUTPUT_PATH/ggplot.pdf
 
