@@ -38,7 +38,7 @@ request_url += "&" + "caller_identity=" + my_app
 
 try:
     response = urllib2.urlopen(request_url)
-except urllib2.HTTPError as err:
+except urllib3.HTTPError as err:
     error_message = err.read()
     print (error_message)
     sys.exit()
