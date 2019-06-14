@@ -6,10 +6,10 @@
 ################################################################
 
 import sys
-import urllib3
-import urllib3.request
-import urllib3.urlopen
-import urllib3.HTTPError
+import urllib
+#import urllib3.request
+#import urllib3.urlopen
+#import urllib3.HTTPError
 inputFile = sys.argv[1]
 output = sys.argv[2]
 
@@ -39,8 +39,8 @@ request_url += "&" + "species=" + species
 request_url += "&" + "caller_identity=" + my_app
 
 try:
-    response = urllib3.urlopen(request_url)
-except urllib3.HTTPError as err:
+    response = urllib.urlopen(request_url)
+except urllib.HTTPError as err:
     error_message = err.read()
     print (error_message)
     sys.exit()
