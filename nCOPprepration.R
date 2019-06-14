@@ -9,7 +9,7 @@ WEIGHT<- argv[6]
 #-----------------------------------
 library(ggplot2)
 library(pheatmap)
-library(dplyr)
+#library(dplyr)
 #---------------------------------------
 interactions<-read.csv(Stringinteraction , sep = "", header = FALSE)
 mapping<-read.csv(Stringmapping , sep=":",header = FALSE)
@@ -68,8 +68,8 @@ for (i in 1:numRow)
 rownames(mutational)<- rownames(isolates)
 write.table(mutational, MUTATIONAL, col.names = F, quote=FALSE)
 #------------------weighttable--------------------
-rownames(tablegenes)<- tablegenes[,1]
-tablegenes<- tablegenes[,-1]
-z<- apply(tablegenes,1,mean)
+#rownames(tablegenes)<- tablegenes[,1]
+#tablegenes<- tablegenes[,-1]
+z<- apply(isolates,1,mean)
 write.table(z, WEIGHT,  col.names = F,  quote=FALSE)
 
