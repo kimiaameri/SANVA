@@ -7,7 +7,7 @@
 
 import sys
 import urllib3
-
+import urllib3.request
 inputFile = sys.argv[1]
 output = sys.argv[2]
 
@@ -36,12 +36,12 @@ request_url += "required_score=" + "0.15"
 request_url += "&" + "species=" + species
 request_url += "&" + "caller_identity=" + my_app
 
-#try:
-   # response = urllib3.urlopen(request_url)
-#except urllib3.HTTPError as err:
- #   error_message = err.read()
- #   print (error_message)
- #   sys.exit()
+try:
+    response = urllib3.urlopen(request_url)
+except urllib3.HTTPError as err:
+    error_message = err.read()
+    print (error_message)
+    sys.exit()
 
 ## Read and parse the results
 
