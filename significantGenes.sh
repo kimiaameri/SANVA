@@ -33,7 +33,7 @@ Rscript StringPrepration.R $SOURCE_DIR $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/Ge
 python3 stringMapping.py $OUTPUT_PATH/GenesList.txt $OUTPUT_PATH/string_mapping.tsv
 python3 STRINGNetworkInteractions.py $OUTPUT_PATH/GenesList.txt $OUTPUT_PATH/string_interactions.tsv
 
-Rscript nCOPprepration.R $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/string_interactions.tsv $OUTPUT_PATH/string_mapping.tsv $OUTPUT_PATH/nCOP/PPI.txt $OUTPUT_PATH/nCOP/mutational.txt $OUTPUT_PATH/nCOP/weights.txt             
+Rscript nCOPprepration.R $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/string_interactions.tsv $OUTPUT_PATH/string_mapping.tsv $SOURCE_DIR/nCOP/PPI.txt $SOURCE_DIR/nCOP/mutational.txt $SOURCE_DIR/nCOP/weights.txt             
 #-----------------------------------nCOP
 cd $WORK/SANVA
 git clone https://github.com/Singh-Lab/nCOP.git
