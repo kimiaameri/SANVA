@@ -11,8 +11,8 @@ library(ggplot2)
 library(pheatmap)
 library(dplyr)
 #---------------------------------------
-interactions<-read.csv("Stringinteraction" , sep = "", header = TRUE)
-mapping<-read.csv("Stringmapping" , sep="\t", header = TRUE)
+interactions<-read.csv(Stringinteraction , sep = "", header = TRUE)
+mapping<-read.csv(Stringmapping , sep="\t", header = TRUE)
 PPI.mapping1<- NULL
 for(i in 1:nrow(interactions))
 {
@@ -42,11 +42,11 @@ for(i in 1:nrow(interactions))
 #  print(i)
 }
 PPI.mapping<- cbind(PPI.mapping1[,1], PPI.mapping2[,1])
-write.table(PPI.mapping, "PPI", col.names = F, row.names = F , quote=FALSE)
+write.table(PPI.mapping, PPI, col.names = F, row.names = F , quote=FALSE)
 
 
 #----------------------------- mutational file -----------------------#
-isolates<- read.csv("Bigtable", header = TRUE)
+isolates<- read.csv(Bigtable, header = TRUE)
 rownames(isolates)<- isolates[,1]
 isolates<- isolates[,-1]
 
@@ -64,10 +64,10 @@ for (i in 1:numRow)
 }
 
 rownames(mutational)<- rownames(isolates)
-write.table(mutational, "MUTATIONAL", col.names = F, quote=FALSE)
+write.table(mutational, MUTATIONAL, col.names = F, quote=FALSE)
 #------------------weighttable--------------------
 rownames(tablegenes)<- tablegenes[,1]
 tablegenes<- tablegenes[,-1]
 z<- apply(tablegenes,1,mean)
-write.table(z, "WEIGHT",  col.names = F,  quote=FALSE)
+write.table(z, WEIGHT,  col.names = F,  quote=FALSE)
 
