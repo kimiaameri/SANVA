@@ -24,14 +24,14 @@ for (i in 1 : nrow(nCop))
   {
     if (as.character(nCop[i,1]==rName[j])) 
     {
-      l<- cbind(nCop[i,], Mutations_Genes[j,2])
+      l<- cbind(nCop[i,], Mutations_Genes[j,])
       final_table<-rbind(final_table, l)
       break(j)
     }
   }
 #print(i)
 }
-
+final_table<- final_table[,-c(1:2)]
 write.csv(final_table, FinalTable, quote=FALSE)
 #---------
 isolates<- read.csv(Isolates, header = TRUE)
@@ -51,7 +51,7 @@ for (i in 1 : nrow(nCop))
 
 heat<- pheatmap(t(heatmaptable))
 #write<-(heat,HeatMap)
-print(heat)
+print("2")
 
 #------------------------------------------------------------------------------------#
 #                                                                                    #
@@ -64,7 +64,7 @@ mutation.Rate <- rownames(mutation)
 mutation<- cbind(mutation,1:nrow(mutation))
 mutation<- as.data.frame(mutation)
 ncoplist<- c(as.character(final_table[,1]))
-PPI<-NULL
+#PPI<-NULL
 PPI<-PPI
 rownames(PPI)<-PPI[,1]
 PPI<-unique(PPI)
