@@ -10,7 +10,7 @@ minicondaBin = sys.argv[2]
 githubPath = sys.argv[3]
 outputFile = "trimmomatic.sh"
 with open(outputFile,'w') as outFile:
-    count=0
+   # count=0
     with open(inputFile) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
