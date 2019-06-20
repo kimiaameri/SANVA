@@ -27,7 +27,7 @@ cd $WORK/SANVA-outputs/
 git clone https://github.com/Singh-Lab/nCOP.git
 ######## Input file #########
 cd $GITHUB_DIR
-Rscript  ./SANVA-data/ InputFiles.CSV
+Rscript inputFile.R $GITHUB_DIR/SANVA-data $GITHUB_DIR/InputFiles.csv
 ######## Trimmomatic #########
 ## make trimmomatic directory
 mkdir trimmomatic
