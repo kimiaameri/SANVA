@@ -12,5 +12,5 @@ inputFile<-as.matrix(listdata)
 c1<- as.matrix(paste(as.character(inputFile[,1]),"_1.fastq", sep=""))
 c2<- as.matrix(paste(as.character(inputFile[,1]),"_2.fastq", sep=""))
 inputFile<- cbind(inputFile, c1, c2)
-
-write.csv(inputFile,OutputFile)
+colnames(inputFile)<- c("name","Forward reads", "Reverse Reads")
+write.csv(inputFile, OutputFile, row.names = F)
