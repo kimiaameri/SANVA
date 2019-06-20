@@ -11,7 +11,7 @@ cd SANVA_reference_genome
 wget ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Staphylococcus_aureus_NCTC_8325/NCBI/2006-02-13/Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 tar -xzf Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 rm Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
-######## Trimmomatic #########
+
 
 #export MINICONDA_HOME="~/miniconda3/bin/"
 export MINICONDA_HOME="~/miniconda3/envs/sanva/bin/"
@@ -25,6 +25,10 @@ mkdir SANVA-outputs
 cd SANVA-outputs
 cd $WORK/SANVA-outputs/
 git clone https://github.com/Singh-Lab/nCOP.git
+######## Input file #########
+cd $GITHUB_DIR
+Rscript  ./SANVA-data/ InputFiles.CSV
+######## Trimmomatic #########
 ## make trimmomatic directory
 mkdir trimmomatic
 cd trimmomatic
