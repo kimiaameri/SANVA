@@ -3,7 +3,7 @@
 ###  "Antibiotic Resistance Network Analysis Identifies RareMutations across Pathways"
 
 #### Data must be in fastq paired format, and has to be copies in the SANVA-data folder.
-%#### You need to make a CSV file from the input raw data as the format bellow:
+% #### You need to make a CSV file from the input raw data as the format bellow:
 ##### File name is "InputFiles.CSV"
 ##### The CSV file must have header as: Name, Forward reads, Reverse Reads, Type
 ##### An example for the InputFiles.CSV content is:
