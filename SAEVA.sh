@@ -5,6 +5,10 @@
 #SBATCH --error=SAVEA.%J.err
 #SBATCH --output=SAVEA.%J.out
 ####  Download reference genome    ####
+
+export MINICONDA_HOME="~/miniconda3/envs/sanva/bin/"
+export GITHUB_DIR=`pwd`
+
 cd $WORK/
 mkdir SANVA_reference_genome
 cd SANVA_reference_genome
@@ -12,19 +16,10 @@ wget ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Staphylococcus_aureus_NCTC_83
 tar -xzf Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 rm Staphylococcus_aureus_NCTC_8325_NCBI_2006-02-13.tar.gz
 
-
-#export MINICONDA_HOME="~/miniconda3/bin/"
-export MINICONDA_HOME="~/miniconda3/envs/sanva/bin/"
-export GITHUB_DIR=`pwd`
-#export SAMTools='$WORK/SANVA-softwares/samtools-1.5/'
-#export PICARD='$WORK/SANVA-softwares/picard/'
-#export FREEBAYES='$WORK/SANVA-softwares/freebayes/bin/'
-#export BCFTools='$WORK/SANVA-softwares/bcftools-1.8/'
+module load R
 cd $WORK
 mkdir SANVA-outputs
 cd SANVA-outputs
-#cd $WORK/SANVA-outputs/
-#git clone https://github.com/Singh-Lab/nCOP.git
 ######## Input file #########
 cd $WORK/SANVA
 Rscript inputFile.R $GITHUB_DIR/SANVA-data $GITHUB_DIR/InputFiles.csv
@@ -34,7 +29,6 @@ cd SANVA-outputs
 mkdir trimmomatic
 cd trimmomatic
 mkdir trimlog
-module load R
 cd $WORK/SANVA
 #### for SANVA if there is no adapter
 python3 pythonTrimmomaticNoadapter.py ./InputFiles.csv $MINICONDA_HOME $GITHUB_DIR
