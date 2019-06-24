@@ -25,7 +25,7 @@ cd $WORK/SANVA
 Rscript inputFile.R $GITHUB_DIR/SANVA-data $GITHUB_DIR/InputFiles.csv
 ######## Trimmomatic #########
 ## make trimmomatic directory
-cd SANVA-outputs
+cd $WORK/SANVA-outputs
 mkdir trimmomatic
 cd trimmomatic
 mkdir trimlog
