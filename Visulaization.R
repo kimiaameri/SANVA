@@ -1,7 +1,7 @@
 argv <- commandArgs(trailingOnly = TRUE)
 
 Isolates<-argv[1]
-PPI_string<-argv[2]
+NCOP<-argv[2]
 HeatMap<- argv[3]
 GGPLOT<- argv[4]
 
@@ -16,6 +16,11 @@ isolates<- read.csv(Isolates, header = TRUE)
 rownames(isolates)<- isolates[,1]
 isolates<- isolates[,-1]
 
+
+nCop<- read.csv(NCOP, header = FALSE, sep="")
+colnames(nCop)<- c("Gene name","Frequency")
+rName<-row.names(isolates)
+
 heatmaptable<- NULL
 for (i in 1 : nrow(nCop))
 {
@@ -29,8 +34,6 @@ for (i in 1 : nrow(nCop))
 
 heat<- pheatmap(heatmaptable)
 #write<-(heat,HeatMap)
-
-
 #------------------------------------------------------------------------------------#
 #                                                                                    #
 #                          find the mutation rank in the genes                       #
