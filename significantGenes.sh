@@ -36,11 +36,12 @@ python3 STRINGNetworkInteractions.py $OUTPUT_PATH/GenesList.txt $OUTPUT_PATH/str
 #-----------------------------------nCOP
 cd $WORK/SANVA
 git clone https://github.com/Singh-Lab/nCOP.git
-Rscript nCOPprepration.R $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/string_interactions.tsv $OUTPUT_PATH/string_mapping.tsv $SOURCE_DIR/nCOP/PPI.txt $SOURCE_DIR/nCOP/mutational.txt $SOURCE_DIR/nCOP/weights.txt             
 
 #---------nCOP
 #module load ruby/1.2
 cd $WORK/SANVA/nCOP
+Rscript nCOPprepration.R $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/string_interactions.tsv $OUTPUT_PATH/string_mapping.tsv $SOURCE_DIR/nCOP/PPI.txt $SOURCE_DIR/nCOP/mutational.txt $SOURCE_DIR/nCOP/weights.txt             
+
 mkdir Outputs
 ./run_nCOP PPI.txt mutational.txt weights=weights.txt 
 cd ../
