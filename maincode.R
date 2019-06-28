@@ -27,8 +27,8 @@ colnames(bigtable) <- intersections
 bigtable.norm<-bigtable
 for (i in 1:length(intersections))
 {
-  if(names(res) != ".") {
   res <- intesect_reference_vcf(intersections[i],reference_Genome,intersectionspath)
+  if(names(res) != ".") {
   bigtable[names(res),i] <-  as.numeric(res) 
   bigtable.norm[names(res),i] <-  as.numeric(res) / as.numeric(reference_Genome[i,10])
 }}
