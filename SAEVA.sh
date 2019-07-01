@@ -40,7 +40,7 @@ sh trimmomatic.sh > $WORK/SANVA-outputs/trimmomatic.log
 cd $WORK/SANVA-outputs
 mkdir samfiles
 cd $WORK/SANVA
-python3 pythonBwa.py ../InputFiles.csv $MINICONDA_HOME
+python3 pythonBwa.py ./InputFiles.csv $MINICONDA_HOME
 sh bwa.sh
 ###########  BAM ##################
 cd $WORK/SANVA-outputs
