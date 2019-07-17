@@ -8,17 +8,18 @@ if len(sys.argv) < 4:
 inputFile = sys.argv[1]
 minicondaBin = sys.argv[2]
 githubPath = sys.argv[3]
-outputFile = "trimmomatic.sh"
+outputFile = "trimmomatic.sh"  
 with open(outputFile,'w') as outFile:
+    outFile.write('#!/bin/sh \n')
+    outFile.write('#SBATCH --time=100:00:00   # Run time in hh:mm:ss')
+    outFile.write('#SBATCH --mem-per-cpu=64gb     # Maximum memory required per CPU (in megabytes')
+    outFile.write('#SBATCH --job-name=Trim')
+    outFile.write('#SBATCH --error=Trim.%J.err')
+    outFile.write('#SBATCH --output=Trim.%J.out')  
     count=0
     with open(inputFile) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
-        outputFile.write('#!/bin/sh \n')
-        outputFile.write('#SBATCH --time=100:00:00   # Run time in hh:mm:ss')
-        outputFile.write('#SBATCH --mem-per-cpu=64gb     # Maximum memory required per CPU (in megabytes')
-        outputFile.write('#SBATCH --job-name=Trim')
-        outputFile.write('#SBATCH --error=Trim.%J.err')
-        outputFile.write('#SBATCH --output=Trim.%J.out')    
+        
         for row in csv_reader:
             if count !=0:
                outFile.write(f'{minicondaBin}trimmomatic PE -threads 4 -phred33 -trimlog $WORK/SANVA-outputs/trimmomatic/trimlog/{row[0]}.trimlog $WORK/SANVA/SANVA-data/{row[0]}_1.fastq $WORK/SANVA/SANVA-data/{row[0]}_2.fastq $WORK/SANVA-outputs/trimmomatic/{row[0]}-R1.paired.fq $WORK/SANVA-outputs/trimmomatic/{row[0]}-R1.unpaired.fq $WORK/SANVA-outputs/trimmomatic/{row[0]}-R2.paired.fq $WORK/SANVA-outputs/trimmomatic/{row[0]}-R2.unpaired.fq SLIDINGWINDOW:4:15 MAXINFO:50:0.5 LEADING:3 TRAILING:3 MINLEN:100\n')
