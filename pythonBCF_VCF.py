@@ -11,6 +11,13 @@ quality = sys.argv[3]
 depth= sys.argv[4]
 outputFile = "BCF-VCF.sh"
 with open(outputFile,'w') as outFile:
+    outFile.write('#!/bin/sh \n')
+    outFile.write('#SBATCH --time=100:00:00   # Run time in hh:mm:ss  \n')
+    outFile.write('#SBATCH --mem-per-cpu=64gb  \n')
+    # Maximum memory required per CPU (in megabytes')
+    outFile.write('#SBATCH --job-name=BCF \n')
+    outFile.write('#SBATCH --error=BCF.%J.err \n')
+    outFile.write('#SBATCH --output=BCF.%J.out \n')  
     count=0
     with open(inputFile) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
