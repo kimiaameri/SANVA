@@ -11,7 +11,7 @@ minicondaBin = sys.argv[2]
 outputFile = "bwa.sh"
 with open(outputFile,'w') as outFile:
     outFile.write('#!/bin/sh \n')
-    outFile.write('#SBATCH --time=100:00:00   # Run time in hh:mm:ss  \n')
+    outFile.write('#SBATCH --time=168:00:00   # Run time in hh:mm:ss  \n')
     outFile.write('#SBATCH --mem-per-cpu=64gb  \n')
     # Maximum memory required per CPU (in megabytes')
     outFile.write('#SBATCH --job-name=BWA \n')
