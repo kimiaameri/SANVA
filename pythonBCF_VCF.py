@@ -22,8 +22,10 @@ with open(outputFile,'w') as outFile:
     with open(inputFile) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
+             if count !=0 :
                 outFile.write(f'{minicondaBin}vcffilter -f "QUAL >{quality}" $WORK/SANVA-outputs/freebayesoutput/{row[0]}.vcf >$WORK/SANVA-outputs/vcffilter-q/{row[0]}.vcf\n')
                 outFile.write(f'{minicondaBin}vcffilter -f "DP > {depth}" $WORK/SANVA-outputs/vcffilter-q/{row[0]}.vcf > $WORK/SANVA-outputs/vcffilter-q-dp/{row[0]}.vcf\n')
                 outFile.write(f'{minicondaBin}bcftools view -Ob $WORK/SANVA-outputs/vcffilter-q-dp/{row[0]}.vcf > $WORK/SANVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')
                 outFile.write(f'{minicondaBin}bcftools index $WORK/SANVA-outputs/bcfoutput/{row[0]}.vcf.gz\n')
- 
+             count =count +1
+
