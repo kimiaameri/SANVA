@@ -27,7 +27,7 @@ conda activate sanva
  ```bash
  sh significantGenes.sh
  ```
- - will produce the significant genes based on nCOP network model
+ - will produce the significant genes based on nCOP network model. These small group of genes can cover all the isolates in the study.
 
 ## SANVA Pipeline step by step:
 
