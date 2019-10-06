@@ -19,4 +19,4 @@
 * #### VCFTools 4.1 (with vcffilter `<-f QUAL>` and `<DP>` parameters for filtering based on quality and depth, respectively) was used to filter the quality scores and depth of each read. Low quality and low depth (reads with quality and depth less than the average of reads) variants were removed. 
 * #### We used BCFtools 1.8 to merge all variants in all isolates (view `<-Ob>` parameter was used to subset and filter VCF files by position and filtering expression, index parameter was created index file and merge `<--force>` was used to merge all variants in all samples in one file). 
 * #### Variants were identified and analyzed using SpfEff 4.3, which predicts the effects of a variant using an interval forest approach. 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Yaktocat](https://github.com/kimiaameri/SANVA/issues/1#issue-503065399)
