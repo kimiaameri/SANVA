@@ -10,7 +10,12 @@
  ```bash
   sh installTools.sh
   ```
-  - will intsll all tools you need for the analysis. All the packages are in the anaconda saeva package
+  - will intsll all tools you need for the analysis. All the tools we used are in the anaconda sanva package which you can activate as:
+  ```bash
+  conda env create -f sanva.environment.yaml
+conda activate
+conda activate sanva
+``` 
  #### 
  ```bash
  sh SAEVA.sh
