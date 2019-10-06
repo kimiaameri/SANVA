@@ -15,7 +15,8 @@
   conda env create -f sanva.environment.yaml
 conda activate
 conda activate sanva
-``` 
+```
+-----------------------------------------------------------------
  #### 
  ```bash
  sh SAEVA.sh
