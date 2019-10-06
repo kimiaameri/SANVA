@@ -11,7 +11,7 @@
 
 ## SAEVA preprocessing step by step:
 #### In the first step, low-quality reads were trimmed using Trimmomatic 0.38 that trims the reads with length less than 100 and will cut the adapter in reads, if there is any.
-#### BWA-MEM 0.7.17 was used to align sequencing reads against the reference *italic* S. aureus.
+#### BWA-MEM 0.7.17 was used to align sequencing reads against the reference *S. aureus* .
 #### [NCTC 8325](https://www.ncbi.nlm.nih.gov/nuccore/NC_007795.1 ) complete genome. BWA-MEM is introduced to perform local alignment more accurate and faster than other BWA algorithms for high-quality queries. 
 #### Samtools 1.5 can transform the SAM file to a binary version of the same input (view `<-bt>` and `<flagstat>`parameters) and sort alignments by leftmost coordinates, or by read name (`<sort -o>` parameter). 
 #### Picard MarkDuplicate 2.9.0 can remove duplicate reads by locating and tag them in a BAM file, where duplicate reads are defined as originating from a single fragment of DNA.
