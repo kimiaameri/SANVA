@@ -10,9 +10,18 @@
  ```bash
   sh installTools.sh
   ```
-  - will intsll all tools you need for the analysis.
- ####   - *sh SAEVA.sh* will preprocess and analysis the raw sequence and prepered it for next analysis.
- ####   - *sh significantGenes.sh* will produce the significant genes based on nCOP network model
+  - will intsll all tools you need for the analysis. All the packages are in the anaconda saeva package
+ #### 
+ ```bash
+ sh SAEVA.sh
+ ```
+ - will preprocess and analysis the raw sequence and prepered it for next analysis.
+ ####  
+ 
+ ```bash
+ sh significantGenes.sh
+ ```
+ - will produce the significant genes based on nCOP network model
 
 ## SANVA Pipeline step by step:
 
