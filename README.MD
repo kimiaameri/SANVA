@@ -9,7 +9,7 @@
  ####   - *sh SAEVA.sh* will preprocess and analysis the raw sequence and prepered it for next analysis.
  ####   - *sh significantGenes.sh* will produce the significant genes based on nCOP network model
 
-## SAEVA preprocessing step by step:
+## SANVA preprocessing step by step:
 * #### In the first step, low-quality reads were trimmed using Trimmomatic 0.38 that trims the reads with length less than 100 and will cut the adapter in reads, if there is any.
 * #### BWA-MEM 0.7.17 was used to align sequencing reads against the reference *S. aureus* .
 * #### [NCTC 8325](https://www.ncbi.nlm.nih.gov/nuccore/NC_007795.1 ) complete genome. BWA-MEM is introduced to perform local alignment more accurate and faster than other BWA algorithms for high-quality queries. 
