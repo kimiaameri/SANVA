@@ -1,6 +1,6 @@
 # **SANVA - **S***taphylococcus* **A***ureus* **N**etwork-Based **V**ariant **A**nalysis 
 ##  This repository contains code to recreate the results from :
-###  "Antibiotic Resistance Network Analysis Identifies RareMutations across Pathways"
+###  "Network Analysis of Antibiotic Resistance Identifies Compelling Mutations across Pathways"
 
 #### Data must be in fastq paired format, and has to be copies in the SANVA-data folder.
 
