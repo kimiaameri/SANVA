@@ -1,6 +1,9 @@
 # **SANVA - **S***taphylococcus* **A***ureus* **N**etwork-Based **V**ariant **A**nalysis 
 ##  This repository contains code to recreate the results from paper:
 ###  "Network Analysis of Antibiotic Resistance Identifies Compelling Mutations across Pathways"
+### If you use data or scripts from this repository,
+### please cite:
+> Ameri,K. Cooper, K. (2019) "Network Analysis of Antibiotic Resistance Identifies Compelling Mutations across Pathways" *Bioinformatics and Biomedicine (BIBM), 2019 IEEE International Conference on*
 
 #### Data must be in fastq paired format, and has to be copies in the SANVA-data folder.
 
@@ -27,7 +30,7 @@ conda activate sanva
  ```bash
  sh significantGenes.sh
  ```
- - will produce the significant genes based on nCOP network model. These small group of genes can cover all the isolates in the study.
+ - will produce the significant genes based on nCOP network model
 
 ## SANVA Pipeline step by step:
 
