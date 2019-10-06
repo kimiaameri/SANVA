@@ -5,7 +5,12 @@
 #### Data must be in fastq paired format, and has to be copies in the SANVA-data folder.
 
 ## To run the code, clone this repository and run as this order:
- ####   - *sh installTools.sh* will intsll all tools you need for the analysis.
+
+ #### 
+ ```bash
+  sh installTools.sh
+  ```
+  - will intsll all tools you need for the analysis.
  ####   - *sh SAEVA.sh* will preprocess and analysis the raw sequence and prepered it for next analysis.
  ####   - *sh significantGenes.sh* will produce the significant genes based on nCOP network model
 
