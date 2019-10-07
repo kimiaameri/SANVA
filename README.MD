@@ -34,7 +34,7 @@ conda activate sanva
 
 ## SANVA Pipeline step by step:
 
-![SANVA Pipeline](https://github.com/kimiaameri/SANVA/blob/master/pipeline.jpg)
+![SANVA Pipeline](https://github.com/kimiaameri/SANVA/blob/master/pipeline.jpg?raw=true)
 ###### Overview of our workflow. Part(I): Pre-processing and variant analysis of the whole genome sequences. Fasta files were downloaded from NCBI. Table(A) contains the normalized weight for each gene that has a mutation in at least one of the isolates. The normal weight here is the frequency of mutation per gene length. The gene IDs from the table (A) are used to make the protein-protein interaction network. Table (B) shows the required input file for the nCop model. It contains a list of isolates that have a mutation in each gene. The String V.11 was used to build the PPI network for mutated genes, based on experiments with low confidence (0.15) in order to have the possible physical interactions in the PPI network. Part(II): Using Network-Based Coverage of Mutational Profiles (nCop) Model. Network B was made by aggregating network C and isolates that mutated in each gene (table(B)). The nCop model will find the shortest paths that cover the highest number of isolates. Network(C) shows the minimum number of genes that cover most of the isolates. Table (C) rank the genes from the network (C) according to the percentage of their appearance in subnetworks.
 
 #### for more detail information please check the wiki:
