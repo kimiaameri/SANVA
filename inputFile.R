@@ -4,13 +4,22 @@ OutputFile <- argv[2]
 
 
 listdata<- list.files(InputPath)
-listdata<- gsub(pattern = "_1.fastq",replacement = "",listdata, perl = T)
-listdata<- gsub(pattern = "_2.fastq",replacement = "",listdata, perl = T)
-listdata<- unique(listdata)
+z<- gsub(pattern = '_([1-9]+).*',replacement = "",listdata, perl = T)
 
-inputFile<-as.matrix(listdata) 
-c1<- as.matrix(paste(as.character(inputFile[,1]),"_1.fastq", sep=""))
-c2<- as.matrix(paste(as.character(inputFile[,1]),"_2.fastq", sep=""))
-inputFile<- cbind(inputFile, c1, c2)
-colnames(inputFile)<- c("name","Forward reads", "Reverse Reads")
+z1<-unique(z)
+inputFile<- matrix(NA, ncol=3, nrow=length(z1))
+inputFile[,1]<- z1
+#listdata<- unique(listdata)
+even_indexes<-seq(2,length(listdata),2)
+odd_indexes<-seq(1,length(listdata),2)
+
+for (i in 1:length(z1))
+{
+  if ( i %% 2== 1) {inputFile[i,2]<- as.matrix(as.character(listdata[odd_indexes[i]]))
+  inputFile[i,3]<- as.matrix(as.character(listdata[even_indexes[i]]))}
+  
+  if ( i %% 2== 0) {inputFile[i,2]<- as.matrix(as.character(listdata[odd_indexes[i]]))
+  inputFile[i,3]<- as.matrix(as.character(listdata[even_indexes[i]]))}
+}
+colnames(inputFile)<- c("SrA.Accession","Forward reads", "Reverse Reads")
 write.csv(inputFile, OutputFile, row.names = F)
