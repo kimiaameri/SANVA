@@ -6,10 +6,10 @@ Genetxt <- argv[4]
 bigtableFile <- argv[5]
 bigtableWeightFile<-argv[6]
 #----------------------------------------------
-#library(devtools)
-#library(genbankr)
-#library(Biostrings)
-#library(bio3d)
+library(devtools)
+library(genbankr)
+library(Biostrings)
+library(bio3d)
 #----------------------------------------
 gb = readGenBank(paste(Referecepath,"/CP000253.gb",sep=""))
 gene_list <- mcols(genes(gb))[,c(2,5)]
