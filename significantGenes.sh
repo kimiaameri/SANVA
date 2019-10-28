@@ -27,8 +27,9 @@ cat  nctc8325.bed | tail -n+2 > nctc8325-1.bed
 cd $WORK/SANVA/     
 Rscript maincode.R $SOURCE_DIR $GENOME_BED_PATH $INTERSECTIONS_PATH ./InputFiles.csv bigtable.csv tableWeight.csv 
 mv bigtable.csv $OUTPUT_PATH/
+export REFERENCE_PATH="$WORK/SANVA_reference_genome/"
 
-Rscript StringPrepration.R $SOURCE_DIR $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/GenesList.csv $OUTPUT_PATH/GenesList.txt
+Rscript StringPrepration.R $REFERENCE_PATH $OUTPUT_PATH/bigtable.csv $OUTPUT_PATH/GenesList.csv $OUTPUT_PATH/GenesList.txt
 
 python3 String-Mapping.py $OUTPUT_PATH/GenesList.txt $OUTPUT_PATH/string_mapping.tsv
 python3 STRINGNetworkInteractions.py $OUTPUT_PATH/GenesList.txt $OUTPUT_PATH/string_interactions.tsv
