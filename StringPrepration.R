@@ -11,7 +11,7 @@ library(genbankr)
 library(Biostrings)
 library(bio3d)
 #----------------------------------------
-gb = readGenBank(paste(Referecepath,"/CP000253.gb",sep=""))
+gb = readGenBank(paste0(Referecepath,"/CP000253.gb",sep=""))
 gene_list <- mcols(genes(gb))[,c(2,5)]
 zz<- gene_list$locus_tag
 gene_list<- as.matrix(zz)
